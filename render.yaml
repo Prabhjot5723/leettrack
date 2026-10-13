@@ -1,0 +1,54 @@
+# Render "Blueprint": creates the API (backend) and the website (frontend) together.
+# Both run on Render's free plan. Values marked sync:false are typed in the Render
+# dashboard when you create the Blueprint (so secrets never live in GitHub).
+services:
+  # ---------------------------------------------------------------- backend API
+  - type: web
+    name: leettrack-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT --proxy-headers --forwarded-allow-ips "*"
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: ENVIRONMENT
+        value: production
+      - key: APP_UTC_OFFSET_MINUTES
+        value: "330"
+      - key: JWT_EXPIRE_HOURS
+        value: "24"
+      - key: DB_SSL
+        value: "true"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+
+  # -------------------------------------------------------------- frontend site
+  - type: web
+    name: leettrack-web
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    # Makes /questions, /progress etc. work when the page is refreshed.
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        sync: false
