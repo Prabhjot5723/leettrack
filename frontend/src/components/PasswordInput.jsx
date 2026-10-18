@@ -1,7 +1,23 @@
 import { useState } from 'react'
 
-const inputClass =
+const appInputClass =
   'w-full pl-3.5 pr-11 py-2.5 rounded-lg bg-base border border-base-border text-sm text-ink placeholder:text-ink-faint focus:outline-none focus:border-accent'
+
+// "app" = the dark app screens (Tailwind theme). "auth" = the login-style screens (auth.css).
+const CLASSES = {
+  app: {
+    wrap: 'relative',
+    input: appInputClass,
+    eye: 'absolute inset-y-0 right-0 w-11 flex items-center justify-center rounded-r-lg text-ink-faint hover:text-ink focus-visible:outline-none focus-visible:text-accent focus-visible:bg-accent-muted/40 transition-colors',
+    caps: 'mt-1.5 text-xs text-medium',
+  },
+  auth: {
+    wrap: 'au-pw',
+    input: 'au-input',
+    eye: 'au-eye',
+    caps: 'au-caps',
+  },
+}
 
 function EyeIcon({ crossed }) {
   return (
@@ -36,9 +52,11 @@ export default function PasswordInput({
   maxLength = 72,
   autoFocus = false,
   describedBy,
+  variant = 'app',
 }) {
   const [visible, setVisible] = useState(false)
   const [capsOn, setCapsOn] = useState(false)
+  const cls = CLASSES[variant] || CLASSES.app
 
   function checkCaps(e) {
     if (typeof e.getModifierState === 'function') setCapsOn(e.getModifierState('CapsLock'))
@@ -46,11 +64,11 @@ export default function PasswordInput({
 
   return (
     <div>
-      <div className="relative">
+      <div className={cls.wrap}>
         <input
           id={id}
           type={visible ? 'text' : 'password'}
-          className={inputClass}
+          className={cls.input}
           value={value}
           onChange={onChange}
           onKeyDown={checkCaps}
@@ -73,13 +91,13 @@ export default function PasswordInput({
           aria-label={visible ? 'Hide password' : 'Show password'}
           aria-pressed={visible}
           title={visible ? 'Hide password' : 'Show password'}
-          className="absolute inset-y-0 right-0 w-11 flex items-center justify-center rounded-r-lg text-ink-faint hover:text-ink focus-visible:outline-none focus-visible:text-accent focus-visible:bg-accent-muted/40 transition-colors"
+          className={cls.eye}
         >
           <EyeIcon crossed={visible} />
         </button>
       </div>
       {capsOn && (
-        <p className="mt-1.5 text-xs text-medium" role="status">
+        <p className={cls.caps} role="status">
           Caps Lock is on.
         </p>
       )}

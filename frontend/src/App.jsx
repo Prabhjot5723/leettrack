@@ -10,8 +10,9 @@ import Profile from './pages/Profile'
 import Login from './pages/Login'
 import ForgotPassword from './pages/ForgotPassword'
 import ResetPassword from './pages/ResetPassword'
+import Landing from './pages/Landing'
 
-// Pages inside this layout need a logged-in user; otherwise -> /login.
+// Pages inside this layout need a logged-in user; visitors go to the front page.
 function ProtectedLayout() {
   const { user, checking } = useAuth()
 
@@ -22,7 +23,7 @@ function ProtectedLayout() {
       </div>
     )
   }
-  if (!user) return <Navigate to="/login" replace />
+  if (!user) return <Navigate to="/welcome" replace />
 
   return (
     <div className="min-h-screen flex bg-base text-ink">
@@ -40,11 +41,19 @@ function LoginRoute() {
   return user ? <Navigate to="/" replace /> : <Login />
 }
 
+// The public front page. People who are already logged in skip it.
+function LandingRoute() {
+  const { user, checking } = useAuth()
+  if (checking) return null
+  return user ? <Navigate to="/" replace /> : <Landing />
+}
+
 export default function App() {
   return (
     <AuthProvider>
       <ToastProvider>
         <Routes>
+          <Route path="/welcome" element={<LandingRoute />} />
           <Route path="/login" element={<LoginRoute />} />
           {/* Public on purpose: they must work for people who cannot log in. */}
           <Route path="/forgot-password" element={<ForgotPassword />} />

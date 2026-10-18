@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import AuthShell, { FormError, primaryButtonClass } from '../components/AuthShell'
+import AuthShell, { AuthError } from '../components/AuthShell'
 import PasswordInput from '../components/PasswordInput'
 import PasswordStrength from '../components/PasswordStrength'
 import * as api from '../api/api'
@@ -38,14 +38,18 @@ export default function ResetPassword() {
     }
   }
 
+  const backLink = (
+    <Link to="/login" className="au-link">
+      Back to log in
+    </Link>
+  )
+
   if (done) {
     return (
       <AuthShell>
-        <h1 className="text-lg font-semibold text-ink mb-1">Password updated</h1>
-        <p className="text-sm text-ink-muted mb-5">
-          Your new password is saved. Log in with it to continue.
-        </p>
-        <Link to="/login" className={`${primaryButtonClass} block text-center`}>
+        <h1 className="au-h1">Password updated</h1>
+        <p className="au-sub">Your new password is saved. Log in with it to continue.</p>
+        <Link to="/login" className="au-btn au-btn-primary">
           Log in
         </Link>
       </AuthShell>
@@ -54,20 +58,14 @@ export default function ResetPassword() {
 
   if (!token || linkProblem) {
     return (
-      <AuthShell
-        footer={
-          <Link to="/login" className="text-accent hover:underline">
-            Back to log in
-          </Link>
-        }
-      >
-        <h1 className="text-lg font-semibold text-ink mb-1">This link can't be used</h1>
-        <p className="text-sm text-ink-muted mb-5">
+      <AuthShell footer={backLink}>
+        <h1 className="au-h1">This link can't be used</h1>
+        <p className="au-sub">
           {token
             ? 'Reset links work once and expire after 30 minutes. This one has been used or has expired.'
-            : "The link looks incomplete. Open the full link from your email, or request a new one."}
+            : 'The link looks incomplete. Open the full link from your email, or request a new one.'}
         </p>
-        <Link to="/forgot-password" className={`${primaryButtonClass} block text-center`}>
+        <Link to="/forgot-password" className="au-btn au-btn-primary">
           Request a new link
         </Link>
       </AuthShell>
@@ -75,27 +73,22 @@ export default function ResetPassword() {
   }
 
   return (
-    <AuthShell
-      footer={
-        <Link to="/login" className="text-accent hover:underline">
-          Back to log in
-        </Link>
-      }
-    >
+    <AuthShell footer={backLink}>
       <form onSubmit={handleSubmit}>
-        <h1 className="text-lg font-semibold text-ink mb-1">Choose a new password</h1>
-        <p className="text-sm text-ink-muted mb-5">
+        <h1 className="au-h1">Choose a new password</h1>
+        <p className="au-sub">
           Use at least 8 characters. You'll log in with this password from now on.
         </p>
 
-        <FormError>{error}</FormError>
+        <AuthError>{error}</AuthError>
 
-        <div className="mb-1">
-          <label htmlFor="new-password" className="block text-xs text-ink-muted mb-1">
+        <div className="au-field">
+          <label htmlFor="new-password" className="au-label">
             New password
           </label>
           <PasswordInput
             id="new-password"
+            variant="auth"
             value={password}
             onChange={(e) => {
               setPassword(e.target.value)
@@ -107,15 +100,16 @@ export default function ResetPassword() {
             autoFocus
             describedBy="new-password-strength"
           />
-          <PasswordStrength id="new-password-strength" password={password} />
+          <PasswordStrength id="new-password-strength" variant="auth" password={password} />
         </div>
 
-        <div className="mb-5">
-          <label htmlFor="confirm-password" className="block text-xs text-ink-muted mb-1">
+        <div className="au-field">
+          <label htmlFor="confirm-password" className="au-label">
             Confirm new password
           </label>
           <PasswordInput
             id="confirm-password"
+            variant="auth"
             value={confirm}
             onChange={(e) => {
               setConfirm(e.target.value)
@@ -127,14 +121,14 @@ export default function ResetPassword() {
           />
           <p
             id="confirm-hint"
-            className={`mt-1.5 text-xs h-4 ${mismatch ? 'text-hard' : 'text-easy'}`}
+            className={`au-hint ${mismatch ? 'is-bad' : 'is-ok'}`}
             aria-live="polite"
           >
             {confirm.length === 0 ? '' : mismatch ? 'Passwords do not match.' : 'Passwords match.'}
           </p>
         </div>
 
-        <button type="submit" disabled={submitting} className={primaryButtonClass}>
+        <button type="submit" disabled={submitting} className="au-btn au-btn-primary">
           {submitting ? 'Saving…' : 'Save new password'}
         </button>
       </form>

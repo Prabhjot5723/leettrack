@@ -1,0 +1,485 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap');
+
+/* Login, sign-up, forgot-password and reset-password screens.
+   Everything is prefixed "au-" so it cannot change the rest of the app. */
+
+.au {
+  --night: #0c0f1f;
+  --panel: #141934;
+  --panel-2: #1b2145;
+  --field: #0f1329;
+  --rule: #2a3160;
+  --chalk: #edebf6;
+  --mist: #a3a9cc;
+  --faint: #8088ad;
+  --accent: #8493ff;
+  --easy: #52d9a0;
+  --medium: #ffc45a;
+  --hard: #ff7f8f;
+
+  min-height: 100vh;
+  display: grid;
+  background: var(--night);
+  color: var(--chalk);
+  font-family: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 960px) {
+  .au {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  }
+}
+
+.au a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.au a:focus-visible,
+.au button:focus-visible,
+.au input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* -------------------------------------------------------------- brand */
+
+.au-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  font-size: 1.125rem;
+  letter-spacing: -0.01em;
+}
+
+.au-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--night);
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+/* --------------------------------------------------------- brand side */
+
+.au-aside {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  .au-aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2.25rem clamp(2rem, 4vw, 3.5rem);
+    background: var(--panel);
+    border-right: 1px solid var(--rule);
+  }
+}
+
+.au-aside-h {
+  margin: 0 0 1rem;
+  max-width: 15ch;
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.au-aside-p {
+  margin: 0 0 2rem;
+  max-width: 28rem;
+  color: var(--mist);
+}
+
+.au-aside-foot {
+  margin: 0;
+  color: var(--faint);
+  font-size: 0.875rem;
+}
+
+/* mini calendar: one square per day, weeks run left to right */
+
+.au-grid {
+  --gap: 5px;
+  display: grid;
+  grid-template-columns: repeat(15, minmax(0, 1fr));
+  grid-template-rows: repeat(7, auto);
+  grid-auto-flow: column;
+  gap: var(--gap);
+  max-width: 30rem;
+}
+
+.au-cell {
+  aspect-ratio: 1;
+  border-radius: 24%;
+  background: rgba(163, 169, 204, 0.14);
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
+  transition-delay: var(--delay, 0ms);
+}
+.au-cell.is-gap {
+  visibility: hidden;
+}
+.au-cell.is-today {
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(132, 147, 255, 0.3);
+}
+.au-cell.is-due {
+  background: var(--medium);
+  box-shadow: 0 0 0 3px rgba(255, 196, 90, 0.28);
+}
+
+.au-days {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  color: var(--mist);
+  font-size: 0.9375rem;
+  font-variant-numeric: tabular-nums;
+}
+.au-days li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.au-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 3px;
+  background: var(--medium);
+}
+
+/* ---------------------------------------------------------- form side */
+
+.au-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 1.25rem clamp(1.25rem, 4vw, 2.5rem) 2rem;
+}
+
+.au-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 2.5rem;
+}
+
+.au-back {
+  margin-left: auto;
+  color: var(--mist);
+  font-weight: 500;
+}
+.au-back:hover {
+  color: var(--chalk);
+}
+
+/* on wide screens the logo lives on the brand side */
+@media (min-width: 960px) {
+  .au-brand-small {
+    display: none;
+  }
+}
+
+.au-center {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding-block: 2rem;
+}
+
+.au-card {
+  width: 100%;
+  max-width: 24rem;
+}
+
+.au-h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.75rem, 4.2vw, 2.25rem);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.au-sub {
+  margin: 0 0 1.5rem;
+  color: var(--mist);
+}
+
+.au-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+  color: var(--mist);
+  font-size: 0.9375rem;
+}
+
+.au-link {
+  color: var(--accent);
+}
+.au-link:hover {
+  text-decoration: underline;
+}
+
+/* log in / sign up switch */
+
+.au-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-bottom: 1.75rem;
+  padding: 4px;
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+}
+.au-tab {
+  padding: 0.55rem 0.75rem;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--mist);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.au-tab:hover {
+  color: var(--chalk);
+}
+.au-tab[aria-pressed='true'] {
+  background: var(--panel-2);
+  color: var(--chalk);
+  box-shadow: 0 0 0 1px var(--rule);
+}
+
+/* fields */
+
+.au-field {
+  margin-bottom: 1rem;
+}
+
+.au-label-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.au-label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--mist);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.au-small-link {
+  color: var(--accent);
+  font-size: 0.875rem;
+}
+.au-small-link:hover {
+  text-decoration: underline;
+}
+
+.au-input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--field);
+  color: var(--chalk);
+  font: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.au-input::placeholder {
+  color: #7b82a8;
+}
+.au-input:hover {
+  border-color: #3a4382;
+}
+.au-input:focus,
+.au-input:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(132, 147, 255, 0.25);
+}
+
+/* password box with the show / hide button */
+
+.au-pw {
+  position: relative;
+}
+.au-pw .au-input {
+  padding-right: 3rem;
+}
+.au-eye {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 3rem;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 0 10px 10px 0;
+  background: transparent;
+  color: #7b82a8;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.au-eye:hover {
+  color: var(--chalk);
+}
+.au-eye:focus-visible {
+  color: var(--accent);
+  outline-offset: -2px;
+}
+.au-caps {
+  margin: 0.4rem 0 0;
+  color: var(--medium);
+  font-size: 0.8125rem;
+}
+
+/* strength hint under a "new password" box */
+
+.au-strength {
+  margin-top: 0.6rem;
+  min-height: 2.25rem;
+}
+.au-bars {
+  display: flex;
+  gap: 6px;
+}
+.au-bars span {
+  flex: 1;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--rule);
+  transition: background-color 0.25s ease;
+}
+.au-strength[data-level='1'] .au-bars span:nth-child(-n + 1) {
+  background: var(--hard);
+}
+.au-strength[data-level='2'] .au-bars span:nth-child(-n + 2) {
+  background: var(--medium);
+}
+.au-strength[data-level='3'] .au-bars span {
+  background: var(--easy);
+}
+.au-strength-text {
+  margin: 0.4rem 0 0;
+  color: var(--faint);
+  font-size: 0.8125rem;
+}
+.au-strength[data-level='1'] .au-strength-text {
+  color: var(--hard);
+}
+.au-strength[data-level='2'] .au-strength-text {
+  color: var(--medium);
+}
+.au-strength[data-level='3'] .au-strength-text {
+  color: var(--easy);
+}
+
+.au-hint {
+  height: 1.1rem;
+  margin: 0.4rem 0 0;
+  font-size: 0.8125rem;
+}
+.au-hint.is-bad {
+  color: var(--hard);
+}
+.au-hint.is-ok {
+  color: var(--easy);
+}
+
+.au-error {
+  margin-bottom: 1rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(255, 127, 143, 0.4);
+  border-radius: 10px;
+  background: rgba(255, 127, 143, 0.1);
+  color: #ffb4bd;
+  font-size: 0.9375rem;
+}
+
+/* buttons */
+
+.au-btn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.85rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.au-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.au .au-btn-primary {
+  background: var(--accent);
+  color: var(--night);
+}
+.au .au-btn-primary:hover:not(:disabled) {
+  background: #9ba7ff;
+}
+.au .au-btn-ghost {
+  border-color: var(--rule);
+  background: transparent;
+  color: var(--chalk);
+}
+.au .au-btn-ghost:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+.au-btn-text {
+  margin-top: 0.5rem;
+  border: 0;
+  background: transparent;
+  color: var(--mist);
+  font-weight: 500;
+}
+.au-btn-text:hover {
+  color: var(--chalk);
+}
+
+.au-text {
+  margin: 0 0 1rem;
+  color: var(--mist);
+}
+.au-text strong {
+  color: var(--chalk);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .au *,
+  .au *::before {
+    transition: none !important;
+  }
+}

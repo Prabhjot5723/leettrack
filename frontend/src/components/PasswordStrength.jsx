@@ -18,8 +18,25 @@ const LEVELS = [
   { label: 'Strong.', bar: 'bg-easy', text: 'text-easy' },
 ]
 
-export default function PasswordStrength({ password, id }) {
+// variant "app" = dark app screens (Tailwind theme); "auth" = login-style screens (auth.css)
+export default function PasswordStrength({ password, id, variant = 'app' }) {
   const level = passwordLevel(password)
+
+  if (variant === 'auth') {
+    return (
+      <div id={id} className="au-strength" data-level={level} aria-live="polite">
+        <div className="au-bars">
+          <span />
+          <span />
+          <span />
+        </div>
+        <p className="au-strength-text">
+          {level === 0 ? 'Longer passwords are safer.' : LEVELS[level].label}
+        </p>
+      </div>
+    )
+  }
+
   if (level === 0) {
     return (
       <div id={id} className="mt-2 h-[2.25rem]">

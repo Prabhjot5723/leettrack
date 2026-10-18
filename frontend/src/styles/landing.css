@@ -1,0 +1,515 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap');
+
+/* Front page styles. Everything is prefixed "lp-" so nothing here can change the
+   rest of the app, and it does not depend on the Tailwind theme. */
+
+.lp {
+  --night: #0c0f1f;
+  --panel: #141934;
+  --panel-2: #1b2145;
+  --rule: #2a3160;
+  --chalk: #edebf6;
+  --mist: #a3a9cc;
+  --accent: #8493ff;
+  --easy: #52d9a0;
+  --medium: #ffc45a;
+  --hard: #ff7f8f;
+
+  min-height: 100vh;
+  background: var(--night);
+  color: var(--chalk);
+  font-family: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.lp [data-tone='easy'] {
+  --c: var(--easy);
+}
+.lp [data-tone='medium'] {
+  --c: var(--medium);
+}
+.lp [data-tone='hard'] {
+  --c: var(--hard);
+}
+
+.lp a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.lp a:focus-visible,
+.lp button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+.lp-wrap {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding-inline: clamp(1.25rem, 4vw, 2rem);
+}
+
+/* ------------------------------------------------------------ top bar */
+
+.lp-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.25rem;
+}
+
+.lp-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  font-size: 1.125rem;
+  letter-spacing: -0.01em;
+}
+
+.lp-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--night);
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.lp-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.lp-nav-link {
+  color: var(--mist);
+  font-weight: 500;
+}
+.lp-nav-link:hover {
+  color: var(--chalk);
+}
+
+@media (max-width: 560px) {
+  .lp-hide-small {
+    display: none;
+  }
+}
+/* On very narrow phones the hero below already has a Log in button. */
+@media (max-width: 480px) {
+  .lp-hide-tiny {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------ buttons */
+
+.lp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.lp-btn {
+  display: inline-block;
+  padding: 0.8rem 1.35rem;
+  border-radius: 10px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+}
+
+.lp-btn-small {
+  padding: 0.5rem 0.9rem;
+  font-size: 0.9375rem;
+  white-space: nowrap;
+}
+
+.lp .lp-btn-primary {
+  background: var(--accent);
+  color: var(--night);
+}
+.lp .lp-btn-primary:hover {
+  background: #9ba7ff;
+}
+
+.lp .lp-btn-ghost {
+  border-color: var(--rule);
+  color: var(--chalk);
+}
+.lp .lp-btn-ghost:hover {
+  border-color: var(--accent);
+}
+
+/* --------------------------------------------------------------- hero */
+
+.lp-hero {
+  padding-block: clamp(2.25rem, 6vw, 4.5rem) clamp(2.5rem, 6vw, 4rem);
+}
+
+.lp-h1 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2.5rem, 7.2vw, 4.1rem);
+  line-height: 1.02;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.lp-h1 span {
+  display: block;
+}
+
+.lp-lead {
+  margin: 0 0 1.75rem;
+  max-width: 34rem;
+  color: var(--mist);
+  font-size: 1.1875rem;
+}
+
+/* --------------------------------------------------------------- demo */
+
+.lp-demo {
+  margin-top: clamp(2.25rem, 5vw, 3.5rem);
+  padding: clamp(1rem, 3vw, 2rem);
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+}
+
+.lp-demo-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.lp-demo-title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.lp-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.lp-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--mist);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+.lp-chip::before {
+  content: '';
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 3px;
+  background: var(--c);
+}
+.lp-chip:hover {
+  color: var(--chalk);
+}
+@media (max-width: 480px) {
+  .lp-chip {
+    padding: 0.5rem 0.8rem;
+  }
+}
+.lp-chip[aria-pressed='true'] {
+  color: var(--chalk);
+  border-color: var(--c);
+  background: color-mix(in srgb, var(--c) 15%, transparent);
+}
+
+.lp-demo-body {
+  display: grid;
+  gap: 1.75rem;
+}
+
+@media (min-width: 900px) {
+  .lp-demo-body {
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: start;
+  }
+}
+
+/* calendar grid: one square per day, weeks run left to right */
+
+.lp-cal {
+  --gap: clamp(3px, 0.7vw, 6px);
+}
+
+.lp-months,
+.lp-grid {
+  display: grid;
+  grid-template-columns: repeat(15, minmax(0, 1fr));
+  gap: var(--gap);
+}
+
+.lp-months {
+  height: 1.3rem;
+  margin-bottom: 0.4rem;
+  color: var(--mist);
+  font-size: 0.8125rem;
+}
+.lp-months span {
+  grid-row: 1;
+  white-space: nowrap;
+}
+
+.lp-grid {
+  grid-template-rows: repeat(7, auto);
+  grid-auto-flow: column;
+}
+
+.lp-cell {
+  aspect-ratio: 1;
+  border-radius: 24%;
+  background: rgba(163, 169, 204, 0.14);
+  transition: background-color 0.35s ease, box-shadow 0.35s ease, transform 0.25s ease;
+  transition-delay: var(--delay, 0ms);
+}
+.lp-cell.is-gap {
+  visibility: hidden;
+}
+.lp-cell.is-today {
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(132, 147, 255, 0.3);
+}
+.lp-cell.is-due {
+  background: var(--c);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--c) 30%, transparent);
+}
+.lp-cell.is-active {
+  transform: scale(1.45);
+  position: relative;
+  z-index: 1;
+  transition-delay: 0ms;
+}
+
+/* plan list next to the calendar */
+
+.lp-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.lp-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.lp-row.is-active,
+.lp-row:hover {
+  background: var(--panel-2);
+  border-color: var(--rule);
+}
+
+.lp-dot {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 3px;
+  background: var(--c, var(--accent));
+}
+.lp-dot-today {
+  background: var(--accent);
+}
+
+.lp-row-name {
+  font-weight: 600;
+  line-height: 1.3;
+}
+.lp-row-gap {
+  display: block;
+  color: var(--mist);
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+.lp-row-date {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.lp-note {
+  margin: 1rem 0 0;
+  color: var(--mist);
+  font-size: 0.9375rem;
+  max-width: 34rem;
+}
+
+/* ----------------------------------------------------------- sections */
+
+.lp-section {
+  padding-block: clamp(2.5rem, 7vw, 5rem);
+  border-top: 1px solid var(--rule);
+}
+
+.lp-h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.75rem, 3.8vw, 2.5rem);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  max-width: 22ch;
+}
+
+.lp-copy {
+  margin: 0;
+  max-width: 32rem;
+  color: var(--mist);
+}
+
+.lp-split {
+  display: grid;
+  gap: 2rem;
+}
+@media (min-width: 900px) {
+  .lp-split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 4rem;
+    align-items: start;
+  }
+}
+
+.lp-example-label {
+  margin: 0 0 0.6rem;
+  color: var(--mist);
+  font-size: 0.9375rem;
+}
+
+.lp-stack {
+  display: flex;
+  gap: 3px;
+  height: 3.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.lp-seg {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  padding-inline: 0.75rem;
+  background: var(--c);
+  color: var(--night);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.15;
+  overflow: hidden;
+}
+@media (max-width: 560px) {
+  .lp-stack {
+    height: 4.25rem;
+  }
+  .lp-seg {
+    padding-inline: 0.6rem;
+    font-size: 0.75rem;
+  }
+}
+.lp-seg.is-new {
+  background: transparent;
+  color: var(--c);
+  border: 1.5px dashed var(--c);
+  border-radius: 0 12px 12px 0;
+}
+
+.lp-costs {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  color: var(--mist);
+}
+.lp-costs li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.lp-costs strong {
+  color: var(--chalk);
+  font-weight: 600;
+}
+
+.lp-facts {
+  margin: 0;
+  display: grid;
+}
+.lp-fact {
+  display: grid;
+  gap: 0.5rem 3rem;
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+.lp-fact:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.lp-fact dt {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+.lp-fact dd {
+  margin: 0;
+  max-width: 36rem;
+  color: var(--mist);
+}
+@media (min-width: 760px) {
+  .lp-fact {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  }
+}
+
+.lp-final .lp-h2 {
+  margin-bottom: 1.5rem;
+  max-width: 24ch;
+}
+
+.lp-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding-block: 1.75rem 2.5rem;
+  border-top: 1px solid var(--rule);
+  color: var(--mist);
+  font-size: 0.9375rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lp *,
+  .lp *::before {
+    transition: none !important;
+  }
+}
