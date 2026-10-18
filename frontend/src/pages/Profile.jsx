@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import StatCard from '../components/StatCard'
 import LoadingSpinner from '../components/LoadingSpinner'
+import ChangePasswordForm from '../components/ChangePasswordForm'
 import * as api from '../api/api'
 
 export default function Profile() {
@@ -55,7 +56,7 @@ export default function Profile() {
               </div>
               <div>
                 <h2 className="text-lg font-semibold text-ink">{user.username}</h2>
-                <p className="text-sm text-ink-muted">User ID {user.user_id}</p>
+                <p className="text-sm text-ink-muted">{user.email || `User ID ${user.user_id}`}</p>
               </div>
             </div>
 
@@ -65,7 +66,7 @@ export default function Profile() {
               <StatCard label="Platforms used" value={platforms.length || '—'} />
             </div>
 
-            <div className="rounded-card border border-base-border bg-base-card p-5 shadow-card">
+            <div className="rounded-card border border-base-border bg-base-card p-5 shadow-card mb-6">
               <h3 className="text-sm font-medium text-ink mb-3">Platforms</h3>
               {platforms.length === 0 ? (
                 <p className="text-sm text-ink-faint">No solved questions yet.</p>
@@ -81,6 +82,14 @@ export default function Profile() {
                   ))}
                 </div>
               )}
+            </div>
+
+            <div className="rounded-card border border-base-border bg-base-card p-5 shadow-card">
+              <h3 className="text-sm font-medium text-ink mb-1">Password</h3>
+              <p className="text-xs text-ink-muted mb-4">
+                Choose something you don't use anywhere else.
+              </p>
+              <ChangePasswordForm />
             </div>
           </>
         )}

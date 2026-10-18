@@ -14,16 +14,20 @@ from datetime import datetime
 from typing import Optional
 
 import mysql.connector
-from fastapi import Depends, FastAPI, HTTPException, Query, Request
+from fastapi import BackgroundTasks, Depends, FastAPI, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 
 import auth
+import mailer
 import services
 from database import get_db, check_connection
 from models import (
+    ChangePasswordRequest,
+    ForgotPasswordRequest,
     LoginRequest,
     QuestionCompleteRequest,
     RegisterRequest,
+    ResetPasswordRequest,
     RevisionCompleteRequest,
 )
 
@@ -118,6 +122,48 @@ def login(payload: LoginRequest, request: Request, conn=Depends(get_db)):
     return result
 
 
+TOO_MANY = "Too many attempts. Please try again in 15 minutes."
+
+
+def _client_ip(request: Request) -> str:
+    return request.client.host if request.client else "unknown"
+
+
+@app.post("/api/auth/forgot-password")
+def forgot_password(
+    payload: ForgotPasswordRequest,
+    request: Request,
+    background: BackgroundTasks,
+    conn=Depends(get_db),
+):
+    """Always answers the same way, whether or not the email has an account."""
+    key = f"forgot:{_client_ip(request)}"
+    auth.check_login_allowed(key, TOO_MANY)
+    auth.record_login_failure(key)  # counts every request: max 5 per 15 minutes
+
+    found = _handle(services.start_password_reset, conn, payload.email)
+    if found:
+        email, username, token = found
+        # Sent after the response, so the reply time does not reveal the account.
+        background.add_task(mailer.send_password_reset, email, username, token)
+    return {"message": "If an account exists for that email, a reset link is on its way."}
+
+
+@app.post("/api/auth/reset-password")
+def reset_password(payload: ResetPasswordRequest, request: Request, conn=Depends(get_db)):
+    key = f"reset:{_client_ip(request)}"
+    auth.check_login_allowed(key, TOO_MANY)
+    try:
+        result = _handle(
+            services.finish_password_reset, conn, payload.token, payload.new_password
+        )
+    except HTTPException:
+        auth.record_login_failure(key)
+        raise
+    auth.clear_login_failures(key)
+    return result
+
+
 # --------------------------------------------------------------------------
 # Everything below needs a valid login token.
 # --------------------------------------------------------------------------
@@ -125,6 +171,30 @@ def login(payload: LoginRequest, request: Request, conn=Depends(get_db)):
 @app.get("/api/me")
 def get_me(user=Depends(auth.get_current_user), conn=Depends(get_db)):
     return _handle(services.get_user, conn, user["user_id"])
+
+
+@app.post("/api/me/change-password")
+def change_password(
+    payload: ChangePasswordRequest,
+    user=Depends(auth.get_current_user),
+    conn=Depends(get_db),
+):
+    # Limit wrong guesses of the current password (e.g. on a borrowed, logged-in browser).
+    key = f"chpw:{user['user_id']}"
+    auth.check_login_allowed(key, TOO_MANY)
+    try:
+        result = _handle(
+            services.change_password,
+            conn,
+            user["user_id"],
+            payload.current_password,
+            payload.new_password,
+        )
+    except HTTPException:
+        auth.record_login_failure(key)
+        raise
+    auth.clear_login_failures(key)
+    return result
 
 
 @app.get("/api/me/daily-plan")

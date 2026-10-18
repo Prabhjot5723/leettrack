@@ -183,6 +183,101 @@ def login_user(conn, identifier: str, password: str) -> dict:
 
 
 # --------------------------------------------------------------------------
+# Passwords: change (logged in) and reset (forgot)
+# --------------------------------------------------------------------------
+
+def _check_new_password(password: str) -> str:
+    password = password or ""
+    if len(password) < 8:
+        raise ValidationError("Password must be at least 8 characters.")
+    if len(password.encode("utf-8")) > 72:
+        raise ValidationError("Password is too long (max 72 characters).")
+    return password
+
+
+def change_password(conn, user_id: int, current_password: str, new_password: str) -> dict:
+    """Logged-in user changes their own password.
+
+    A wrong current password is a ValidationError (HTTP 422), NOT AuthError:
+    a 401 would make the website think the login expired and log the user out.
+    """
+    new_password = _check_new_password(new_password)
+    rows = engine.run_query(
+        conn,
+        "SELECT password_hash FROM users WHERE user_id = %s",
+        (user_id,),
+        fetch=True,
+    )
+    if not rows:
+        raise NotFoundError("User not found.")
+    stored = rows[0]["password_hash"] or auth.DUMMY_HASH
+    if not auth.verify_password(current_password or "", stored):
+        raise ValidationError("Current password is incorrect.")
+    if new_password == current_password:
+        raise ValidationError("Choose a password that is different from your current one.")
+
+    engine.run_query(
+        conn,
+        "UPDATE users SET password_hash = %s WHERE user_id = %s",
+        (auth.hash_password(new_password), user_id),
+    )
+    return {"message": "Password updated."}
+
+
+def start_password_reset(conn, email: str):
+    """Look up the account for a forgot-password request.
+
+    Returns (email, username, token) when the account exists, else None. The
+    caller answers the same way in both cases, so nobody can use this form to
+    find out which emails have accounts.
+    """
+    email = (email or "").strip().lower()
+    if not _EMAIL_RE.match(email) or len(email) > 255:
+        return None
+    rows = engine.run_query(
+        conn,
+        "SELECT user_id, username, email, password_hash FROM users WHERE email = %s",
+        (email,),
+        fetch=True,
+    )
+    if not rows:
+        return None
+    user = rows[0]
+    token = auth.create_reset_token(user["user_id"], user["password_hash"] or "")
+    return user["email"], user["username"], token
+
+
+def finish_password_reset(conn, token: str, new_password: str) -> dict:
+    new_password = _check_new_password(new_password)
+    bad_link = ValidationError(
+        "This reset link is invalid or has expired. Request a new one."
+    )
+
+    parsed = auth.read_reset_token(token or "")
+    if parsed is None:
+        raise bad_link
+    user_id, fingerprint = parsed
+
+    rows = engine.run_query(
+        conn,
+        "SELECT password_hash FROM users WHERE user_id = %s",
+        (user_id,),
+        fetch=True,
+    )
+    # The fingerprint check makes the link single-use: once the password has
+    # changed, the old link no longer matches.
+    if not rows or not auth.fingerprint_matches(rows[0]["password_hash"] or "", fingerprint):
+        raise bad_link
+
+    engine.run_query(
+        conn,
+        "UPDATE users SET password_hash = %s WHERE user_id = %s",
+        (auth.hash_password(new_password), user_id),
+    )
+    return {"message": "Password updated. You can log in now."}
+
+
+# --------------------------------------------------------------------------
 # Users
 # --------------------------------------------------------------------------
 

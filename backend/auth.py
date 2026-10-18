@@ -6,6 +6,8 @@ The user's identity ALWAYS comes from the verified token — never from a
 user_id sent by the browser.
 """
 
+import hashlib
+import hmac
 import os
 import time
 from datetime import datetime, timedelta, timezone
@@ -71,6 +73,42 @@ def create_access_token(user_id: int) -> str:
     return jwt.encode(payload, _secret(), algorithm=JWT_ALGORITHM)
 
 
+RESET_MINUTES = int(os.getenv("RESET_TOKEN_MINUTES", "30"))
+
+
+def _password_fingerprint(password_hash: str) -> str:
+    """Short digest of the current password hash. A reset token carries it, so
+    the token stops working the moment the password changes (single use)."""
+    return hashlib.sha256((password_hash or "").encode("utf-8")).hexdigest()[:24]
+
+
+def create_reset_token(user_id: int, password_hash: str) -> str:
+    now = datetime.now(timezone.utc)
+    payload = {
+        "sub": str(user_id),
+        "purpose": "password-reset",
+        "fp": _password_fingerprint(password_hash),
+        "iat": now,
+        "exp": now + timedelta(minutes=RESET_MINUTES),
+    }
+    return jwt.encode(payload, _secret(), algorithm=JWT_ALGORITHM)
+
+
+def read_reset_token(token: str):
+    """Return (user_id, fingerprint) from a valid reset token, or None."""
+    try:
+        payload = jwt.decode(token, _secret(), algorithms=[JWT_ALGORITHM])
+        if payload.get("purpose") != "password-reset":
+            return None
+        return int(payload["sub"]), str(payload["fp"])
+    except (jwt.PyJWTError, KeyError, ValueError, TypeError):
+        return None
+
+
+def fingerprint_matches(password_hash: str, fingerprint: str) -> bool:
+    return hmac.compare_digest(_password_fingerprint(password_hash), fingerprint)
+
+
 def get_current_user(
     creds: HTTPAuthorizationCredentials = Depends(_bearer),
     conn=Depends(get_db),
@@ -85,6 +123,9 @@ def get_current_user(
         raise unauthorized
     try:
         payload = jwt.decode(creds.credentials, _secret(), algorithms=[JWT_ALGORITHM])
+        # Special-purpose tokens (e.g. password reset) must never work as a login.
+        if payload.get("purpose"):
+            raise unauthorized
         user_id = int(payload["sub"])
     except (jwt.PyJWTError, KeyError, ValueError):
         raise unauthorized
@@ -119,11 +160,11 @@ def _recent(key: str) -> list:
     return attempts
 
 
-def check_login_allowed(key: str) -> None:
+def check_login_allowed(key: str, message: str = None) -> None:
     if len(_recent(key)) >= MAX_FAILED_LOGINS:
         raise HTTPException(
             status_code=429,
-            detail="Too many failed login attempts. Please try again in 15 minutes.",
+            detail=message or "Too many failed login attempts. Please try again in 15 minutes.",
         )
 
 

@@ -8,6 +8,8 @@ import Questions from './pages/Questions'
 import Progress from './pages/Progress'
 import Profile from './pages/Profile'
 import Login from './pages/Login'
+import ForgotPassword from './pages/ForgotPassword'
+import ResetPassword from './pages/ResetPassword'
 
 // Pages inside this layout need a logged-in user; otherwise -> /login.
 function ProtectedLayout() {
@@ -44,6 +46,9 @@ export default function App() {
       <ToastProvider>
         <Routes>
           <Route path="/login" element={<LoginRoute />} />
+          {/* Public on purpose: they must work for people who cannot log in. */}
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
           <Route element={<ProtectedLayout />}>
             <Route path="/" element={<Dashboard />} />
             <Route path="/questions" element={<Questions />} />

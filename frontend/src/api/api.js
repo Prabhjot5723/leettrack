@@ -102,6 +102,30 @@ export function register(username, email, password) {
   )
 }
 
+export function forgotPassword(email) {
+  // Always succeeds the same way, whether or not the email has an account.
+  return request(
+    '/api/auth/forgot-password',
+    { method: 'POST', body: JSON.stringify({ email }) },
+    { auth: false }
+  )
+}
+
+export function resetPassword(token, new_password) {
+  return request(
+    '/api/auth/reset-password',
+    { method: 'POST', body: JSON.stringify({ token, new_password }) },
+    { auth: false }
+  )
+}
+
+export function changePassword(current_password, new_password) {
+  return request('/api/me/change-password', {
+    method: 'POST',
+    body: JSON.stringify({ current_password, new_password }),
+  })
+}
+
 // ---------------------------------------------------------------- data
 
 export function getUser() {

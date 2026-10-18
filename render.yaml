@@ -36,6 +36,15 @@ services:
         sync: false
       - key: CORS_ORIGINS
         sync: false
+      # Password-reset emails (see SETUP_PASSWORD_EMAIL.md)
+      - key: FRONTEND_URL
+        sync: false
+      - key: BREVO_API_KEY
+        sync: false
+      - key: MAIL_FROM
+        sync: false
+      - key: MAIL_FROM_NAME
+        value: LeetTrack
 
   # -------------------------------------------------------------- frontend site
   - type: web
