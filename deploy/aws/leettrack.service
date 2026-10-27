@@ -1,0 +1,11 @@
+# /etc/systemd/system/leettrack.service  (reference copy; setup.sh creates it)
+[Unit]
+Description=LeetTrack API
+After=network.target mysql.service
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/leettrack/backend
+ExecStart=/home/ubuntu/leettrack/backend/.venv/bin/uvicorn main:app --host 127.0.0.1 --port 8000 --proxy-headers
+Restart=always
+[Install]
+WantedBy=multi-user.target
