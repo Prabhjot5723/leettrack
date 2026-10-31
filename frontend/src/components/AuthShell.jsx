@@ -72,9 +72,10 @@ function MiniCalendar() {
   )
 }
 
-export default function AuthShell({ children, footer }) {
+export default function AuthShell({ children, footer, scene = null }) {
   return (
-    <div className="au">
+    <div className={scene ? 'au au-3d' : 'au'}>
+      {scene}
       <aside className="au-aside">
         <Brand />
         <div>
@@ -83,7 +84,7 @@ export default function AuthShell({ children, footer }) {
             Solve a Medium question today and it comes back after 5, 15, 35 and 75 days. Every
             question you solve gets a schedule like this.
           </p>
-          <MiniCalendar />
+          {!scene && <MiniCalendar />}
         </div>
         <p className="au-aside-foot">Questions, revisions and progress for DSA practice.</p>
       </aside>

@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../auth/AuthContext'
 import AuthShell, { AuthError } from '../components/AuthShell'
+import LoginScene from '../components/LoginScene'
+import '../styles/login3d.css'
 import PasswordInput from '../components/PasswordInput'
 import PasswordStrength from '../components/PasswordStrength'
 
@@ -51,7 +53,7 @@ export default function Login() {
   }
 
   return (
-    <AuthShell>
+    <AuthShell scene={<LoginScene />}>
       <div className="au-tabs" role="group" aria-label="Log in or sign up">
         <button
           type="button"
