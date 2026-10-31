@@ -12,7 +12,8 @@ import ForgotPassword from './pages/ForgotPassword'
 import ResetPassword from './pages/ResetPassword'
 import Landing from './pages/Landing'
 
-// Pages inside this layout need a logged-in user; visitors go to the front page.
+// Pages inside this layout need a logged-in user; visitors go to the 3D login page.
+// (The front page is still available at /welcome, via "Back to home".)
 function ProtectedLayout() {
   const { user, checking } = useAuth()
 
@@ -23,7 +24,7 @@ function ProtectedLayout() {
       </div>
     )
   }
-  if (!user) return <Navigate to="/welcome" replace />
+  if (!user) return <Navigate to="/login" replace />
 
   return (
     <div className="min-h-screen flex bg-base text-ink">
