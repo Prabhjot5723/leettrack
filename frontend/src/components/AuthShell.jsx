@@ -81,8 +81,9 @@ export default function AuthShell({ children, footer, scene = null }) {
         <div>
           <h2 className="au-aside-h">Your next revisions, already planned.</h2>
           <p className="au-aside-p">
-            Solve a Medium question today and it comes back after 5, 15, 35 and 75 days. Every
-            question you solve gets a schedule like this.
+            {scene
+              ? 'Every question you solve gets its own revision schedule. Harder questions come back sooner, and more often.'
+              : 'Solve a Medium question today and it comes back after 5, 15, 35 and 75 days. Every question you solve gets a schedule like this.'}
           </p>
           {!scene && <MiniCalendar />}
         </div>
