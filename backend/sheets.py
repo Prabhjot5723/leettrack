@@ -206,6 +206,7 @@ _ready = False
 
 def ensure_ready(conn):
     """Called once per server run (from get_db). Cheap after the first success."""
+    global _ready
     if _ready:
         return
     try:
