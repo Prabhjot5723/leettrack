@@ -49,5 +49,9 @@ class RevisionCompleteRequest(BaseModel):
     )
 
 
+class ChooseSheetRequest(BaseModel):
+    sheet_id: str = Field(..., min_length=1, max_length=40)
+
+
 class ErrorResponse(BaseModel):
     detail: str

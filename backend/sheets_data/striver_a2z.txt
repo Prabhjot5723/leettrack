@@ -1,0 +1,435 @@
+# Striver's A2Z DSA Course/Sheet — titles and difficulty from a public copy of the sheet (433 problems)
+# format: topic|difficulty|title   (links are search links built by the loader)
+Step 1 - Learn the Basics|E|User Input / Output
+Step 1 - Learn the Basics|E|Data Types
+Step 1 - Learn the Basics|E|If Else statements
+Step 1 - Learn the Basics|E|Switch Statement
+Step 1 - Learn the Basics|E|For loops
+Step 1 - Learn the Basics|E|While loops
+Step 1 - Learn the Basics|E|Functions (Pass by Reference and Value)
+Step 1 - Learn the Basics|E|What are arrays, strings?
+Step 1 - Learn the Basics|E|Time Complexity
+Step 1 - Learn the Basics|E|Count Digits
+Step 1 - Learn the Basics|M|Reverse a Number
+Step 1 - Learn the Basics|E|Check Palindrome
+Step 1 - Learn the Basics|E|GCD Or HCF
+Step 1 - Learn the Basics|E|Armstrong Numbers
+Step 1 - Learn the Basics|E|Print all Divisors
+Step 1 - Learn the Basics|M|Check for Prime
+Step 1 - Learn the Basics|E|Understand recursion by printing something N times
+Step 1 - Learn the Basics|E|Print name N times using recursion
+Step 1 - Learn the Basics|E|Print 1 to N using recursion
+Step 1 - Learn the Basics|E|Print N to 1 using recursion
+Step 1 - Learn the Basics|E|Sum of first N numbers
+Step 1 - Learn the Basics|E|Factorial of N numbers
+Step 1 - Learn the Basics|E|Reverse an array
+Step 1 - Learn the Basics|E|Check if a string is palindrome or not
+Step 1 - Learn the Basics|E|Fibonacci Number
+Step 1 - Learn the Basics|E|Counting frequencies of array elements
+Step 1 - Learn the Basics|M|Find the highest/lowest frequency element
+Step 1 - Learn the Basics|M|Hashing Theory
+Step 1 - Learn the Basics|M|C++ STL
+Step 1 - Learn the Basics|E|Java Collections
+Step 1 - Learn the Basics|E|Patterns
+Step 2 - Sorting|E|Selection Sort
+Step 2 - Sorting|E|Bubble Sort
+Step 2 - Sorting|E|Insertion Sort
+Step 2 - Sorting|M|Merge Sort
+Step 2 - Sorting|E|Recursive Bubble Sort
+Step 2 - Sorting|E|Recursive Insertion Sort
+Step 2 - Sorting|M|Quick Sort
+Step 3 - Arrays|E|Largest Element in an Array
+Step 3 - Arrays|E|Second Largest Element in an Array without sorting
+Step 3 - Arrays|E|Check if the array is sorted
+Step 3 - Arrays|E|Remove duplicates from Sorted array
+Step 3 - Arrays|M|Left Rotate an array by one place
+Step 3 - Arrays|E|Move Zeros to end
+Step 3 - Arrays|E|Linear Search
+Step 3 - Arrays|M|Find the Union of two sorted arrays
+Step 3 - Arrays|E|Find missing number in an array
+Step 3 - Arrays|E|Maximum Consecutive Ones
+Step 3 - Arrays|E|Find the number that appears once, and other numbers twice
+Step 3 - Arrays|M|Longest subarray with given sum K (positives)
+Step 3 - Arrays|E|2Sum Problem
+Step 3 - Arrays|M|Sort an array of 0s, 1s and 2s
+Step 3 - Arrays|E|Majority Element (>n/2 times)
+Step 3 - Arrays|M|Kadane's Algorithm, maximum subarray sum
+Step 3 - Arrays|M|Print subarray with maximum subarray sum
+Step 3 - Arrays|E|Stock Buy and Sell
+Step 3 - Arrays|M|Rearrange the array in alternating positive and negative items
+Step 3 - Arrays|M|Next Permutation
+Step 3 - Arrays|E|Leaders in an Array
+Step 3 - Arrays|M|Longest Consecutive Sequence in an Array
+Step 3 - Arrays|M|Set Matrix Zeros
+Step 3 - Arrays|M|Rotate Matrix by 90 degrees
+Step 3 - Arrays|M|Print the matrix in spiral manner
+Step 3 - Arrays|M|Count subarrays with given sum
+Step 3 - Arrays|E|Pascal's Triangle
+Step 3 - Arrays|M|Majority Element (>n/3 times)
+Step 3 - Arrays|M|3-Sum Problem
+Step 3 - Arrays|M|4-Sum Problem
+Step 3 - Arrays|M|Largest Subarray with 0 Sum
+Step 3 - Arrays|M|Count number of subarrays with given xor K
+Step 3 - Arrays|M|Merge Overlapping Subintervals
+Step 3 - Arrays|E|Merge two sorted arrays without extra space
+Step 3 - Arrays|E|Find the repeating and missing number
+Step 3 - Arrays|M|Count Inversions
+Step 3 - Arrays|H|Reverse Pairs
+Step 3 - Arrays|M|Maximum Product Subarray
+Step 4 - Binary Search|E|Binary Search to find X in sorted array
+Step 4 - Binary Search|E|Implement Lower Bound
+Step 4 - Binary Search|E|Implement Upper Bound
+Step 4 - Binary Search|E|Search Insert Position
+Step 4 - Binary Search|M|Floor/Ceil in Sorted Array
+Step 4 - Binary Search|M|Find the first or last occurrence of a number in a sorted array
+Step 4 - Binary Search|E|Count occurrences of a number in a sorted array with duplicates
+Step 4 - Binary Search|M|Search in Rotated Sorted Array I
+Step 4 - Binary Search|M|Search in Rotated Sorted Array II
+Step 4 - Binary Search|M|Find minimum in Rotated Sorted Array
+Step 4 - Binary Search|E|Find out how many times an array has been rotated
+Step 4 - Binary Search|M|Single element in a Sorted Array
+Step 4 - Binary Search|M|Find peak element
+Step 4 - Binary Search|E|Find square root of a number in log n
+Step 4 - Binary Search|M|Find the Nth root of a number using binary search
+Step 4 - Binary Search|M|Koko Eating Bananas
+Step 4 - Binary Search|M|Minimum days to make M bouquets
+Step 4 - Binary Search|M|Find the smallest Divisor
+Step 4 - Binary Search|M|Capacity to Ship Packages within D Days
+Step 4 - Binary Search|E|Kth Missing Positive Number
+Step 4 - Binary Search|E|Aggressive Cows
+Step 4 - Binary Search|M|Book Allocation Problem
+Step 4 - Binary Search|H|Split array - Largest Sum
+Step 4 - Binary Search|M|Painter's partition
+Step 4 - Binary Search|H|Minimize Max Distance to Gas Station
+Step 4 - Binary Search|H|Median of 2 sorted arrays
+Step 4 - Binary Search|M|Kth element of 2 sorted arrays
+Step 4 - Binary Search|M|Find the row with maximum number of 1s
+Step 4 - Binary Search|M|Search in a 2D matrix
+Step 4 - Binary Search|M|Search in a row and column wise sorted matrix
+Step 4 - Binary Search|M|Find Peak Element (2D Matrix)
+Step 4 - Binary Search|H|Matrix Median
+Step 5 - Strings|E|Remove outermost Parentheses
+Step 5 - Strings|M|Reverse words in a given string
+Step 5 - Strings|E|Largest odd number in a string
+Step 5 - Strings|E|Longest Common Prefix
+Step 5 - Strings|E|Isomorphic String
+Step 5 - Strings|E|Check whether one string is a rotation of another
+Step 5 - Strings|E|Check if two strings are anagrams of each other
+Step 5 - Strings|M|Sort Characters by frequency
+Step 5 - Strings|E|Maximum Nesting Depth of Parentheses
+Step 5 - Strings|E|Roman Number to Integer and vice versa
+Step 5 - Strings|M|Implement Atoi
+Step 5 - Strings|H|Count Number of Substrings
+Step 5 - Strings|M|Longest Palindromic Substring
+Step 5 - Strings|M|Sum of Beauty of all substrings
+Step 5 - Strings|M|Reverse Every Word in A String
+Step 5 - Strings|M|Minimum number of bracket reversals to balance an expression
+Step 5 - Strings|M|Count and Say
+Step 5 - Strings|E|Hashing in Strings (Theory)
+Step 5 - Strings|M|Rabin Karp
+Step 5 - Strings|H|Shortest Palindrome
+Step 5 - Strings|H|Longest Happy Prefix
+Step 5 - Strings|M|Count palindromic subsequences in a given string
+Step 6 - Linked List|E|Introduction to LinkedList (struct and node)
+Step 6 - Linked List|E|Inserting a node in LinkedList
+Step 6 - Linked List|M|Deleting a node in LinkedList
+Step 6 - Linked List|E|Find the length of the linked list
+Step 6 - Linked List|E|Search an element in the LL
+Step 6 - Linked List|E|Introduction to DLL (struct and node)
+Step 6 - Linked List|E|Insert a node in DLL
+Step 6 - Linked List|E|Delete a node in DLL
+Step 6 - Linked List|E|Reverse a DLL
+Step 6 - Linked List|E|Middle of a LinkedList (Tortoise-Hare)
+Step 6 - Linked List|E|Reverse a LinkedList (Iterative)
+Step 6 - Linked List|E|Detect a loop in LL
+Step 6 - Linked List|M|Find the starting point of the loop in LL
+Step 6 - Linked List|M|Length of Loop in LL
+Step 6 - Linked List|E|Check if LL is palindrome or not
+Step 6 - Linked List|M|Segregate odd and even nodes in LL
+Step 6 - Linked List|M|Remove Nth node from the back of the LL
+Step 6 - Linked List|M|Delete the middle node of LL
+Step 6 - Linked List|M|Sort LL
+Step 6 - Linked List|M|Sort a LL of 0s, 1s and 2s by changing links
+Step 6 - Linked List|E|Find the intersection point of Y LL
+Step 6 - Linked List|M|Add 1 to a number represented by LL
+Step 6 - Linked List|M|Add 2 numbers in LL
+Step 6 - Linked List|M|Delete all occurrences of a key in DLL
+Step 6 - Linked List|E|Find pairs with given sum in DLL
+Step 6 - Linked List|E|Remove duplicates from sorted DLL
+Step 6 - Linked List|H|Reverse LL in group of given size K
+Step 6 - Linked List|M|Rotate a LL
+Step 6 - Linked List|M|Flattening of LL
+Step 6 - Linked List|M|Clone a Linked List with random and next pointer
+Step 7 - Recursion|M|Recursive Implementation of atoi()
+Step 7 - Recursion|M|Pow(x, n)
+Step 7 - Recursion|M|Count Good Numbers
+Step 7 - Recursion|M|Sort a stack using recursion
+Step 7 - Recursion|M|Reverse a stack using recursion
+Step 7 - Recursion|E|Generate all binary strings
+Step 7 - Recursion|M|Generate Parentheses
+Step 7 - Recursion|M|Print all subsequences / Power Set
+Step 7 - Recursion|H|Learn All Patterns of Subsequences (Theory)
+Step 7 - Recursion|M|Count all subsequences with sum K
+Step 7 - Recursion|M|Check if there exists a subsequence with sum K
+Step 7 - Recursion|M|Combination Sum
+Step 7 - Recursion|M|Combination Sum II
+Step 7 - Recursion|M|Subset Sum I
+Step 7 - Recursion|M|Subset Sum II
+Step 7 - Recursion|M|Combination Sum III
+Step 7 - Recursion|M|Letter Combinations of a Phone Number
+Step 7 - Recursion|M|Palindrome Partitioning
+Step 7 - Recursion|M|Word Search
+Step 7 - Recursion|H|N Queen
+Step 7 - Recursion|M|Rat in a Maze
+Step 7 - Recursion|M|Word Break
+Step 7 - Recursion|M|M Coloring Problem
+Step 7 - Recursion|H|Sudoku Solver
+Step 7 - Recursion|H|Expression Add Operators
+Step 8 - Bit Manipulation|E|Introduction to Bit Manipulation (Theory)
+Step 8 - Bit Manipulation|E|Check if the i-th bit is set or not
+Step 8 - Bit Manipulation|E|Check if a number is odd or not
+Step 8 - Bit Manipulation|E|Check if a number is power of 2 or not
+Step 8 - Bit Manipulation|M|Count the number of set bits
+Step 8 - Bit Manipulation|E|Set/Unset the rightmost unset bit
+Step 8 - Bit Manipulation|E|Swap two numbers
+Step 8 - Bit Manipulation|M|Divide two integers without using multiplication, division and mod operator
+Step 8 - Bit Manipulation|E|Count number of bits to be flipped to convert A to B
+Step 8 - Bit Manipulation|E|Find the number that appears an odd number of times
+Step 8 - Bit Manipulation|M|Power Set (bit manipulation)
+Step 8 - Bit Manipulation|E|Find xor of numbers from L to R
+Step 8 - Bit Manipulation|M|Find the two numbers appearing an odd number of times
+Step 8 - Bit Manipulation|M|Print Prime Factors of a Number
+Step 8 - Bit Manipulation|E|All Divisors of a Number
+Step 8 - Bit Manipulation|M|Sieve of Eratosthenes
+Step 8 - Bit Manipulation|M|Power(n, x)
+Step 9 - Stack and Queues|E|Implement Stack using Arrays
+Step 9 - Stack and Queues|E|Implement Queue using Arrays
+Step 9 - Stack and Queues|E|Implement Stack using Queue
+Step 9 - Stack and Queues|E|Implement Queue using Stack
+Step 9 - Stack and Queues|E|Implement Stack using Linked List
+Step 9 - Stack and Queues|E|Implement Queue using Linked List
+Step 9 - Stack and Queues|E|Check for balanced parentheses
+Step 9 - Stack and Queues|M|Implement Min Stack
+Step 9 - Stack and Queues|M|Infix to Postfix Conversion using Stack
+Step 9 - Stack and Queues|M|Prefix to Infix Conversion
+Step 9 - Stack and Queues|M|Prefix to Postfix Conversion
+Step 9 - Stack and Queues|M|Postfix to Prefix Conversion
+Step 9 - Stack and Queues|E|Postfix to Infix
+Step 9 - Stack and Queues|E|Next Greater Element
+Step 9 - Stack and Queues|M|Next Greater Element II
+Step 9 - Stack and Queues|E|Next Smaller Element
+Step 9 - Stack and Queues|M|Number of NGEs to the right
+Step 9 - Stack and Queues|H|Trapping Rainwater
+Step 9 - Stack and Queues|M|Sum of subarray minimums
+Step 9 - Stack and Queues|M|Asteroid Collision
+Step 9 - Stack and Queues|M|Sum of subarray ranges
+Step 9 - Stack and Queues|M|Remove K Digits
+Step 9 - Stack and Queues|H|Largest rectangle in a histogram
+Step 9 - Stack and Queues|H|Maximal Rectangles
+Step 9 - Stack and Queues|H|Sliding Window Maximum
+Step 9 - Stack and Queues|M|Stock span problem
+Step 9 - Stack and Queues|M|The Celebrity Problem
+Step 9 - Stack and Queues|M|LRU Cache
+Step 9 - Stack and Queues|H|LFU Cache
+Step 10 - Sliding Window & Two Pointers|M|Longest Substring Without Repeating Characters
+Step 10 - Sliding Window & Two Pointers|M|Max Consecutive Ones III
+Step 10 - Sliding Window & Two Pointers|M|Fruit Into Baskets
+Step 10 - Sliding Window & Two Pointers|M|Longest repeating character replacement
+Step 10 - Sliding Window & Two Pointers|M|Binary subarrays with sum
+Step 10 - Sliding Window & Two Pointers|M|Count number of nice subarrays
+Step 10 - Sliding Window & Two Pointers|M|Number of substrings containing all three characters
+Step 10 - Sliding Window & Two Pointers|M|Maximum points you can obtain from cards
+Step 10 - Sliding Window & Two Pointers|M|Longest Substring with At Most K Distinct Characters
+Step 10 - Sliding Window & Two Pointers|H|Subarrays with K different integers
+Step 10 - Sliding Window & Two Pointers|H|Minimum Window Substring
+Step 10 - Sliding Window & Two Pointers|H|Minimum Window Subsequence
+Step 11 - Heaps|E|Introduction to Priority Queues using Binary Heaps
+Step 11 - Heaps|M|Min Heap and Max Heap Implementation
+Step 11 - Heaps|E|Check if an array represents a min-heap or not
+Step 11 - Heaps|M|Convert min Heap to max Heap
+Step 11 - Heaps|M|Kth largest element in an array
+Step 11 - Heaps|M|Kth smallest element in an array
+Step 11 - Heaps|H|Sort K sorted array
+Step 11 - Heaps|M|Replace each array element by its rank
+Step 11 - Heaps|M|Task Scheduler
+Step 11 - Heaps|M|Hand of Straights
+Step 11 - Heaps|M|Design Twitter
+Step 11 - Heaps|M|Connect n ropes with minimal cost
+Step 11 - Heaps|E|Kth largest element in a stream of running integers
+Step 11 - Heaps|M|Maximum Sum Combination
+Step 11 - Heaps|H|Find Median from Data Stream
+Step 11 - Heaps|M|K most frequent elements
+Step 12 - Greedy|E|Assign Cookies
+Step 12 - Greedy|M|Fractional Knapsack Problem
+Step 12 - Greedy|E|Greedy algorithm to find minimum number of coins
+Step 12 - Greedy|E|Lemonade Change
+Step 12 - Greedy|M|Valid Parenthesis Checker
+Step 12 - Greedy|E|N meetings in one room
+Step 12 - Greedy|M|Jump Game
+Step 12 - Greedy|M|Jump Game II
+Step 12 - Greedy|M|Minimum number of platforms required for a railway
+Step 12 - Greedy|M|Job Sequencing Problem
+Step 12 - Greedy|H|Candy
+Step 12 - Greedy|M|Shortest Job First (SJF) CPU Scheduling
+Step 12 - Greedy|E|Least Recently Used (LRU) Page Replacement Algorithm
+Step 12 - Greedy|M|Insert Interval
+Step 12 - Greedy|M|Merge Intervals
+Step 12 - Greedy|M|Non-overlapping Intervals
+Step 13 - Binary Trees|E|Introduction to Trees
+Step 13 - Binary Trees|E|Binary Tree Representation in C++
+Step 13 - Binary Trees|E|Binary Tree Representation in Java
+Step 13 - Binary Trees|E|Binary Tree Traversals
+Step 13 - Binary Trees|E|Preorder Traversal of Binary Tree
+Step 13 - Binary Trees|E|Inorder Traversal of Binary Tree
+Step 13 - Binary Trees|E|Post-order Traversal of Binary Tree
+Step 13 - Binary Trees|M|Level order Traversal
+Step 13 - Binary Trees|M|Preorder, Inorder and Postorder Traversal in one traversal
+Step 13 - Binary Trees|E|Height of a Binary Tree
+Step 13 - Binary Trees|E|Check if the Binary Tree is height-balanced or not
+Step 13 - Binary Trees|E|Diameter of Binary Tree
+Step 13 - Binary Trees|H|Maximum path sum
+Step 13 - Binary Trees|E|Check if two trees are identical or not
+Step 13 - Binary Trees|M|Zig Zag Traversal of Binary Tree
+Step 13 - Binary Trees|M|Boundary Traversal of Binary Tree
+Step 13 - Binary Trees|H|Vertical Order Traversal of Binary Tree
+Step 13 - Binary Trees|M|Top View of Binary Tree
+Step 13 - Binary Trees|M|Bottom View of Binary Tree
+Step 13 - Binary Trees|M|Right/Left View of Binary Tree
+Step 13 - Binary Trees|E|Symmetric Binary Tree
+Step 13 - Binary Trees|M|Root to Node Path in Binary Tree
+Step 13 - Binary Trees|M|LCA in Binary Tree
+Step 13 - Binary Trees|M|Maximum width of a Binary Tree
+Step 13 - Binary Trees|M|Check for Children Sum Property
+Step 13 - Binary Trees|M|Print all Nodes at a distance of K in a Binary Tree
+Step 13 - Binary Trees|H|Minimum time taken to BURN the Binary Tree from a Node
+Step 13 - Binary Trees|E|Count total Nodes in a COMPLETE Binary Tree
+Step 13 - Binary Trees|E|Requirements needed to construct a Unique Binary Tree (Theory)
+Step 13 - Binary Trees|M|Construct Binary Tree from inorder and preorder
+Step 13 - Binary Trees|M|Construct Binary Tree from Postorder and Inorder
+Step 13 - Binary Trees|H|Serialize and deserialize Binary Tree
+Step 13 - Binary Trees|E|Morris Preorder Traversal of a Binary Tree
+Step 13 - Binary Trees|M|Flatten Binary Tree to LinkedList
+Step 14 - Binary Search Trees|E|Introduction to Binary Search Tree
+Step 14 - Binary Search Trees|E|Search in a Binary Search Tree
+Step 14 - Binary Search Trees|E|Find Min/Max in BST
+Step 14 - Binary Search Trees|M|Ceil in a Binary Search Tree
+Step 14 - Binary Search Trees|M|Insert a given Node in Binary Search Tree
+Step 14 - Binary Search Trees|M|Delete a Node in Binary Search Tree
+Step 14 - Binary Search Trees|M|Find K-th smallest/largest element in BST
+Step 14 - Binary Search Trees|M|Check if a tree is a BST or BT
+Step 14 - Binary Search Trees|M|LCA in Binary Search Tree
+Step 14 - Binary Search Trees|M|Construct a BST from a preorder traversal
+Step 14 - Binary Search Trees|M|Inorder Successor/Predecessor in BST
+Step 14 - Binary Search Trees|M|Merge 2 BSTs
+Step 14 - Binary Search Trees|E|Two Sum in BST
+Step 14 - Binary Search Trees|M|Recover BST
+Step 14 - Binary Search Trees|M|Largest BST in Binary Tree
+Step 15 - Graphs|E|Graph and Types
+Step 15 - Graphs|E|Graph Representation (C++)
+Step 15 - Graphs|E|Graph Representation (Java)
+Step 15 - Graphs|M|Connected Components
+Step 15 - Graphs|E|BFS
+Step 15 - Graphs|M|Number of Provinces
+Step 15 - Graphs|M|Connected Components Problem in Matrix
+Step 15 - Graphs|M|Rotten Oranges
+Step 15 - Graphs|E|Flood fill
+Step 15 - Graphs|M|Cycle Detection in Undirected Graph (BFS)
+Step 15 - Graphs|M|0/1 Matrix (BFS Problem)
+Step 15 - Graphs|M|Surrounded Regions (DFS)
+Step 15 - Graphs|M|Number of Enclaves
+Step 15 - Graphs|H|Word Ladder I
+Step 15 - Graphs|H|Word Ladder II
+Step 15 - Graphs|H|Number of Distinct Islands
+Step 15 - Graphs|M|Bipartite Graph (DFS)
+Step 15 - Graphs|M|Cycle Detection in Directed Graph (DFS)
+Step 15 - Graphs|M|Topo Sort
+Step 15 - Graphs|M|Cycle Detection in Directed Graph (BFS)
+Step 15 - Graphs|M|Course Schedule I
+Step 15 - Graphs|M|Course Schedule II
+Step 15 - Graphs|M|Find eventual safe states
+Step 15 - Graphs|H|Alien Dictionary
+Step 15 - Graphs|M|Shortest Path in Undirected Graph with unit weights
+Step 15 - Graphs|M|Shortest Path in DAG
+Step 15 - Graphs|M|Dijkstra's Algorithm
+Step 15 - Graphs|M|Shortest path in a binary maze
+Step 15 - Graphs|M|Path with minimum effort
+Step 15 - Graphs|M|Cheapest flights within K stops
+Step 15 - Graphs|M|Network Delay Time
+Step 15 - Graphs|M|Number of ways to arrive at destination
+Step 15 - Graphs|M|Minimum steps to reach end using multiplication and mod operations
+Step 15 - Graphs|M|Bellman Ford Algorithm
+Step 15 - Graphs|M|Floyd Warshall Algorithm
+Step 15 - Graphs|M|Find the city with the smallest number of neighbors at a threshold distance
+Step 15 - Graphs|M|Minimum Spanning Tree
+Step 15 - Graphs|E|Disjoint Set (Union by Rank)
+Step 15 - Graphs|M|Number of operations to make network connected
+Step 15 - Graphs|M|Most stones removed with same rows or columns
+Step 15 - Graphs|M|Accounts merge
+Step 15 - Graphs|H|Number of Islands II
+Step 15 - Graphs|H|Making a Large Island
+Step 15 - Graphs|H|Swim in Rising Water
+Step 15 - Graphs|H|Bridges in Graph
+Step 15 - Graphs|H|Articulation Point
+Step 15 - Graphs|M|Kosaraju's Algorithm
+Step 16 - Dynamic Programming|M|Dynamic Programming Introduction
+Step 16 - Dynamic Programming|E|Climbing Stairs
+Step 16 - Dynamic Programming|M|Frog Jump
+Step 16 - Dynamic Programming|M|Frog Jump with K distances
+Step 16 - Dynamic Programming|M|Maximum sum of non-adjacent elements
+Step 16 - Dynamic Programming|M|House Robber
+Step 16 - Dynamic Programming|M|Ninja's Training
+Step 16 - Dynamic Programming|M|Grid Unique Paths
+Step 16 - Dynamic Programming|M|Grid Unique Paths 2
+Step 16 - Dynamic Programming|M|Minimum path sum in Grid
+Step 16 - Dynamic Programming|M|Minimum path sum in Triangular Grid
+Step 16 - Dynamic Programming|M|Minimum/Maximum Falling Path Sum
+Step 16 - Dynamic Programming|H|3-D DP: Ninja and his friends
+Step 16 - Dynamic Programming|M|Subset sum equal to target
+Step 16 - Dynamic Programming|M|Partition Equal Subset Sum
+Step 16 - Dynamic Programming|H|Partition Set Into 2 Subsets With Min Absolute Sum Difference
+Step 16 - Dynamic Programming|M|Count Subsets with Sum K
+Step 16 - Dynamic Programming|M|Count Partitions with Given Difference
+Step 16 - Dynamic Programming|E|0/1 Knapsack
+Step 16 - Dynamic Programming|M|Minimum Coins
+Step 16 - Dynamic Programming|M|Target Sum
+Step 16 - Dynamic Programming|M|Coin Change 2
+Step 16 - Dynamic Programming|M|Unbounded Knapsack
+Step 16 - Dynamic Programming|M|Rod Cutting Problem
+Step 16 - Dynamic Programming|M|Longest Common Subsequence
+Step 16 - Dynamic Programming|H|Print Longest Common Subsequence
+Step 16 - Dynamic Programming|M|Longest Common Substring
+Step 16 - Dynamic Programming|M|Longest Palindromic Subsequence
+Step 16 - Dynamic Programming|H|Minimum insertions to make string palindrome
+Step 16 - Dynamic Programming|M|Minimum Insertions/Deletions to Convert String
+Step 16 - Dynamic Programming|H|Shortest Common Supersequence
+Step 16 - Dynamic Programming|H|Distinct Subsequences
+Step 16 - Dynamic Programming|M|Edit Distance
+Step 16 - Dynamic Programming|H|Wildcard Matching
+Step 16 - Dynamic Programming|E|Best Time to Buy and Sell Stock
+Step 16 - Dynamic Programming|M|Buy and Sell Stock II
+Step 16 - Dynamic Programming|H|Buy and Sell Stock III
+Step 16 - Dynamic Programming|H|Buy and Sell Stock IV
+Step 16 - Dynamic Programming|M|Buy and Sell Stock With Cooldown
+Step 16 - Dynamic Programming|M|Buy and Sell Stock With Transaction Fee
+Step 16 - Dynamic Programming|M|Longest Increasing Subsequence
+Step 16 - Dynamic Programming|M|Printing Longest Increasing Subsequence
+Step 16 - Dynamic Programming|M|Longest Increasing Subsequence (Binary Search)
+Step 16 - Dynamic Programming|M|Largest Divisible Subset
+Step 16 - Dynamic Programming|M|Longest String Chain
+Step 16 - Dynamic Programming|M|Longest Bitonic Subsequence
+Step 16 - Dynamic Programming|M|Number of Longest Increasing Subsequences
+Step 16 - Dynamic Programming|H|Matrix Chain Multiplication
+Step 16 - Dynamic Programming|H|Minimum Cost to Cut the Stick
+Step 16 - Dynamic Programming|H|Burst Balloons
+Step 16 - Dynamic Programming|H|Evaluate Boolean Expression to True
+Step 16 - Dynamic Programming|H|Palindrome Partitioning II
+Step 16 - Dynamic Programming|M|Partition Array for Maximum Sum
+Step 16 - Dynamic Programming|H|Maximum Rectangle Area with all 1s
+Step 16 - Dynamic Programming|M|Count Square Submatrices with All Ones
+Step 17 - Tries|M|Implement Trie (Insert, Search, StartsWith)
+Step 17 - Tries|M|Implement Trie II (Prefix Tree)
+Step 17 - Tries|H|Longest String with All Prefixes
+Step 17 - Tries|M|Number of Distinct Substrings in a String
+Step 17 - Tries|E|Bit Prerequisites for Trie Problems
+Step 17 - Tries|M|Maximum XOR of two numbers in an array
+Step 17 - Tries|H|Maximum XOR With an Element From Array

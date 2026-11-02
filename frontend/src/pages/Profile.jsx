@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import StatCard from '../components/StatCard'
 import LoadingSpinner from '../components/LoadingSpinner'
 import ChangePasswordForm from '../components/ChangePasswordForm'
+import SheetPicker from '../components/SheetPicker'
 import * as api from '../api/api'
 
 export default function Profile() {
@@ -64,6 +65,14 @@ export default function Profile() {
               <StatCard label="Total solved" value={progress.total_solved} />
               <StatCard label="Revisions completed" value={progress.revisions_completed} accentClass="text-accent" />
               <StatCard label="Platforms used" value={platforms.length || '—'} />
+            </div>
+
+            <div className="rounded-card border border-base-border bg-base-card p-5 shadow-card mb-6">
+              <SheetPicker
+                title="Your question sheet"
+                current={user.sheet_id || 'starter-200'}
+                onChosen={(u) => setUser(u)}
+              />
             </div>
 
             <div className="rounded-card border border-base-border bg-base-card p-5 shadow-card mb-6">

@@ -170,6 +170,19 @@ export function getQuestions(filters = {}) {
   return request(`/api/questions${qs ? `?${qs}` : ''}`)
 }
 
+export function getSheets() {
+  return request('/api/sheets')
+}
+
+export function chooseSheet(sheet_id) {
+  // Returns the updated user (with sheet_id).
+  return request('/api/me/sheet', { method: 'PUT', body: JSON.stringify({ sheet_id }) })
+}
+
+export function getSheetProgress() {
+  return request('/api/me/sheet-progress')
+}
+
 export function getProgress() {
   return request('/api/me/progress')
 }

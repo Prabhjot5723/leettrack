@@ -55,7 +55,7 @@ export default function Questions() {
 
   return (
     <>
-      <Navbar title="Questions" subtitle="Browse and search the full question bank" />
+      <Navbar title="Questions" subtitle="Questions from your chosen sheet" />
       <div className="px-8 py-6 max-w-5xl">
         <div className="flex flex-col sm:flex-row gap-3 mb-6">
           <input

@@ -18,11 +18,14 @@ from fastapi import BackgroundTasks, Depends, FastAPI, HTTPException, Query, Req
 from fastapi.middleware.cors import CORSMiddleware
 
 import auth
+import engine
 import mailer
 import services
+import sheets
 from database import get_db, check_connection
 from models import (
     ChangePasswordRequest,
+    ChooseSheetRequest,
     ForgotPasswordRequest,
     LoginRequest,
     QuestionCompleteRequest,
@@ -56,7 +59,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=_origins,
     allow_credentials=False,  # we use an Authorization header, not cookies
-    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_methods=["GET", "POST", "PUT", "OPTIONS"],
     allow_headers=["Authorization", "Content-Type"],
 )
 
@@ -84,6 +87,24 @@ def _handle(fn, *args, **kwargs):
             status_code=503,
             detail="Database unavailable. Make sure MySQL is running and .env is configured.",
         )
+
+
+# --------------------------------------------------------------------------
+# On start-up: make sure the sheet tables exist and the sheet lists are loaded.
+# Safe to repeat. If the database is not reachable yet, the API still starts and
+# tries again on the first request that needs it.
+# --------------------------------------------------------------------------
+
+@app.on_event("startup")
+def prepare_sheets():
+    try:
+        conn = engine.get_connection()
+        try:
+            sheets.ensure_ready(conn)
+        finally:
+            conn.close()
+    except Exception as exc:  # noqa: BLE001
+        print(f"[sheets] start-up setup skipped: {exc}")
 
 
 # --------------------------------------------------------------------------
@@ -268,6 +289,25 @@ def get_questions(
     return _handle(
         services.get_questions, conn, difficulty, topic, platform, user["user_id"]
     )
+
+
+@app.get("/api/sheets")
+def list_sheets(user=Depends(auth.get_current_user), conn=Depends(get_db)):
+    return _handle(services.list_sheets, conn)
+
+
+@app.put("/api/me/sheet")
+def choose_sheet(
+    payload: ChooseSheetRequest,
+    user=Depends(auth.get_current_user),
+    conn=Depends(get_db),
+):
+    return _handle(services.choose_sheet, conn, user["user_id"], payload.sheet_id)
+
+
+@app.get("/api/me/sheet-progress")
+def get_sheet_progress(user=Depends(auth.get_current_user), conn=Depends(get_db)):
+    return _handle(services.get_sheet_progress, conn, user["user_id"])
 
 
 @app.get("/api/me/progress")

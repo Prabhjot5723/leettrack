@@ -14,6 +14,7 @@ import mysql.connector
 
 import auth
 import engine
+import sheets
 
 
 # --------------------------------------------------------------------------
@@ -284,7 +285,7 @@ def finish_password_reset(conn, token: str, new_password: str) -> dict:
 def get_user(conn, user_id: int) -> dict:
     rows = engine.run_query(
         conn,
-        "SELECT user_id, username, email, created_at FROM users WHERE user_id = %s",
+        "SELECT user_id, username, email, created_at, sheet_id FROM users WHERE user_id = %s",
         (user_id,),
         fetch=True,
     )
@@ -310,10 +311,12 @@ def get_daily_plan(conn, user_id: int, target_date: date = None) -> dict:
         raise NotFoundError(f"User {user_id} not found.")
 
     plan_date = target_date or today()
-    plan = engine.create_daily_plan(conn, user_id, plan_date)
+    sheet_id = sheets.effective_sheet_id(conn, user_id)
+    plan = engine.create_daily_plan(conn, user_id, plan_date, sheet_id)
 
     return {
         "date": plan_date.isoformat(),
+        "sheet_id": sheet_id,
         "is_simulated": plan_date != today(),
         "revisions": _serialize_rows(plan["revisions"]),
         "new_questions": _serialize_rows(plan["new_questions"]),
@@ -456,14 +459,16 @@ def get_questions(conn, difficulty: str = None, topic: str = None,
     query = """
         SELECT qb.question_id, qb.platform, qb.title, qb.difficulty, qb.topic, qb.url,
                CASE WHEN sq.question_id IS NOT NULL THEN 1 ELSE 0 END AS solved
-        FROM question_bank AS qb
+        FROM sheet_questions AS shq
+        JOIN question_bank AS qb
+            ON qb.question_id = shq.question_id AND qb.platform = shq.platform
         LEFT JOIN solved_questions AS sq
             ON qb.question_id = sq.question_id
             AND qb.platform = sq.platform
             AND sq.user_id = %s
-        WHERE 1 = 1
+        WHERE shq.sheet_id = %s
     """
-    params = [user_id]
+    params = [user_id, sheets.effective_sheet_id(conn, user_id)]
 
     if difficulty:
         query += " AND qb.difficulty = %s"
@@ -475,7 +480,7 @@ def get_questions(conn, difficulty: str = None, topic: str = None,
         query += " AND qb.platform = %s"
         params.append(platform)
 
-    query += " ORDER BY qb.question_id"
+    query += " ORDER BY shq.sort_pos"
 
     rows = engine.run_query(conn, query, tuple(params), fetch=True)
     return _serialize_rows(rows)
@@ -522,3 +527,36 @@ def get_progress(conn, user_id: int) -> dict:
         "revisions_completed": revisions_completed,
         "solved_over_time": _serialize_rows(over_time),
     }
+
+
+# --------------------------------------------------------------------------
+# Sheets (Striver A2Z, Love Babbar, NeetCode, Starter 200)
+# --------------------------------------------------------------------------
+
+def list_sheets(conn) -> list:
+    return _serialize_rows(sheets.list_sheets(conn))
+
+
+def choose_sheet(conn, user_id: int, sheet_id: str) -> dict:
+    if not _user_exists(conn, user_id):
+        raise NotFoundError(f"User {user_id} not found.")
+    if not sheets.sheet_exists(conn, sheet_id):
+        raise NotFoundError("That sheet does not exist.")
+    sheets.set_user_sheet(conn, user_id, sheet_id)
+    return get_user(conn, user_id)
+
+
+def get_sheet_progress(conn, user_id: int) -> dict:
+    """How many questions of the user's current sheet are solved."""
+    sheet_id = sheets.effective_sheet_id(conn, user_id)
+    rows = engine.run_query(conn, """
+        SELECT COUNT(*) AS total,
+               COALESCE(SUM(CASE WHEN sq.question_id IS NOT NULL THEN 1 ELSE 0 END), 0) AS solved
+        FROM sheet_questions AS shq
+        LEFT JOIN solved_questions AS sq
+            ON sq.question_id = shq.question_id AND sq.platform = shq.platform
+            AND sq.user_id = %s
+        WHERE shq.sheet_id = %s
+    """, (user_id, sheet_id), fetch=True)
+    total, solved = int(rows[0]["total"]), int(rows[0]["solved"])
+    return {"sheet_id": sheet_id, "total": total, "solved": solved}

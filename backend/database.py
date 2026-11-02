@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 import engine  # noqa: E402  (import after load_dotenv on purpose)
+import sheets  # noqa: E402
 
 
 def get_db():
@@ -19,6 +20,7 @@ def get_db():
     single request, then always closes it — even if the request raised.
     """
     conn = engine.get_connection()
+    sheets.ensure_ready(conn)
     try:
         yield conn
     finally:

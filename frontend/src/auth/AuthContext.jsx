@@ -29,12 +29,14 @@ export function AuthProvider({ children }) {
     const data = await api.login(email, password)
     api.setToken(data.access_token)
     setUser(data.user)
+    api.getUser().then(setUser).catch(() => {}) // adds the chosen sheet to the user
   }, [])
 
   const register = useCallback(async (username, email, password) => {
     const data = await api.register(username, email, password)
     api.setToken(data.access_token)
     setUser(data.user)
+    api.getUser().then(setUser).catch(() => {})
   }, [])
 
   const logout = useCallback(() => {

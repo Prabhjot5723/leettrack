@@ -1,11 +1,21 @@
 import { useCallback, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import CapacityBar from '../components/CapacityBar'
 import RevisionCard from '../components/RevisionCard'
 import QuestionCard from '../components/QuestionCard'
 import { SkeletonCard } from '../components/LoadingSpinner'
 import { useToast } from '../components/Toast'
+import SheetPicker from '../components/SheetPicker'
 import * as api from '../api/api'
+
+const SHEET_NAMES = {
+  'striver-a2z': "Striver's A2Z",
+  'love-babbar-450': 'Love Babbar 450',
+  'neetcode-150': 'NeetCode 150',
+  'starter-200': 'Starter 200',
+}
+const sheetName = (id) => SHEET_NAMES[id] || id
 
 function greeting() {
   const hour = new Date().getHours()
@@ -91,8 +101,25 @@ export default function Dashboard() {
     }
   }
 
+  // First visit: no sheet chosen yet -> ask once.
+  const needsSheet = user && !user.sheet_id
+
   return (
     <>
+      {needsSheet && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 overflow-y-auto">
+          <div className="w-full max-w-2xl rounded-card border border-base-border bg-base p-6 shadow-card">
+            <SheetPicker
+              title="Which sheet do you want to follow?"
+              current={null}
+              onChosen={(u) => {
+                setUser(u)
+                load()
+              }}
+            />
+          </div>
+        </div>
+      )}
       <Navbar title="LeetTrack" subtitle="Dashboard" />
       <div className="px-8 py-6 max-w-5xl">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
@@ -105,6 +132,14 @@ export default function Dashboard() {
                 ? "Here's your DSA plan for today."
                 : `Simulated plan for ${simulatedDate} — no data is being changed.`}
             </p>
+            {plan?.sheet_id && (
+              <p className="text-xs text-ink-faint mt-1">
+                Sheet: {sheetName(plan.sheet_id)} ·{' '}
+                <Link to="/profile" className="text-accent hover:underline">
+                  change
+                </Link>
+              </p>
+            )}
           </div>
 
           <div className="flex items-center gap-2 shrink-0">

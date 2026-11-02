@@ -1,0 +1,443 @@
+# Love Babbar DSA Cracker Sheet (450) — titles from a public copy of the sheet; difficulty is an estimate
+# format: topic|difficulty|title
+Array|E|Reverse the array
+Array|E|Find the maximum and minimum element in an array
+Array|M|Find the Kth max and min element of an array
+Array|M|Sort an array of 0s, 1s and 2s without using any sorting algorithm
+Array|E|Move all the negative elements to one side of the array
+Array|E|Find the Union and Intersection of two sorted arrays
+Array|E|Cyclically rotate an array by one
+Array|M|Largest sum contiguous subarray
+Array|M|Minimise the maximum difference between heights
+Array|M|Minimum number of jumps to reach end of an array
+Array|M|Find duplicate in an array of N+1 integers
+Array|H|Merge 2 sorted arrays without using extra space
+Array|M|Kadane's Algorithm
+Array|M|Merge Intervals
+Array|M|Next Permutation
+Array|H|Count Inversions
+Array|E|Best time to buy and sell stock
+Array|E|Find all pairs in an integer array whose sum equals a given number
+Array|E|Find common elements in 3 sorted arrays
+Array|H|Rearrange the array in alternating positive and negative items with O(1) extra space
+Array|M|Find if there is any subarray with sum equal to 0
+Array|M|Find factorial of a large number
+Array|M|Find maximum product subarray
+Array|M|Find longest consecutive subsequence
+Array|M|Find all elements that appear more than n/k times
+Array|H|Maximum profit by buying and selling a share at most twice
+Array|E|Find whether an array is a subset of another array
+Array|M|Find the triplet that sums to a given value
+Array|H|Trapping Rain Water
+Array|E|Chocolate Distribution Problem
+Array|M|Smallest subarray with sum greater than a given value
+Array|M|Three way partitioning of an array around a given value
+Array|M|Minimum swaps required to bring elements less than or equal to K together
+Array|M|Minimum operations required to make an array palindrome
+Array|H|Median of 2 sorted arrays of equal size
+Array|H|Median of 2 sorted arrays of different size
+Matrix|M|Spiral traversal of a matrix
+Matrix|M|Search an element in a matrix
+Matrix|H|Find median in a row-wise sorted matrix
+Matrix|M|Find row with maximum number of 1s
+Matrix|M|Print elements in sorted order using a row-column wise sorted matrix
+Matrix|H|Maximum size rectangle
+Matrix|M|Find a specific pair in a matrix
+Matrix|M|Rotate matrix by 90 degrees
+Matrix|M|Kth smallest element in a row-column wise sorted matrix
+Matrix|M|Common elements in all rows of a given matrix
+String|E|Reverse a String
+String|E|Check whether a String is Palindrome or not
+String|E|Find duplicate characters in a string
+String|E|Why strings are immutable in Java?
+String|E|Check whether one string is a rotation of another
+String|M|Check whether a string is a valid shuffle of two strings
+String|M|Count and Say
+String|M|Longest Palindromic Substring
+String|M|Find Longest Recurring Subsequence in a String
+String|M|Print all subsequences of a string
+String|M|Print all permutations of a given string
+String|M|Split the binary string into substrings with equal 0s and 1s
+String|H|Word Wrap Problem
+String|H|Edit Distance
+String|M|Find next greater number with same set of digits
+String|E|Balanced Parenthesis problem
+String|M|Word Break Problem
+String|H|Rabin Karp Algorithm
+String|H|KMP Algorithm
+String|E|Convert a sentence into its equivalent mobile numeric keypad sequence
+String|M|Minimum number of bracket reversals to balance an expression
+String|M|Count all palindromic subsequences in a given string
+String|M|Count of number of given string in 2D character array
+String|M|Search a word in a 2D grid of characters
+String|H|Boyer Moore Algorithm for Pattern Searching
+String|E|Converting Roman Numerals to Decimal
+String|E|Longest Common Prefix
+String|M|Number of flips to make binary string alternate
+String|E|Find the first repeated word in a string
+String|M|Minimum number of swaps for bracket balancing
+String|M|Longest Common Subsequence of two strings
+String|M|Generate all possible valid IP addresses from a given string
+String|H|Smallest window that contains all characters of the string itself
+String|M|Rearrange characters in a string such that no two adjacent are same
+String|H|Minimum characters to add at front to make string palindrome
+String|M|Given a sequence of words, print all anagrams together
+String|H|Smallest window in a string containing all characters of another string
+String|M|Recursively remove all adjacent duplicates
+String|H|String matching where one string contains wildcard characters
+String|M|Number of customers who could not get a computer
+String|H|Transform one string to another using minimum number of given operations
+String|E|Check if two given strings are isomorphic
+String|H|Recursively print all sentences that can be formed from a list of word lists
+Searching & Sorting|M|Find first and last positions of an element in a sorted array
+Searching & Sorting|M|Find a Fixed Point (value equal to index) in a given array
+Searching & Sorting|M|Search in a rotated sorted array
+Searching & Sorting|E|Square root of an integer
+Searching & Sorting|M|Maximum and minimum of an array using minimum number of comparisons
+Searching & Sorting|H|Optimum location of point to minimize total distance
+Searching & Sorting|M|Find the repeating and the missing number
+Searching & Sorting|M|Find majority element
+Searching & Sorting|M|Searching in an array where adjacent elements differ by at most k
+Searching & Sorting|M|Find a pair with a given difference
+Searching & Sorting|M|Find four elements that sum to a given value
+Searching & Sorting|M|Maximum sum such that no 2 elements are adjacent
+Searching & Sorting|M|Count triplets with sum smaller than a given value
+Searching & Sorting|E|Merge 2 sorted arrays
+Searching & Sorting|M|Print all subarrays with 0 sum
+Searching & Sorting|M|Product array puzzle
+Searching & Sorting|M|Sort array according to count of set bits
+Searching & Sorting|M|Minimum number of swaps required to sort the array
+Searching & Sorting|E|Bishu and Soldiers
+Searching & Sorting|M|Rasta and Kheshtak
+Searching & Sorting|M|Kth smallest number again
+Searching & Sorting|M|Find pivot element in a sorted array
+Searching & Sorting|H|K-th element of two sorted arrays
+Searching & Sorting|M|Aggressive Cows
+Searching & Sorting|M|Book Allocation Problem
+Searching & Sorting|M|EKO (SPOJ)
+Searching & Sorting|M|Job Scheduling Algorithm
+Searching & Sorting|M|Missing number in AP
+Searching & Sorting|M|Smallest number with at least n trailing zeroes in factorial
+Searching & Sorting|H|Painter's Partition Problem
+Searching & Sorting|M|ROTI-Prata (SPOJ)
+Searching & Sorting|M|DoubleHelix (SPOJ)
+Searching & Sorting|H|Subset Sums
+Searching & Sorting|H|Find the inversion count
+Searching & Sorting|H|Implement Merge Sort in-place
+Searching & Sorting|M|Partitioning and sorting arrays with many repeated entries
+LinkedList|E|Reverse the Linked List (iterative and recursive)
+LinkedList|H|Reverse a Linked List in group of given size
+LinkedList|E|Detect loop in a linked list
+LinkedList|M|Delete loop in a linked list
+LinkedList|M|Find the starting point of the loop
+LinkedList|E|Remove duplicates in a sorted linked list
+LinkedList|M|Remove duplicates in an unsorted linked list
+LinkedList|E|Move the last element to front in a linked list
+LinkedList|M|Add 1 to a number represented as a linked list
+LinkedList|M|Add two numbers represented by linked lists
+LinkedList|M|Intersection of two sorted linked lists
+LinkedList|E|Intersection point of two linked lists
+LinkedList|M|Merge sort for linked lists
+LinkedList|M|Quicksort for linked lists
+LinkedList|E|Find the middle element of a linked list
+LinkedList|E|Check if a linked list is a circular linked list
+LinkedList|M|Split a circular linked list into two halves
+LinkedList|E|Check whether a singly linked list is a palindrome
+LinkedList|M|Deletion from a circular linked list
+LinkedList|E|Reverse a doubly linked list
+LinkedList|M|Find pairs with a given sum in a DLL
+LinkedList|M|Count triplets in a sorted DLL whose sum equals X
+LinkedList|H|Sort a k-sorted doubly linked list
+LinkedList|M|Rotate a doubly linked list by N nodes
+LinkedList|H|Rotate a doubly linked list in group of given size
+LinkedList|M|Can we reverse a linked list in less than O(n)?
+LinkedList|E|Why is Quicksort preferred for arrays and Merge Sort for linked lists?
+LinkedList|M|Flatten a Linked List
+LinkedList|M|Sort a linked list of 0s, 1s and 2s
+LinkedList|M|Clone a linked list with next and random pointer
+LinkedList|H|Merge K sorted linked lists
+LinkedList|M|Multiply 2 numbers represented by linked lists
+LinkedList|M|Delete nodes which have a greater value on right side
+LinkedList|M|Segregate even and odd nodes in a linked list
+LinkedList|E|Nth node from the end of a linked list
+LinkedList|M|First non-repeating character from a stream of characters
+Binary Trees|M|Level order traversal
+Binary Trees|M|Reverse level order traversal
+Binary Trees|E|Height of a tree
+Binary Trees|E|Diameter of a tree
+Binary Trees|E|Mirror of a tree
+Binary Trees|M|Inorder traversal using recursion and iteration
+Binary Trees|M|Preorder traversal using recursion and iteration
+Binary Trees|M|Postorder traversal using recursion and iteration
+Binary Trees|M|Left view of a tree
+Binary Trees|M|Right view of a tree
+Binary Trees|M|Top view of a tree
+Binary Trees|M|Bottom view of a tree
+Binary Trees|M|Zig-Zag traversal of a binary tree
+Binary Trees|E|Check if a tree is balanced or not
+Binary Trees|M|Diagonal traversal of a binary tree
+Binary Trees|M|Boundary traversal of a binary tree
+Binary Trees|H|Construct binary tree from string with bracket representation
+Binary Trees|H|Convert binary tree into doubly linked list
+Binary Trees|M|Convert binary tree into sum tree
+Binary Trees|M|Construct binary tree from inorder and preorder traversal
+Binary Trees|H|Minimum swaps required to convert a binary tree into a BST
+Binary Trees|M|Check if a binary tree is a sum tree
+Binary Trees|M|Check if all leaf nodes are at same level
+Binary Trees|H|Check if a binary tree contains duplicate subtrees of size 2 or more
+Binary Trees|E|Check if 2 trees are mirror images
+Binary Trees|M|Sum of nodes on the longest path from root to leaf
+Binary Trees|M|Check if given graph is a tree or not
+Binary Trees|M|Find largest subtree sum in a tree
+Binary Trees|H|Maximum sum of nodes in a binary tree such that no two are adjacent
+Binary Trees|M|Print all K-sum paths in a binary tree
+Binary Trees|M|Find LCA in a binary tree
+Binary Trees|M|Find distance between 2 nodes in a binary tree
+Binary Trees|M|Kth ancestor of a node in a binary tree
+Binary Trees|M|Find all duplicate subtrees in a binary tree
+Binary Trees|M|Tree isomorphism problem
+Binary Search Trees|E|Find a value in a BST
+Binary Search Trees|M|Deletion of a node in a BST
+Binary Search Trees|E|Find min and max value in a BST
+Binary Search Trees|M|Find inorder successor and predecessor in a BST
+Binary Search Trees|M|Check if a tree is a BST or not
+Binary Search Trees|M|Populate inorder successor of all nodes
+Binary Search Trees|M|Find LCA of 2 nodes in a BST
+Binary Search Trees|M|Construct BST from preorder traversal
+Binary Search Trees|M|Convert binary tree into BST
+Binary Search Trees|M|Convert a normal BST into a balanced BST
+Binary Search Trees|H|Merge two BSTs
+Binary Search Trees|M|Find Kth largest element in a BST
+Binary Search Trees|M|Find Kth smallest element in a BST
+Binary Search Trees|M|Count pairs from 2 BSTs whose sum equals X
+Binary Search Trees|H|Find the median of a BST in O(n) time and O(1) space
+Binary Search Trees|M|Count BST nodes that lie in a given range
+Binary Search Trees|H|Replace every element with the least greater element on its right
+Binary Search Trees|M|Given n appointments, find the conflicting appointments
+Binary Search Trees|M|Check if preorder is valid
+Binary Search Trees|M|Check whether a BST contains a dead end
+Binary Search Trees|H|Largest BST in a Binary Tree
+Binary Search Trees|M|Flatten BST to sorted list
+Greedy|M|Activity Selection Problem
+Greedy|M|Job Sequencing Problem
+Greedy|M|Huffman Coding
+Greedy|H|Water Connection Problem
+Greedy|M|Fractional Knapsack Problem
+Greedy|E|Greedy algorithm to find minimum number of coins
+Greedy|M|Maximum trains for which stoppage can be provided
+Greedy|M|Minimum Platforms Problem
+Greedy|M|Buy maximum stocks if i stocks can be bought on i-th day
+Greedy|E|Find the minimum and maximum amount to buy all N candies
+Greedy|H|Minimize cash flow among a given set of friends who have borrowed money
+Greedy|H|Minimum cost to cut a board into squares
+Greedy|M|Check if it is possible to survive on an island
+Greedy|E|Find maximum meetings in one room
+Greedy|M|Maximum product subset of an array
+Greedy|E|Maximize array sum after K negations
+Greedy|M|Maximize the sum of arr[i]*i
+Greedy|M|Maximum sum of absolute difference of an array
+Greedy|M|Maximize sum of consecutive differences in a circular array
+Greedy|M|Minimum sum of absolute difference of pairs of two arrays
+Greedy|M|Shortest Job First (SJF) CPU Scheduling
+Greedy|M|Least Recently Used (LRU) Page Replacement algorithm
+Greedy|M|Smallest subset with sum greater than all other elements
+Greedy|M|DEFKIN - Defense of a Kingdom
+Greedy|M|DIEHARD - Die Hard
+Greedy|H|GERGOVIA - Wine trading in Gergovia
+Greedy|H|Picking Up Chicks
+Greedy|H|CHOCOLA - Chocolate
+Greedy|M|ARRANGE - Arranging Amplifiers
+Greedy|H|K Centers Problem
+Greedy|E|Minimum cost of ropes
+Greedy|M|Find smallest number with given number of digits and sum of digits
+Greedy|M|Find maximum possible equal sum of three stacks
+BackTracking|M|Rat in a Maze Problem
+BackTracking|H|Printing all solutions in N-Queen Problem
+BackTracking|M|Word Break Problem using Backtracking
+BackTracking|H|Remove Invalid Parentheses
+BackTracking|H|Sudoku Solver
+BackTracking|M|m Coloring Problem
+BackTracking|M|Print all palindromic partitions of a string
+BackTracking|M|Subset Sum Problem
+BackTracking|H|The Knight's Tour Problem
+BackTracking|H|Tug of War
+BackTracking|H|Find shortest safe route in a path with landmines
+BackTracking|M|Combination Sum
+BackTracking|M|Find maximum number possible by doing at most K swaps
+BackTracking|M|Print all permutations of a string
+BackTracking|M|Find if there is a path of more than k length from a source
+BackTracking|H|Longest possible route in a matrix with hurdles
+BackTracking|M|Print all possible paths from top left to bottom right of an mXn matrix
+BackTracking|H|Partition of a set into K subsets with equal sum
+BackTracking|H|Find the K-th permutation sequence of first N natural numbers
+Stacks & Queues|E|Implement Stack from scratch
+Stacks & Queues|E|Implement Queue from scratch
+Stacks & Queues|M|Implement 2 stacks in an array
+Stacks & Queues|M|Find the middle element of a stack
+Stacks & Queues|H|Implement N stacks in an array
+Stacks & Queues|E|Check the expression has valid or balanced parentheses
+Stacks & Queues|E|Reverse a string using stack
+Stacks & Queues|M|Design a stack that supports getMin() in O(1) time and O(1) extra space
+Stacks & Queues|M|Find the next greater element
+Stacks & Queues|M|The Celebrity Problem
+Stacks & Queues|M|Arithmetic expression evaluation
+Stacks & Queues|E|Evaluation of postfix expression
+Stacks & Queues|M|Insert an element at the bottom of a stack without using any other data structure
+Stacks & Queues|M|Reverse a stack using recursion
+Stacks & Queues|M|Sort a stack using recursion
+Stacks & Queues|M|Merge overlapping intervals
+Stacks & Queues|H|Largest rectangular area in a histogram
+Stacks & Queues|H|Length of the longest valid substring
+Stacks & Queues|M|Expression contains redundant bracket or not
+Stacks & Queues|E|Implement Stack using Queue
+Stacks & Queues|E|Implement Stack using Deque
+Stacks & Queues|M|Stack permutations
+Stacks & Queues|E|Implement Queue using Stack
+Stacks & Queues|H|Implement N queues in an array
+Stacks & Queues|M|Implement a Circular Queue
+Stacks & Queues|M|LRU Cache implementation
+Stacks & Queues|M|Reverse a Queue using recursion
+Stacks & Queues|E|Reverse the first K elements of a queue
+Stacks & Queues|M|Interleave the first half of the queue with the second half
+Stacks & Queues|M|Find the first circular tour that visits all petrol pumps
+Stacks & Queues|M|Minimum time required to rot all oranges
+Stacks & Queues|M|Distance of nearest cell having 1 in a binary matrix
+Stacks & Queues|M|First negative integer in every window of size K
+Stacks & Queues|M|Check if all levels of two trees are anagrams
+Stacks & Queues|H|Sum of minimum and maximum elements of all subarrays of size K
+Stacks & Queues|M|Minimum sum of squares of character counts after removing K characters
+Stacks & Queues|M|Queue based approach for first non-repeating character in a stream
+Stacks & Queues|M|Next Smaller Element
+Heap|M|Implement a Max Heap/Min Heap using arrays and recursion
+Heap|M|Sort an array using heap (Heap Sort)
+Heap|H|Maximum of all subarrays of size K
+Heap|M|K largest elements in an array
+Heap|M|Kth smallest and largest element in an unsorted array
+Heap|M|Merge K sorted arrays
+Heap|M|Merge 2 binary max heaps
+Heap|H|Kth largest sum of continuous subarrays
+Heap|M|Reorganize String
+Heap|H|Merge K sorted linked lists
+Heap|H|Smallest range in K lists
+Heap|H|Median in a stream of integers
+Heap|M|Check if a binary tree is a heap
+Heap|E|Connect N ropes with minimum cost
+Heap|M|Convert BST to Min Heap
+Heap|M|Convert min heap to max heap
+Heap|M|Rearrange characters in a string such that no two adjacent are same (heap)
+Heap|M|Minimum sum of two numbers formed from digits of an array
+Graph|E|Create a graph and print it
+Graph|M|Implement BFS algorithm
+Graph|M|Implement DFS algorithm
+Graph|M|Detect cycle in a directed graph using BFS/DFS
+Graph|M|Detect cycle in an undirected graph using BFS/DFS
+Graph|M|Search in a maze
+Graph|M|Minimum steps by knight
+Graph|M|Flood fill algorithm
+Graph|M|Clone a graph
+Graph|M|Making wired connections
+Graph|H|Word Ladder
+Graph|M|Dijkstra's algorithm
+Graph|M|Implement Topological Sort
+Graph|M|Minimum time taken by each job to be completed in a directed acyclic graph
+Graph|M|Find whether it is possible to finish all tasks from given dependencies
+Graph|M|Find the number of islands
+Graph|H|Given a sorted dictionary of an alien language, find order of characters
+Graph|M|Implement Kruskal's algorithm
+Graph|M|Implement Prim's algorithm
+Graph|H|Total number of spanning trees in a graph
+Graph|M|Implement Bellman Ford algorithm
+Graph|M|Implement Floyd Warshall algorithm
+Graph|H|Travelling Salesman Problem
+Graph|H|Graph Colouring Problem
+Graph|M|Snake and Ladders Problem
+Graph|H|Find bridges in a graph
+Graph|H|Count Strongly Connected Components (Kosaraju's algorithm)
+Graph|M|Check whether a graph is bipartite or not
+Graph|M|Detect negative cycle in a graph
+Graph|M|Longest path in a directed acyclic graph
+Graph|M|Journey to the Moon
+Graph|M|Cheapest Flights Within K Stops
+Graph|M|Oliver and the Game
+Graph|M|Water Jug problem using BFS
+Graph|M|Minimum edges to reverse to make a path from source to destination
+Graph|H|Paths to travel each node using each edge (Seven Bridges)
+Graph|H|Vertex Cover Problem
+Graph|H|Chinese Postman or Route Inspection
+Graph|M|Number of triangles in a directed and undirected graph
+Graph|H|Two Clique Problem
+Trie|M|Construct a trie from scratch
+Trie|M|Find shortest unique prefix for every word in a given list
+Trie|H|Word Break Problem (Trie solution)
+Trie|M|Implement a Phone Directory
+Trie|M|Print unique rows in a given boolean matrix
+Dynamic Programming|M|Coin Change Problem
+Dynamic Programming|M|Knapsack Problem
+Dynamic Programming|M|Binomial Coefficient Problem
+Dynamic Programming|M|Permutation Coefficient Problem
+Dynamic Programming|M|Program for nth Catalan Number
+Dynamic Programming|H|Matrix Chain Multiplication
+Dynamic Programming|H|Edit Distance (DP)
+Dynamic Programming|M|Subset Sum Problem (DP)
+Dynamic Programming|M|Friends Pairing Problem
+Dynamic Programming|M|Gold Mine Problem
+Dynamic Programming|M|Assembly Line Scheduling Problem
+Dynamic Programming|M|Painting the Fence Problem
+Dynamic Programming|M|Maximize the Cut Segments
+Dynamic Programming|M|Longest Common Subsequence (DP)
+Dynamic Programming|M|Longest Repeated Subsequence
+Dynamic Programming|M|Longest Increasing Subsequence (DP)
+Dynamic Programming|M|Space optimized solution of LCS
+Dynamic Programming|M|LCS of three strings
+Dynamic Programming|M|Maximum Sum Increasing Subsequence
+Dynamic Programming|M|Count all subsequences having product less than K
+Dynamic Programming|M|Longest subsequence such that difference between adjacent is one
+Dynamic Programming|M|Maximum subsequence sum such that no three are consecutive
+Dynamic Programming|H|Egg Dropping Problem
+Dynamic Programming|M|Maximum Length Chain of Pairs
+Dynamic Programming|M|Maximum size square sub-matrix with all 1s
+Dynamic Programming|M|Maximum sum of pairs with specific difference
+Dynamic Programming|M|Min Cost Path Problem
+Dynamic Programming|M|Maximum difference of zeros and ones in a binary string
+Dynamic Programming|M|Minimum number of jumps to reach end (DP)
+Dynamic Programming|M|Minimum cost to fill given weight in a bag
+Dynamic Programming|M|Minimum removals from array to make max - min <= K
+Dynamic Programming|M|Longest Common Substring
+Dynamic Programming|M|Count number of ways to reach a given score in a game
+Dynamic Programming|H|Count balanced binary trees of height h
+Dynamic Programming|M|Largest sum contiguous subarray (DP)
+Dynamic Programming|M|Smallest sum contiguous subarray
+Dynamic Programming|M|Unbounded Knapsack (repetition of items allowed)
+Dynamic Programming|M|Word Break Problem (DP)
+Dynamic Programming|H|Largest Independent Set Problem
+Dynamic Programming|M|Partition Problem
+Dynamic Programming|M|Longest Palindromic Subsequence
+Dynamic Programming|M|Count all palindromic subsequences in a given string (DP)
+Dynamic Programming|M|Longest Palindromic Substring (DP)
+Dynamic Programming|M|Longest alternating subsequence
+Dynamic Programming|H|Weighted Job Scheduling
+Dynamic Programming|M|Coin game winner where every player has three choices
+Dynamic Programming|H|Count Derangements
+Dynamic Programming|H|Maximum profit by buying and selling a share at most twice (DP)
+Dynamic Programming|H|Optimal Strategy for a Game
+Dynamic Programming|H|Optimal Binary Search Tree
+Dynamic Programming|H|Palindrome Partitioning Problem
+Dynamic Programming|H|Word Wrap Problem (DP)
+Dynamic Programming|M|Mobile Numeric Keypad Problem
+Dynamic Programming|H|Boolean Parenthesization Problem
+Dynamic Programming|H|Largest rectangular sub-matrix whose sum is 0
+Dynamic Programming|H|Largest area rectangular sub-matrix with equal number of 1s and 0s
+Dynamic Programming|H|Maximum sum rectangle in a 2D matrix
+Dynamic Programming|H|Maximum profit by buying and selling a share at most k times
+Dynamic Programming|M|Find if a string is interleaved of two other strings
+Dynamic Programming|M|Maximum Length of Pair Chain
+Bit Manipulation|E|Count set bits in an integer
+Bit Manipulation|M|Find the two non-repeating elements in an array of repeating elements
+Bit Manipulation|E|Count number of bits to be flipped to convert A to B
+Bit Manipulation|M|Count total set bits in all numbers from 1 to n
+Bit Manipulation|E|Program to find whether a number is a power of two
+Bit Manipulation|E|Find position of the only set bit
+Bit Manipulation|M|Copy set bits in a range
+Bit Manipulation|M|Divide two integers without using multiplication, division and mod operator
+Bit Manipulation|M|Calculate square of a number without using *, / and pow()
+Bit Manipulation|M|Power Set

@@ -1,0 +1,152 @@
+# NeetCode 150 — source: public NeetCode 150 list (title | difficulty | LeetCode slug)
+# format: topic|difficulty|title|leetcode-slug
+Arrays & Hashing|E|Contains Duplicate|contains-duplicate
+Arrays & Hashing|E|Valid Anagram|valid-anagram
+Arrays & Hashing|E|Two Sum|two-sum
+Arrays & Hashing|M|Group Anagrams|group-anagrams
+Arrays & Hashing|M|Top K Frequent Elements|top-k-frequent-elements
+Arrays & Hashing|M|Encode and Decode Strings (Premium)|encode-and-decode-strings
+Arrays & Hashing|M|Product of Array Except Self|product-of-array-except-self
+Arrays & Hashing|M|Valid Sudoku|valid-sudoku
+Arrays & Hashing|M|Longest Consecutive Sequence|longest-consecutive-sequence
+Two Pointers|E|Valid Palindrome|valid-palindrome
+Two Pointers|M|Two Sum II - Input Array Is Sorted|two-sum-ii-input-array-is-sorted
+Two Pointers|M|3Sum|3sum
+Two Pointers|M|Container With Most Water|container-with-most-water
+Two Pointers|H|Trapping Rain Water|trapping-rain-water
+Sliding Window|E|Best Time to Buy and Sell Stock|best-time-to-buy-and-sell-stock
+Sliding Window|M|Longest Substring Without Repeating Characters|longest-substring-without-repeating-characters
+Sliding Window|M|Longest Repeating Character Replacement|longest-repeating-character-replacement
+Sliding Window|M|Permutation in String|permutation-in-string
+Sliding Window|H|Minimum Window Substring|minimum-window-substring
+Sliding Window|H|Sliding Window Maximum|sliding-window-maximum
+Stack|E|Valid Parentheses|valid-parentheses
+Stack|M|Min Stack|min-stack
+Stack|M|Evaluate Reverse Polish Notation|evaluate-reverse-polish-notation
+Stack|M|Generate Parentheses|generate-parentheses
+Stack|M|Daily Temperatures|daily-temperatures
+Stack|M|Car Fleet|car-fleet
+Stack|H|Largest Rectangle in Histogram|largest-rectangle-in-histogram
+Binary Search|E|Binary Search|binary-search
+Binary Search|M|Search a 2D Matrix|search-a-2d-matrix
+Binary Search|M|Koko Eating Bananas|koko-eating-bananas
+Binary Search|M|Find Minimum in Rotated Sorted Array|find-minimum-in-rotated-sorted-array
+Binary Search|M|Search in Rotated Sorted Array|search-in-rotated-sorted-array
+Binary Search|M|Time Based Key-Value Store|time-based-key-value-store
+Binary Search|H|Median of Two Sorted Arrays|median-of-two-sorted-arrays
+Linked List|E|Reverse Linked List|reverse-linked-list
+Linked List|E|Merge Two Sorted Lists|merge-two-sorted-lists
+Linked List|M|Reorder List|reorder-list
+Linked List|M|Remove Nth Node From End of List|remove-nth-node-from-end-of-list
+Linked List|M|Copy List with Random Pointer|copy-list-with-random-pointer
+Linked List|M|Add Two Numbers|add-two-numbers
+Linked List|E|Linked List Cycle|linked-list-cycle
+Linked List|M|Find the Duplicate Number|find-the-duplicate-number
+Linked List|M|LRU Cache|lru-cache
+Linked List|H|Merge k Sorted Lists|merge-k-sorted-lists
+Linked List|H|Reverse Nodes in k-Group|reverse-nodes-in-k-group
+Trees|E|Invert Binary Tree|invert-binary-tree
+Trees|E|Maximum Depth of Binary Tree|maximum-depth-of-binary-tree
+Trees|E|Diameter of Binary Tree|diameter-of-binary-tree
+Trees|E|Balanced Binary Tree|balanced-binary-tree
+Trees|E|Same Tree|same-tree
+Trees|E|Subtree of Another Tree|subtree-of-another-tree
+Trees|M|Lowest Common Ancestor of a Binary Search Tree|lowest-common-ancestor-of-a-binary-search-tree
+Trees|M|Binary Tree Level Order Traversal|binary-tree-level-order-traversal
+Trees|M|Binary Tree Right Side View|binary-tree-right-side-view
+Trees|M|Count Good Nodes in Binary Tree|count-good-nodes-in-binary-tree
+Trees|M|Validate Binary Search Tree|validate-binary-search-tree
+Trees|M|Kth Smallest Element in a BST|kth-smallest-element-in-a-bst
+Trees|M|Construct Binary Tree from Preorder and Inorder Traversal|construct-binary-tree-from-preorder-and-inorder-traversal
+Trees|H|Binary Tree Maximum Path Sum|binary-tree-maximum-path-sum
+Trees|H|Serialize and Deserialize Binary Tree|serialize-and-deserialize-binary-tree
+Heap / Priority Queue|E|Kth Largest Element in a Stream|kth-largest-element-in-a-stream
+Heap / Priority Queue|E|Last Stone Weight|last-stone-weight
+Heap / Priority Queue|M|K Closest Points to Origin|k-closest-points-to-origin
+Heap / Priority Queue|M|Kth Largest Element in an Array|kth-largest-element-in-an-array
+Heap / Priority Queue|M|Task Scheduler|task-scheduler
+Heap / Priority Queue|M|Design Twitter|design-twitter
+Heap / Priority Queue|H|Find Median from Data Stream|find-median-from-data-stream
+Backtracking|M|Subsets|subsets
+Backtracking|M|Combination Sum|combination-sum
+Backtracking|M|Permutations|permutations
+Backtracking|M|Subsets II|subsets-ii
+Backtracking|M|Combination Sum II|combination-sum-ii
+Backtracking|M|Word Search|word-search
+Backtracking|M|Palindrome Partitioning|palindrome-partitioning
+Backtracking|M|Letter Combinations of a Phone Number|letter-combinations-of-a-phone-number
+Backtracking|H|N-Queens|n-queens
+Tries|M|Implement Trie (Prefix Tree)|implement-trie-prefix-tree
+Tries|M|Design Add and Search Words Data Structure|design-add-and-search-words-data-structure
+Tries|H|Word Search II|word-search-ii
+Graphs|M|Number of Islands|number-of-islands
+Graphs|M|Max Area of Island|max-area-of-island
+Graphs|M|Clone Graph|clone-graph
+Graphs|M|Walls and Gates (Premium)|walls-and-gates
+Graphs|M|Rotting Oranges|rotting-oranges
+Graphs|M|Pacific Atlantic Water Flow|pacific-atlantic-water-flow
+Graphs|M|Surrounded Regions|surrounded-regions
+Graphs|M|Course Schedule|course-schedule
+Graphs|M|Course Schedule II|course-schedule-ii
+Graphs|M|Redundant Connection|redundant-connection
+Graphs|M|Number of Connected Components in an Undirected Graph (Premium)|number-of-connected-components-in-an-undirected-graph
+Graphs|M|Graph Valid Tree (Premium)|graph-valid-tree
+Graphs|H|Word Ladder|word-ladder
+Advanced Graphs|H|Reconstruct Itinerary|reconstruct-itinerary
+Advanced Graphs|M|Min Cost to Connect All Points|min-cost-to-connect-all-points
+Advanced Graphs|M|Network Delay Time|network-delay-time
+Advanced Graphs|H|Swim in Rising Water|swim-in-rising-water
+Advanced Graphs|H|Alien Dictionary (Premium)|alien-dictionary
+Advanced Graphs|M|Cheapest Flights Within K Stops|cheapest-flights-within-k-stops
+1-D Dynamic Programming|E|Climbing Stairs|climbing-stairs
+1-D Dynamic Programming|E|Min Cost Climbing Stairs|min-cost-climbing-stairs
+1-D Dynamic Programming|M|House Robber|house-robber
+1-D Dynamic Programming|M|House Robber II|house-robber-ii
+1-D Dynamic Programming|M|Longest Palindromic Substring|longest-palindromic-substring
+1-D Dynamic Programming|M|Palindromic Substrings|palindromic-substrings
+1-D Dynamic Programming|M|Decode Ways|decode-ways
+1-D Dynamic Programming|M|Coin Change|coin-change
+1-D Dynamic Programming|M|Maximum Product Subarray|maximum-product-subarray
+1-D Dynamic Programming|M|Word Break|word-break
+1-D Dynamic Programming|M|Longest Increasing Subsequence|longest-increasing-subsequence
+1-D Dynamic Programming|M|Partition Equal Subset Sum|partition-equal-subset-sum
+2-D Dynamic Programming|M|Unique Paths|unique-paths
+2-D Dynamic Programming|M|Longest Common Subsequence|longest-common-subsequence
+2-D Dynamic Programming|M|Best Time to Buy and Sell Stock with Cooldown|best-time-to-buy-and-sell-stock-with-cooldown
+2-D Dynamic Programming|M|Coin Change II|coin-change-ii
+2-D Dynamic Programming|M|Target Sum|target-sum
+2-D Dynamic Programming|M|Interleaving String|interleaving-string
+2-D Dynamic Programming|H|Longest Increasing Path in a Matrix|longest-increasing-path-in-a-matrix
+2-D Dynamic Programming|H|Distinct Subsequences|distinct-subsequences
+2-D Dynamic Programming|M|Edit Distance|edit-distance
+2-D Dynamic Programming|H|Burst Balloons|burst-balloons
+2-D Dynamic Programming|H|Regular Expression Matching|regular-expression-matching
+Greedy|M|Maximum Subarray|maximum-subarray
+Greedy|M|Jump Game|jump-game
+Greedy|M|Jump Game II|jump-game-ii
+Greedy|M|Gas Station|gas-station
+Greedy|M|Hand of Straights|hand-of-straights
+Greedy|M|Merge Triplets to Form Target Triplet|merge-triplets-to-form-target-triplet
+Greedy|M|Partition Labels|partition-labels
+Greedy|M|Valid Parenthesis String|valid-parenthesis-string
+Intervals|M|Insert Interval|insert-interval
+Intervals|M|Merge Intervals|merge-intervals
+Intervals|M|Non-overlapping Intervals|non-overlapping-intervals
+Intervals|E|Meeting Rooms (Premium)|meeting-rooms
+Intervals|M|Meeting Rooms II (Premium)|meeting-rooms-ii
+Intervals|H|Minimum Interval to Include Each Query|minimum-interval-to-include-each-query
+Math & Geometry|M|Rotate Image|rotate-image
+Math & Geometry|M|Spiral Matrix|spiral-matrix
+Math & Geometry|M|Set Matrix Zeroes|set-matrix-zeroes
+Math & Geometry|E|Happy Number|happy-number
+Math & Geometry|E|Plus One|plus-one
+Math & Geometry|M|Pow(x, n)|powx-n
+Math & Geometry|M|Multiply Strings|multiply-strings
+Math & Geometry|M|Detect Squares|detect-squares
+Bit Manipulation|E|Single Number|single-number
+Bit Manipulation|E|Number of 1 Bits|number-of-1-bits
+Bit Manipulation|E|Counting Bits|counting-bits
+Bit Manipulation|E|Reverse Bits|reverse-bits
+Bit Manipulation|E|Missing Number|missing-number
+Bit Manipulation|M|Sum of Two Integers|sum-of-two-integers
+Bit Manipulation|M|Reverse Integer|reverse-integer

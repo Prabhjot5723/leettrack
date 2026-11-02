@@ -198,11 +198,12 @@ def get_due_revisions(conn, user_id, target_date=None):
 # 6. New-question selection (DB query)
 # --------------------------------------------------------------------------
 
-def get_new_questions(conn, user_id, new_mix):
+def get_new_questions(conn, user_id, new_mix, sheet_id=None):
     """
     Pick up to `count` questions per difficulty that this user has not solved
     yet (no row in solved_questions). new_mix looks like
     {"Easy": 2, "Medium": 1, "Hard": 0}, as produced by find_best_new_question_mix.
+    sheet_id: only questions from this sheet are offered, in the sheet's own order.
     """
     questions = []
     for difficulty, count in new_mix.items():
@@ -211,16 +212,19 @@ def get_new_questions(conn, user_id, new_mix):
 
         rows = run_query(conn, """
             SELECT qb.question_id, qb.platform, qb.title, qb.difficulty, qb.topic, qb.url
-            FROM question_bank AS qb
+            FROM sheet_questions AS shq
+            JOIN question_bank AS qb
+                ON qb.question_id = shq.question_id AND qb.platform = shq.platform
             LEFT JOIN solved_questions AS sq
                 ON qb.question_id = sq.question_id
                 AND qb.platform = sq.platform
                 AND sq.user_id = %s
-            WHERE sq.question_id IS NULL
+            WHERE shq.sheet_id = %s
+                AND sq.question_id IS NULL
                 AND qb.difficulty = %s
-            ORDER BY qb.question_id
+            ORDER BY shq.sort_pos
             LIMIT %s
-        """, (user_id, difficulty, count), fetch=True)
+        """, (user_id, sheet_id, difficulty, count), fetch=True)
 
         questions.extend(rows)
 
@@ -263,7 +267,7 @@ def find_best_new_question_mix(remaining_capacity):
     return best_mix, best_used
 
 
-def create_daily_plan(conn, user_id, target_date=None):
+def create_daily_plan(conn, user_id, target_date=None, sheet_id=None):
     """
     Build the plan for a user as of target_date (defaults to date.today()):
     due revisions always go in first (and consume capacity), then whatever
@@ -277,7 +281,7 @@ def create_daily_plan(conn, user_id, target_date=None):
     remaining_capacity = max(0, DAILY_CAPACITY - revision_capacity)
 
     new_mix, new_capacity = find_best_new_question_mix(remaining_capacity)
-    new_questions = get_new_questions(conn, user_id, new_mix)
+    new_questions = get_new_questions(conn, user_id, new_mix, sheet_id)
 
     return {
         "revisions": revisions,
