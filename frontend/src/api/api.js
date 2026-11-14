@@ -183,6 +183,19 @@ export function getSheetProgress() {
   return request('/api/me/sheet-progress')
 }
 
+export function getTopicProgress() {
+  return request('/api/me/topic-progress')
+}
+
+export function getActivity() {
+  return request('/api/me/activity')
+}
+
+export function getCalendar(month) {
+  // month looks like "2026-11"
+  return request(`/api/me/calendar?month=${encodeURIComponent(month)}`)
+}
+
 export function getProgress() {
   return request('/api/me/progress')
 }

@@ -17,6 +17,20 @@ const SHEET_NAMES = {
 }
 const sheetName = (id) => SHEET_NAMES[id] || id
 
+// "3 revisions due, 4 new questions. 5-day streak."
+function todaySummary(plan, streak) {
+  if (!plan) return "Here's your plan for today."
+  const r = plan.revisions.length
+  const n = plan.new_questions.length
+  const parts = [
+    `${r} ${r === 1 ? 'revision' : 'revisions'} due`,
+    `${n} new ${n === 1 ? 'question' : 'questions'}`,
+  ]
+  let text = parts.join(', ') + '.'
+  if (streak > 0) text += ` ${streak}-day streak.`
+  return text
+}
+
 function greeting() {
   const hour = new Date().getHours()
   if (hour < 12) return 'Good morning'
@@ -36,6 +50,7 @@ function todayStr() {
 export default function Dashboard() {
   const [user, setUser] = useState(null)
   const [plan, setPlan] = useState(null)
+  const [streak, setStreak] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [simulatedDate, setSimulatedDate] = useState(todayStr())
@@ -52,6 +67,7 @@ export default function Dashboard() {
       ])
       setUser(userData)
       setPlan(planData)
+      api.getActivity().then((a) => setStreak(a.current_streak)).catch(() => setStreak(null))
     } catch (err) {
       setError(err.message)
     } finally {
@@ -125,11 +141,11 @@ export default function Dashboard() {
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
           <div>
             <h2 className="text-2xl font-semibold text-ink">
-              {isToday ? greeting() : 'Viewing plan for'}{isToday && user ? `, ${user.username}` : ''} 👋
+              {isToday ? greeting() : 'Viewing plan for'}{isToday && user ? `, ${user.username}` : ''}
             </h2>
             <p className="text-ink-muted mt-1">
               {isToday
-                ? "Here's your DSA plan for today."
+                ? todaySummary(plan, streak)
                 : `Simulated plan for ${simulatedDate} — no data is being changed.`}
             </p>
             {plan?.sheet_id && (
@@ -193,8 +209,7 @@ export default function Dashboard() {
             <Section title={isToday ? "Today's revision" : 'Revision queue'} count={plan.revisions.length}>
               {plan.revisions.length === 0 ? (
                 <EmptyState
-                  emoji="🎉"
-                  message={isToday ? 'No revisions due today!' : `No revisions due by ${simulatedDate}.`}
+                  message={isToday ? 'No revisions due today.' : `No revisions due by ${simulatedDate}.`}
                 />
               ) : (
                 <CardGrid>
@@ -211,7 +226,7 @@ export default function Dashboard() {
 
             <Section title={isToday ? "Today's new questions" : 'New questions'} count={plan.new_questions.length}>
               {plan.new_questions.length === 0 ? (
-                <EmptyState message="You've completed all currently available questions." />
+                <EmptyState message="No unsolved questions left in this sheet. Pick another sheet in Profile." />
               ) : (
                 <CardGrid>
                   {plan.new_questions.map((q) => (
@@ -247,10 +262,9 @@ function CardGrid({ children }) {
   return <div className="grid grid-cols-1 md:grid-cols-2 gap-4">{children}</div>
 }
 
-function EmptyState({ emoji, message }) {
+function EmptyState({ message }) {
   return (
     <div className="rounded-card border border-dashed border-base-border p-8 text-center text-ink-muted">
-      {emoji && <div className="text-2xl mb-2">{emoji}</div>}
       <p className="text-sm">{message}</p>
     </div>
   )
