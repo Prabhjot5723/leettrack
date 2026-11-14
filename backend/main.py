@@ -305,6 +305,25 @@ def choose_sheet(
     return _handle(services.choose_sheet, conn, user["user_id"], payload.sheet_id)
 
 
+@app.get("/api/me/topic-progress")
+def get_topic_progress(user=Depends(auth.get_current_user), conn=Depends(get_db)):
+    return _handle(services.get_topic_progress, conn, user["user_id"])
+
+
+@app.get("/api/me/activity")
+def get_activity(user=Depends(auth.get_current_user), conn=Depends(get_db)):
+    return _handle(services.get_activity, conn, user["user_id"])
+
+
+@app.get("/api/me/calendar")
+def get_revision_calendar(
+    month: str = Query(..., description="Month as YYYY-MM, for example 2026-11"),
+    user=Depends(auth.get_current_user),
+    conn=Depends(get_db),
+):
+    return _handle(services.get_revision_calendar, conn, user["user_id"], month)
+
+
 @app.get("/api/me/sheet-progress")
 def get_sheet_progress(user=Depends(auth.get_current_user), conn=Depends(get_db)):
     return _handle(services.get_sheet_progress, conn, user["user_id"])

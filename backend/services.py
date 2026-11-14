@@ -15,6 +15,7 @@ import mysql.connector
 import auth
 import engine
 import sheets
+import stats
 
 
 # --------------------------------------------------------------------------
@@ -560,3 +561,86 @@ def get_sheet_progress(conn, user_id: int) -> dict:
     """, (user_id, sheet_id), fetch=True)
     total, solved = int(rows[0]["total"]), int(rows[0]["solved"])
     return {"sheet_id": sheet_id, "total": total, "solved": solved}
+
+
+# --------------------------------------------------------------------------
+# Progress page extras: topic progress, activity (streak) and revision calendar
+# --------------------------------------------------------------------------
+
+def get_topic_progress(conn, user_id: int) -> dict:
+    """Solved / total per topic, for the user's current sheet, in sheet order."""
+    if not _user_exists(conn, user_id):
+        raise NotFoundError(f"User {user_id} not found.")
+    sheet_id = sheets.effective_sheet_id(conn, user_id)
+    rows = engine.run_query(conn, """
+        SELECT qb.topic AS topic,
+               COUNT(*) AS total,
+               COALESCE(SUM(CASE WHEN sq.question_id IS NOT NULL THEN 1 ELSE 0 END), 0) AS solved,
+               MIN(shq.sort_pos) AS first_pos
+        FROM sheet_questions AS shq
+        JOIN question_bank AS qb
+            ON qb.question_id = shq.question_id AND qb.platform = shq.platform
+        LEFT JOIN solved_questions AS sq
+            ON sq.question_id = shq.question_id AND sq.platform = shq.platform
+            AND sq.user_id = %s
+        WHERE shq.sheet_id = %s
+        GROUP BY qb.topic
+        ORDER BY first_pos
+    """, (user_id, sheet_id), fetch=True)
+    topics = [{"topic": r["topic"], "total": int(r["total"]), "solved": int(r["solved"])}
+              for r in rows]
+    return {"sheet_id": sheet_id, "topics": topics}
+
+
+def get_activity(conn, user_id: int) -> dict:
+    """Last 12 weeks of activity plus current / longest streak.
+    Activity = questions solved that day + the most recent revision date of each question."""
+    if not _user_exists(conn, user_id):
+        raise NotFoundError(f"User {user_id} not found.")
+    rows = engine.run_query(conn, """
+        SELECT d, COUNT(*) AS n FROM (
+            SELECT solved_date AS d FROM solved_questions WHERE user_id = %s
+            UNION ALL
+            SELECT last_revision_date AS d FROM solved_questions
+            WHERE user_id = %s AND last_revision_date IS NOT NULL
+        ) AS t
+        GROUP BY d
+    """, (user_id, user_id), fetch=True)
+    counts = {stats.to_date(r["d"]): int(r["n"]) for r in rows if r["d"] is not None}
+    now = today()
+    current, longest = stats.compute_streaks(set(counts), now)
+    days = stats.build_activity_days(counts, now, weeks=12)
+    return {
+        "days": days,
+        "current_streak": current,
+        "longest_streak": longest,
+        "active_days": sum(1 for d in days if d["count"] > 0),
+        "today": now.isoformat(),
+    }
+
+
+def get_revision_calendar(conn, user_id: int, month: str) -> dict:
+    """How many revisions fall due on each day of the given month (YYYY-MM)."""
+    if not _user_exists(conn, user_id):
+        raise NotFoundError(f"User {user_id} not found.")
+    try:
+        first, last = stats.month_bounds(month)
+    except ValueError as exc:
+        raise ValidationError(str(exc))
+    rows = engine.run_query(conn, """
+        SELECT due_date AS d, COUNT(*) AS n
+        FROM solved_questions
+        WHERE user_id = %s AND due_date IS NOT NULL AND due_date BETWEEN %s AND %s
+        GROUP BY due_date
+    """, (user_id, first, last), fetch=True)
+    counts = {stats.to_date(r["d"]): int(r["n"]) for r in rows}
+    overdue = engine.run_query(conn, """
+        SELECT COUNT(*) AS n FROM solved_questions
+        WHERE user_id = %s AND due_date IS NOT NULL AND due_date < %s
+    """, (user_id, today()), fetch=True)[0]["n"]
+    return {
+        "month": month,
+        "days": stats.build_calendar(counts, first, last),
+        "overdue": int(overdue),
+        "today": today().isoformat(),
+    }
