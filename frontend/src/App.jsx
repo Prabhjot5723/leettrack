@@ -11,6 +11,12 @@ import Login from './pages/Login'
 import ForgotPassword from './pages/ForgotPassword'
 import ResetPassword from './pages/ResetPassword'
 import Landing from './pages/Landing'
+import ThemeToggle from './components/ThemeToggle'
+import { initTheme } from './theme/theme'
+import './styles/theme.css'
+
+// Sets light or dark before the first screen is drawn.
+initTheme()
 
 // Pages inside this layout need a logged-in user; visitors go to the 3D login page.
 // (The front page is still available at /welcome, via "Back to home".)
@@ -53,6 +59,7 @@ export default function App() {
   return (
     <AuthProvider>
       <ToastProvider>
+        <ThemeToggle />
         <Routes>
           <Route path="/welcome" element={<LandingRoute />} />
           <Route path="/login" element={<LoginRoute />} />

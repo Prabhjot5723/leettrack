@@ -4,6 +4,7 @@ import StatCard from '../components/StatCard'
 import LoadingSpinner from '../components/LoadingSpinner'
 import ChangePasswordForm from '../components/ChangePasswordForm'
 import SheetPicker from '../components/SheetPicker'
+import useTheme from '../theme/useTheme'
 import * as api from '../api/api'
 
 export default function Profile() {
@@ -36,6 +37,7 @@ export default function Profile() {
   }, [load])
 
   const platforms = [...new Set(solved.map((s) => s.platform))]
+  const { preference, setPreference } = useTheme()
 
   return (
     <>
@@ -73,6 +75,34 @@ export default function Profile() {
                 current={user.sheet_id || 'starter-200'}
                 onChosen={(u) => setUser(u)}
               />
+            </div>
+
+            <div className="rounded-card border border-base-border bg-base-card p-5 shadow-card mb-6">
+              <h3 className="text-sm font-medium text-ink">Appearance</h3>
+              <p className="text-xs text-ink-muted mt-0.5 mb-3">
+                Choose light or dark, or follow your device.
+              </p>
+              <div className="inline-flex rounded-lg border border-base-border p-0.5" role="group" aria-label="Colour mode">
+                {[
+                  ['light', 'Light'],
+                  ['dark', 'Dark'],
+                  ['system', 'Device'],
+                ].map(([value, label]) => (
+                  <button
+                    key={value}
+                    type="button"
+                    onClick={() => setPreference(value)}
+                    aria-pressed={preference === value}
+                    className={`px-3.5 py-1.5 text-sm rounded-md transition-colors ${
+                      preference === value
+                        ? 'bg-accent-muted text-accent'
+                        : 'text-ink-muted hover:text-ink'
+                    }`}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
             </div>
 
             <div className="rounded-card border border-base-border bg-base-card p-5 shadow-card mb-6">

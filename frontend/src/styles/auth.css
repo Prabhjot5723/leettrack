@@ -4,18 +4,19 @@
    Everything is prefixed "au-" so it cannot change the rest of the app. */
 
 .au {
-  --night: #0c0f1f;
-  --panel: #141934;
-  --panel-2: #1b2145;
-  --field: #0f1329;
-  --rule: #2a3160;
-  --chalk: #edebf6;
-  --mist: #a3a9cc;
-  --faint: #8088ad;
-  --accent: #8493ff;
-  --easy: #52d9a0;
-  --medium: #ffc45a;
-  --hard: #ff7f8f;
+  /* colours come from theme.css (light and dark) */
+  --night: var(--t-bg);
+  --panel: var(--t-panel);
+  --panel-2: var(--t-panel2);
+  --field: var(--t-field);
+  --rule: var(--t-rule);
+  --chalk: var(--t-chalk);
+  --mist: var(--t-mist);
+  --faint: var(--t-faint);
+  --accent: var(--t-accent);
+  --easy: var(--t-easy);
+  --medium: var(--t-medium);
+  --hard: var(--t-hard);
 
   min-height: 100vh;
   display: grid;
@@ -64,7 +65,7 @@
   height: 2rem;
   border-radius: 8px;
   background: var(--accent);
-  color: var(--night);
+  color: var(--t-on-accent);
   font-weight: 800;
   font-size: 0.9rem;
 }
@@ -124,7 +125,7 @@
 .au-cell {
   aspect-ratio: 1;
   border-radius: 24%;
-  background: rgba(163, 169, 204, 0.14);
+  background: rgb(var(--t-mist-rgb) / 0.16);
   transition: background-color 0.35s ease, box-shadow 0.35s ease;
   transition-delay: var(--delay, 0ms);
 }
@@ -133,11 +134,11 @@
 }
 .au-cell.is-today {
   background: var(--accent);
-  box-shadow: 0 0 0 3px rgba(132, 147, 255, 0.3);
+  box-shadow: 0 0 0 3px rgb(var(--t-accent-rgb) / 0.3);
 }
 .au-cell.is-due {
   background: var(--medium);
-  box-shadow: 0 0 0 3px rgba(255, 196, 90, 0.28);
+  box-shadow: 0 0 0 3px rgb(var(--t-medium-rgb) / 0.3);
 }
 
 .au-days {
@@ -310,16 +311,16 @@
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .au-input::placeholder {
-  color: #7b82a8;
+  color: var(--faint);
 }
 .au-input:hover {
-  border-color: #3a4382;
+  border-color: var(--t-rule-hover);
 }
 .au-input:focus,
 .au-input:focus-visible {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(132, 147, 255, 0.25);
+  box-shadow: 0 0 0 3px rgb(var(--t-accent-rgb) / 0.28);
 }
 
 /* password box with the show / hide button */
@@ -342,7 +343,7 @@
   border: 0;
   border-radius: 0 10px 10px 0;
   background: transparent;
-  color: #7b82a8;
+  color: var(--faint);
   cursor: pointer;
   transition: color 0.2s ease;
 }
@@ -415,10 +416,10 @@
 .au-error {
   margin-bottom: 1rem;
   padding: 0.7rem 0.9rem;
-  border: 1px solid rgba(255, 127, 143, 0.4);
+  border: 1px solid rgb(var(--t-hard-rgb) / 0.45);
   border-radius: 10px;
-  background: rgba(255, 127, 143, 0.1);
-  color: #ffb4bd;
+  background: rgb(var(--t-hard-rgb) / 0.1);
+  color: var(--t-hard-text);
   font-size: 0.9375rem;
 }
 
@@ -443,10 +444,10 @@
 }
 .au .au-btn-primary {
   background: var(--accent);
-  color: var(--night);
+  color: var(--t-on-accent);
 }
 .au .au-btn-primary:hover:not(:disabled) {
-  background: #9ba7ff;
+  background: var(--t-accent-hover);
 }
 .au .au-btn-ghost {
   border-color: var(--rule);

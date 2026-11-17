@@ -1,0 +1,1385 @@
+/* LeetTrack colours for light and dark mode.
+   The mode is set on <html data-theme="light|dark"> by src/theme/theme.js.
+
+   Palette idea: warm neutrals (charcoal / paper) with one orange accent, instead of blue and purple.
+   Easy / Medium / Hard keep their green / yellow / red meaning.
+
+   Part 1: the palettes.   Part 2: small shared bits.   Part 3: overrides for the app screens
+   (generated, see the end of this file). */
+
+/* ---------------------------------------------------------------- 1. palettes */
+
+html[data-theme='dark'],
+html:not([data-theme]) {
+  color-scheme: dark;
+
+  /* login, sign-up, front page */
+  --t-bg: #171512;
+  --t-panel: #1f1d19;
+  --t-panel2: #28251f;
+  --t-field: #1a1815;
+  --t-rule: #38342c;
+  --t-rule-hover: #5a5446;
+  --t-chalk: #efebe3;
+  --t-mist: #b3ac9c;
+  --t-faint: #8a8476;
+  --t-accent: #e8892c;
+  --t-accent-hover: #f29b47;
+  --t-accent-soft: #f5c58f;
+  --t-on-accent: #1a1208;
+  --t-easy: #7cc66e;
+  --t-medium: #e6b83e;
+  --t-hard: #ec6f63;
+  --t-hard-text: #ffb3aa;
+  --t-mist-rgb: 179 172 156;
+  --t-accent-rgb: 232 137 44;
+  --t-easy-rgb: 124 198 110;
+  --t-medium-rgb: 230 184 62;
+  --t-hard-rgb: 236 111 99;
+  --t-deep-rgb: 11 10 8;
+  --t-glass-rgb: 28 26 22;
+  --t-shadow-rgb: 0 0 0;
+  --t-hi-rgb: 255 255 255;
+  --t-scene-a: #2c261c;
+  --t-scene-b: #171512;
+  --t-scene-c: #0d0c0a;
+
+  /* app screens (Tailwind names: bg-base, bg-base-card, text-ink ...) */
+  --a-base: #171512;
+  --a-base-card: #1f1d19;
+  --a-base-border: #38342c;
+  --a-ink: #efebe3;
+  --a-ink-muted: #b3ac9c;
+  --a-ink-faint: #8a8476;
+  --a-accent: #e8892c;
+  --a-accent-hover: #f29b47;
+  --a-accent-muted: #3a2a17;
+  --a-easy: #7cc66e;
+  --a-medium: #e6b83e;
+  --a-hard: #ec6f63;
+  --a-hard-bg: #33201d;
+  --a-shadow: 0 1px 2px rgb(0 0 0 / 0.35);
+}
+
+html[data-theme='light'] {
+  color-scheme: light;
+
+  --t-bg: #f4f1ea;
+  --t-panel: #ece7dc;
+  --t-panel2: #e3ddcf;
+  --t-field: #fffdf8;
+  --t-rule: #d4cdbd;
+  --t-rule-hover: #b3aa96;
+  --t-chalk: #211f1a;
+  --t-mist: #5c564a;
+  --t-faint: #857e6f;
+  --t-accent: #b85c0f;
+  --t-accent-hover: #9d4d09;
+  --t-accent-soft: #8a430a;
+  --t-on-accent: #fffdf8;
+  --t-easy: #2d8a3c;
+  --t-medium: #946600;
+  --t-hard: #c0392b;
+  --t-hard-text: #9c2b20;
+  --t-mist-rgb: 92 86 74;
+  --t-accent-rgb: 184 92 15;
+  --t-easy-rgb: 45 138 60;
+  --t-medium-rgb: 148 102 0;
+  --t-hard-rgb: 192 57 43;
+  --t-deep-rgb: 244 241 234;
+  --t-glass-rgb: 255 253 248;
+  --t-shadow-rgb: 70 55 25;
+  --t-hi-rgb: 255 255 255;
+  --t-scene-a: #fbf8f1;
+  --t-scene-b: #f4f1ea;
+  --t-scene-c: #e6dfd0;
+
+  --a-base: #f4f1ea;
+  --a-base-card: #fffdf8;
+  --a-base-border: #d9d2c2;
+  --a-ink: #211f1a;
+  --a-ink-muted: #5c564a;
+  --a-ink-faint: #857e6f;
+  --a-accent: #b85c0f;
+  --a-accent-hover: #9d4d09;
+  --a-accent-muted: #f6e5d1;
+  --a-easy: #2d8a3c;
+  --a-medium: #946600;
+  --a-hard: #c0392b;
+  --a-hard-bg: #fbe8e4;
+  --a-shadow: 0 1px 2px rgb(70 55 25 / 0.12);
+}
+
+/* ------------------------------------------------------------ 2. shared bits */
+
+html[data-theme] body {
+  background-color: var(--a-base);
+  color: var(--a-ink);
+}
+
+/* the round light/dark button, fixed in the corner of every screen */
+.theme-toggle {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--t-rule);
+  border-radius: 999px;
+  background: var(--t-panel);
+  color: var(--t-chalk);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgb(var(--t-shadow-rgb) / 0.25);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.theme-toggle:hover {
+  border-color: var(--t-accent);
+  color: var(--t-accent);
+}
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--t-accent);
+  outline-offset: 3px;
+}
+
+/* ------------------------------------------- 3. app screens (generated) */
+html[data-theme] .bg-base{background-color:var(--a-base)}
+html[data-theme] .text-base{color:var(--a-base)}
+html[data-theme] .border-base{border-color:var(--a-base)}
+html[data-theme] .fill-base{fill:var(--a-base)}
+html[data-theme] .stroke-base{stroke:var(--a-base)}
+html[data-theme] .border-t-base{border-top-color:var(--a-base)}
+html[data-theme] .border-b-base{border-bottom-color:var(--a-base)}
+html[data-theme] .border-l-base{border-left-color:var(--a-base)}
+html[data-theme] .border-r-base{border-right-color:var(--a-base)}
+html[data-theme] .ring-base{--tw-ring-color:var(--a-base)}
+html[data-theme] .hover\:bg-base:hover{background-color:var(--a-base)}
+html[data-theme] .hover\:text-base:hover{color:var(--a-base)}
+html[data-theme] .hover\:border-base:hover{border-color:var(--a-base)}
+html[data-theme] .hover\:fill-base:hover{fill:var(--a-base)}
+html[data-theme] .hover\:stroke-base:hover{stroke:var(--a-base)}
+html[data-theme] .hover\:border-t-base:hover{border-top-color:var(--a-base)}
+html[data-theme] .hover\:border-b-base:hover{border-bottom-color:var(--a-base)}
+html[data-theme] .hover\:border-l-base:hover{border-left-color:var(--a-base)}
+html[data-theme] .hover\:border-r-base:hover{border-right-color:var(--a-base)}
+html[data-theme] .hover\:ring-base:hover{--tw-ring-color:var(--a-base)}
+html[data-theme] .focus\:bg-base:focus{background-color:var(--a-base)}
+html[data-theme] .focus\:text-base:focus{color:var(--a-base)}
+html[data-theme] .focus\:border-base:focus{border-color:var(--a-base)}
+html[data-theme] .focus\:fill-base:focus{fill:var(--a-base)}
+html[data-theme] .focus\:stroke-base:focus{stroke:var(--a-base)}
+html[data-theme] .focus\:border-t-base:focus{border-top-color:var(--a-base)}
+html[data-theme] .focus\:border-b-base:focus{border-bottom-color:var(--a-base)}
+html[data-theme] .focus\:border-l-base:focus{border-left-color:var(--a-base)}
+html[data-theme] .focus\:border-r-base:focus{border-right-color:var(--a-base)}
+html[data-theme] .focus\:ring-base:focus{--tw-ring-color:var(--a-base)}
+html[data-theme] .focus-visible\:bg-base:focus-visible{background-color:var(--a-base)}
+html[data-theme] .focus-visible\:text-base:focus-visible{color:var(--a-base)}
+html[data-theme] .focus-visible\:border-base:focus-visible{border-color:var(--a-base)}
+html[data-theme] .focus-visible\:fill-base:focus-visible{fill:var(--a-base)}
+html[data-theme] .focus-visible\:stroke-base:focus-visible{stroke:var(--a-base)}
+html[data-theme] .focus-visible\:border-t-base:focus-visible{border-top-color:var(--a-base)}
+html[data-theme] .focus-visible\:border-b-base:focus-visible{border-bottom-color:var(--a-base)}
+html[data-theme] .focus-visible\:border-l-base:focus-visible{border-left-color:var(--a-base)}
+html[data-theme] .focus-visible\:border-r-base:focus-visible{border-right-color:var(--a-base)}
+html[data-theme] .focus-visible\:ring-base:focus-visible{--tw-ring-color:var(--a-base)}
+html[data-theme] .active\:bg-base:active{background-color:var(--a-base)}
+html[data-theme] .active\:text-base:active{color:var(--a-base)}
+html[data-theme] .active\:border-base:active{border-color:var(--a-base)}
+html[data-theme] .active\:fill-base:active{fill:var(--a-base)}
+html[data-theme] .active\:stroke-base:active{stroke:var(--a-base)}
+html[data-theme] .active\:border-t-base:active{border-top-color:var(--a-base)}
+html[data-theme] .active\:border-b-base:active{border-bottom-color:var(--a-base)}
+html[data-theme] .active\:border-l-base:active{border-left-color:var(--a-base)}
+html[data-theme] .active\:border-r-base:active{border-right-color:var(--a-base)}
+html[data-theme] .active\:ring-base:active{--tw-ring-color:var(--a-base)}
+html[data-theme] .placeholder\:text-base::placeholder{color:var(--a-base)}
+html[data-theme] .divide-base>:not(:last-child){border-color:var(--a-base)}
+html[data-theme] .bg-base-card{background-color:var(--a-base-card)}
+html[data-theme] .text-base-card{color:var(--a-base-card)}
+html[data-theme] .border-base-card{border-color:var(--a-base-card)}
+html[data-theme] .fill-base-card{fill:var(--a-base-card)}
+html[data-theme] .stroke-base-card{stroke:var(--a-base-card)}
+html[data-theme] .border-t-base-card{border-top-color:var(--a-base-card)}
+html[data-theme] .border-b-base-card{border-bottom-color:var(--a-base-card)}
+html[data-theme] .border-l-base-card{border-left-color:var(--a-base-card)}
+html[data-theme] .border-r-base-card{border-right-color:var(--a-base-card)}
+html[data-theme] .ring-base-card{--tw-ring-color:var(--a-base-card)}
+html[data-theme] .hover\:bg-base-card:hover{background-color:var(--a-base-card)}
+html[data-theme] .hover\:text-base-card:hover{color:var(--a-base-card)}
+html[data-theme] .hover\:border-base-card:hover{border-color:var(--a-base-card)}
+html[data-theme] .hover\:fill-base-card:hover{fill:var(--a-base-card)}
+html[data-theme] .hover\:stroke-base-card:hover{stroke:var(--a-base-card)}
+html[data-theme] .hover\:border-t-base-card:hover{border-top-color:var(--a-base-card)}
+html[data-theme] .hover\:border-b-base-card:hover{border-bottom-color:var(--a-base-card)}
+html[data-theme] .hover\:border-l-base-card:hover{border-left-color:var(--a-base-card)}
+html[data-theme] .hover\:border-r-base-card:hover{border-right-color:var(--a-base-card)}
+html[data-theme] .hover\:ring-base-card:hover{--tw-ring-color:var(--a-base-card)}
+html[data-theme] .focus\:bg-base-card:focus{background-color:var(--a-base-card)}
+html[data-theme] .focus\:text-base-card:focus{color:var(--a-base-card)}
+html[data-theme] .focus\:border-base-card:focus{border-color:var(--a-base-card)}
+html[data-theme] .focus\:fill-base-card:focus{fill:var(--a-base-card)}
+html[data-theme] .focus\:stroke-base-card:focus{stroke:var(--a-base-card)}
+html[data-theme] .focus\:border-t-base-card:focus{border-top-color:var(--a-base-card)}
+html[data-theme] .focus\:border-b-base-card:focus{border-bottom-color:var(--a-base-card)}
+html[data-theme] .focus\:border-l-base-card:focus{border-left-color:var(--a-base-card)}
+html[data-theme] .focus\:border-r-base-card:focus{border-right-color:var(--a-base-card)}
+html[data-theme] .focus\:ring-base-card:focus{--tw-ring-color:var(--a-base-card)}
+html[data-theme] .focus-visible\:bg-base-card:focus-visible{background-color:var(--a-base-card)}
+html[data-theme] .focus-visible\:text-base-card:focus-visible{color:var(--a-base-card)}
+html[data-theme] .focus-visible\:border-base-card:focus-visible{border-color:var(--a-base-card)}
+html[data-theme] .focus-visible\:fill-base-card:focus-visible{fill:var(--a-base-card)}
+html[data-theme] .focus-visible\:stroke-base-card:focus-visible{stroke:var(--a-base-card)}
+html[data-theme] .focus-visible\:border-t-base-card:focus-visible{border-top-color:var(--a-base-card)}
+html[data-theme] .focus-visible\:border-b-base-card:focus-visible{border-bottom-color:var(--a-base-card)}
+html[data-theme] .focus-visible\:border-l-base-card:focus-visible{border-left-color:var(--a-base-card)}
+html[data-theme] .focus-visible\:border-r-base-card:focus-visible{border-right-color:var(--a-base-card)}
+html[data-theme] .focus-visible\:ring-base-card:focus-visible{--tw-ring-color:var(--a-base-card)}
+html[data-theme] .active\:bg-base-card:active{background-color:var(--a-base-card)}
+html[data-theme] .active\:text-base-card:active{color:var(--a-base-card)}
+html[data-theme] .active\:border-base-card:active{border-color:var(--a-base-card)}
+html[data-theme] .active\:fill-base-card:active{fill:var(--a-base-card)}
+html[data-theme] .active\:stroke-base-card:active{stroke:var(--a-base-card)}
+html[data-theme] .active\:border-t-base-card:active{border-top-color:var(--a-base-card)}
+html[data-theme] .active\:border-b-base-card:active{border-bottom-color:var(--a-base-card)}
+html[data-theme] .active\:border-l-base-card:active{border-left-color:var(--a-base-card)}
+html[data-theme] .active\:border-r-base-card:active{border-right-color:var(--a-base-card)}
+html[data-theme] .active\:ring-base-card:active{--tw-ring-color:var(--a-base-card)}
+html[data-theme] .placeholder\:text-base-card::placeholder{color:var(--a-base-card)}
+html[data-theme] .divide-base-card>:not(:last-child){border-color:var(--a-base-card)}
+html[data-theme] .bg-base-border{background-color:var(--a-base-border)}
+html[data-theme] .text-base-border{color:var(--a-base-border)}
+html[data-theme] .border-base-border{border-color:var(--a-base-border)}
+html[data-theme] .fill-base-border{fill:var(--a-base-border)}
+html[data-theme] .stroke-base-border{stroke:var(--a-base-border)}
+html[data-theme] .border-t-base-border{border-top-color:var(--a-base-border)}
+html[data-theme] .border-b-base-border{border-bottom-color:var(--a-base-border)}
+html[data-theme] .border-l-base-border{border-left-color:var(--a-base-border)}
+html[data-theme] .border-r-base-border{border-right-color:var(--a-base-border)}
+html[data-theme] .ring-base-border{--tw-ring-color:var(--a-base-border)}
+html[data-theme] .hover\:bg-base-border:hover{background-color:var(--a-base-border)}
+html[data-theme] .hover\:text-base-border:hover{color:var(--a-base-border)}
+html[data-theme] .hover\:border-base-border:hover{border-color:var(--a-base-border)}
+html[data-theme] .hover\:fill-base-border:hover{fill:var(--a-base-border)}
+html[data-theme] .hover\:stroke-base-border:hover{stroke:var(--a-base-border)}
+html[data-theme] .hover\:border-t-base-border:hover{border-top-color:var(--a-base-border)}
+html[data-theme] .hover\:border-b-base-border:hover{border-bottom-color:var(--a-base-border)}
+html[data-theme] .hover\:border-l-base-border:hover{border-left-color:var(--a-base-border)}
+html[data-theme] .hover\:border-r-base-border:hover{border-right-color:var(--a-base-border)}
+html[data-theme] .hover\:ring-base-border:hover{--tw-ring-color:var(--a-base-border)}
+html[data-theme] .focus\:bg-base-border:focus{background-color:var(--a-base-border)}
+html[data-theme] .focus\:text-base-border:focus{color:var(--a-base-border)}
+html[data-theme] .focus\:border-base-border:focus{border-color:var(--a-base-border)}
+html[data-theme] .focus\:fill-base-border:focus{fill:var(--a-base-border)}
+html[data-theme] .focus\:stroke-base-border:focus{stroke:var(--a-base-border)}
+html[data-theme] .focus\:border-t-base-border:focus{border-top-color:var(--a-base-border)}
+html[data-theme] .focus\:border-b-base-border:focus{border-bottom-color:var(--a-base-border)}
+html[data-theme] .focus\:border-l-base-border:focus{border-left-color:var(--a-base-border)}
+html[data-theme] .focus\:border-r-base-border:focus{border-right-color:var(--a-base-border)}
+html[data-theme] .focus\:ring-base-border:focus{--tw-ring-color:var(--a-base-border)}
+html[data-theme] .focus-visible\:bg-base-border:focus-visible{background-color:var(--a-base-border)}
+html[data-theme] .focus-visible\:text-base-border:focus-visible{color:var(--a-base-border)}
+html[data-theme] .focus-visible\:border-base-border:focus-visible{border-color:var(--a-base-border)}
+html[data-theme] .focus-visible\:fill-base-border:focus-visible{fill:var(--a-base-border)}
+html[data-theme] .focus-visible\:stroke-base-border:focus-visible{stroke:var(--a-base-border)}
+html[data-theme] .focus-visible\:border-t-base-border:focus-visible{border-top-color:var(--a-base-border)}
+html[data-theme] .focus-visible\:border-b-base-border:focus-visible{border-bottom-color:var(--a-base-border)}
+html[data-theme] .focus-visible\:border-l-base-border:focus-visible{border-left-color:var(--a-base-border)}
+html[data-theme] .focus-visible\:border-r-base-border:focus-visible{border-right-color:var(--a-base-border)}
+html[data-theme] .focus-visible\:ring-base-border:focus-visible{--tw-ring-color:var(--a-base-border)}
+html[data-theme] .active\:bg-base-border:active{background-color:var(--a-base-border)}
+html[data-theme] .active\:text-base-border:active{color:var(--a-base-border)}
+html[data-theme] .active\:border-base-border:active{border-color:var(--a-base-border)}
+html[data-theme] .active\:fill-base-border:active{fill:var(--a-base-border)}
+html[data-theme] .active\:stroke-base-border:active{stroke:var(--a-base-border)}
+html[data-theme] .active\:border-t-base-border:active{border-top-color:var(--a-base-border)}
+html[data-theme] .active\:border-b-base-border:active{border-bottom-color:var(--a-base-border)}
+html[data-theme] .active\:border-l-base-border:active{border-left-color:var(--a-base-border)}
+html[data-theme] .active\:border-r-base-border:active{border-right-color:var(--a-base-border)}
+html[data-theme] .active\:ring-base-border:active{--tw-ring-color:var(--a-base-border)}
+html[data-theme] .placeholder\:text-base-border::placeholder{color:var(--a-base-border)}
+html[data-theme] .divide-base-border>:not(:last-child){border-color:var(--a-base-border)}
+html[data-theme] .bg-ink{background-color:var(--a-ink)}
+html[data-theme] .text-ink{color:var(--a-ink)}
+html[data-theme] .border-ink{border-color:var(--a-ink)}
+html[data-theme] .fill-ink{fill:var(--a-ink)}
+html[data-theme] .stroke-ink{stroke:var(--a-ink)}
+html[data-theme] .border-t-ink{border-top-color:var(--a-ink)}
+html[data-theme] .border-b-ink{border-bottom-color:var(--a-ink)}
+html[data-theme] .border-l-ink{border-left-color:var(--a-ink)}
+html[data-theme] .border-r-ink{border-right-color:var(--a-ink)}
+html[data-theme] .ring-ink{--tw-ring-color:var(--a-ink)}
+html[data-theme] .hover\:bg-ink:hover{background-color:var(--a-ink)}
+html[data-theme] .hover\:text-ink:hover{color:var(--a-ink)}
+html[data-theme] .hover\:border-ink:hover{border-color:var(--a-ink)}
+html[data-theme] .hover\:fill-ink:hover{fill:var(--a-ink)}
+html[data-theme] .hover\:stroke-ink:hover{stroke:var(--a-ink)}
+html[data-theme] .hover\:border-t-ink:hover{border-top-color:var(--a-ink)}
+html[data-theme] .hover\:border-b-ink:hover{border-bottom-color:var(--a-ink)}
+html[data-theme] .hover\:border-l-ink:hover{border-left-color:var(--a-ink)}
+html[data-theme] .hover\:border-r-ink:hover{border-right-color:var(--a-ink)}
+html[data-theme] .hover\:ring-ink:hover{--tw-ring-color:var(--a-ink)}
+html[data-theme] .focus\:bg-ink:focus{background-color:var(--a-ink)}
+html[data-theme] .focus\:text-ink:focus{color:var(--a-ink)}
+html[data-theme] .focus\:border-ink:focus{border-color:var(--a-ink)}
+html[data-theme] .focus\:fill-ink:focus{fill:var(--a-ink)}
+html[data-theme] .focus\:stroke-ink:focus{stroke:var(--a-ink)}
+html[data-theme] .focus\:border-t-ink:focus{border-top-color:var(--a-ink)}
+html[data-theme] .focus\:border-b-ink:focus{border-bottom-color:var(--a-ink)}
+html[data-theme] .focus\:border-l-ink:focus{border-left-color:var(--a-ink)}
+html[data-theme] .focus\:border-r-ink:focus{border-right-color:var(--a-ink)}
+html[data-theme] .focus\:ring-ink:focus{--tw-ring-color:var(--a-ink)}
+html[data-theme] .focus-visible\:bg-ink:focus-visible{background-color:var(--a-ink)}
+html[data-theme] .focus-visible\:text-ink:focus-visible{color:var(--a-ink)}
+html[data-theme] .focus-visible\:border-ink:focus-visible{border-color:var(--a-ink)}
+html[data-theme] .focus-visible\:fill-ink:focus-visible{fill:var(--a-ink)}
+html[data-theme] .focus-visible\:stroke-ink:focus-visible{stroke:var(--a-ink)}
+html[data-theme] .focus-visible\:border-t-ink:focus-visible{border-top-color:var(--a-ink)}
+html[data-theme] .focus-visible\:border-b-ink:focus-visible{border-bottom-color:var(--a-ink)}
+html[data-theme] .focus-visible\:border-l-ink:focus-visible{border-left-color:var(--a-ink)}
+html[data-theme] .focus-visible\:border-r-ink:focus-visible{border-right-color:var(--a-ink)}
+html[data-theme] .focus-visible\:ring-ink:focus-visible{--tw-ring-color:var(--a-ink)}
+html[data-theme] .active\:bg-ink:active{background-color:var(--a-ink)}
+html[data-theme] .active\:text-ink:active{color:var(--a-ink)}
+html[data-theme] .active\:border-ink:active{border-color:var(--a-ink)}
+html[data-theme] .active\:fill-ink:active{fill:var(--a-ink)}
+html[data-theme] .active\:stroke-ink:active{stroke:var(--a-ink)}
+html[data-theme] .active\:border-t-ink:active{border-top-color:var(--a-ink)}
+html[data-theme] .active\:border-b-ink:active{border-bottom-color:var(--a-ink)}
+html[data-theme] .active\:border-l-ink:active{border-left-color:var(--a-ink)}
+html[data-theme] .active\:border-r-ink:active{border-right-color:var(--a-ink)}
+html[data-theme] .active\:ring-ink:active{--tw-ring-color:var(--a-ink)}
+html[data-theme] .placeholder\:text-ink::placeholder{color:var(--a-ink)}
+html[data-theme] .divide-ink>:not(:last-child){border-color:var(--a-ink)}
+html[data-theme] .bg-ink-muted{background-color:var(--a-ink-muted)}
+html[data-theme] .text-ink-muted{color:var(--a-ink-muted)}
+html[data-theme] .border-ink-muted{border-color:var(--a-ink-muted)}
+html[data-theme] .fill-ink-muted{fill:var(--a-ink-muted)}
+html[data-theme] .stroke-ink-muted{stroke:var(--a-ink-muted)}
+html[data-theme] .border-t-ink-muted{border-top-color:var(--a-ink-muted)}
+html[data-theme] .border-b-ink-muted{border-bottom-color:var(--a-ink-muted)}
+html[data-theme] .border-l-ink-muted{border-left-color:var(--a-ink-muted)}
+html[data-theme] .border-r-ink-muted{border-right-color:var(--a-ink-muted)}
+html[data-theme] .ring-ink-muted{--tw-ring-color:var(--a-ink-muted)}
+html[data-theme] .hover\:bg-ink-muted:hover{background-color:var(--a-ink-muted)}
+html[data-theme] .hover\:text-ink-muted:hover{color:var(--a-ink-muted)}
+html[data-theme] .hover\:border-ink-muted:hover{border-color:var(--a-ink-muted)}
+html[data-theme] .hover\:fill-ink-muted:hover{fill:var(--a-ink-muted)}
+html[data-theme] .hover\:stroke-ink-muted:hover{stroke:var(--a-ink-muted)}
+html[data-theme] .hover\:border-t-ink-muted:hover{border-top-color:var(--a-ink-muted)}
+html[data-theme] .hover\:border-b-ink-muted:hover{border-bottom-color:var(--a-ink-muted)}
+html[data-theme] .hover\:border-l-ink-muted:hover{border-left-color:var(--a-ink-muted)}
+html[data-theme] .hover\:border-r-ink-muted:hover{border-right-color:var(--a-ink-muted)}
+html[data-theme] .hover\:ring-ink-muted:hover{--tw-ring-color:var(--a-ink-muted)}
+html[data-theme] .focus\:bg-ink-muted:focus{background-color:var(--a-ink-muted)}
+html[data-theme] .focus\:text-ink-muted:focus{color:var(--a-ink-muted)}
+html[data-theme] .focus\:border-ink-muted:focus{border-color:var(--a-ink-muted)}
+html[data-theme] .focus\:fill-ink-muted:focus{fill:var(--a-ink-muted)}
+html[data-theme] .focus\:stroke-ink-muted:focus{stroke:var(--a-ink-muted)}
+html[data-theme] .focus\:border-t-ink-muted:focus{border-top-color:var(--a-ink-muted)}
+html[data-theme] .focus\:border-b-ink-muted:focus{border-bottom-color:var(--a-ink-muted)}
+html[data-theme] .focus\:border-l-ink-muted:focus{border-left-color:var(--a-ink-muted)}
+html[data-theme] .focus\:border-r-ink-muted:focus{border-right-color:var(--a-ink-muted)}
+html[data-theme] .focus\:ring-ink-muted:focus{--tw-ring-color:var(--a-ink-muted)}
+html[data-theme] .focus-visible\:bg-ink-muted:focus-visible{background-color:var(--a-ink-muted)}
+html[data-theme] .focus-visible\:text-ink-muted:focus-visible{color:var(--a-ink-muted)}
+html[data-theme] .focus-visible\:border-ink-muted:focus-visible{border-color:var(--a-ink-muted)}
+html[data-theme] .focus-visible\:fill-ink-muted:focus-visible{fill:var(--a-ink-muted)}
+html[data-theme] .focus-visible\:stroke-ink-muted:focus-visible{stroke:var(--a-ink-muted)}
+html[data-theme] .focus-visible\:border-t-ink-muted:focus-visible{border-top-color:var(--a-ink-muted)}
+html[data-theme] .focus-visible\:border-b-ink-muted:focus-visible{border-bottom-color:var(--a-ink-muted)}
+html[data-theme] .focus-visible\:border-l-ink-muted:focus-visible{border-left-color:var(--a-ink-muted)}
+html[data-theme] .focus-visible\:border-r-ink-muted:focus-visible{border-right-color:var(--a-ink-muted)}
+html[data-theme] .focus-visible\:ring-ink-muted:focus-visible{--tw-ring-color:var(--a-ink-muted)}
+html[data-theme] .active\:bg-ink-muted:active{background-color:var(--a-ink-muted)}
+html[data-theme] .active\:text-ink-muted:active{color:var(--a-ink-muted)}
+html[data-theme] .active\:border-ink-muted:active{border-color:var(--a-ink-muted)}
+html[data-theme] .active\:fill-ink-muted:active{fill:var(--a-ink-muted)}
+html[data-theme] .active\:stroke-ink-muted:active{stroke:var(--a-ink-muted)}
+html[data-theme] .active\:border-t-ink-muted:active{border-top-color:var(--a-ink-muted)}
+html[data-theme] .active\:border-b-ink-muted:active{border-bottom-color:var(--a-ink-muted)}
+html[data-theme] .active\:border-l-ink-muted:active{border-left-color:var(--a-ink-muted)}
+html[data-theme] .active\:border-r-ink-muted:active{border-right-color:var(--a-ink-muted)}
+html[data-theme] .active\:ring-ink-muted:active{--tw-ring-color:var(--a-ink-muted)}
+html[data-theme] .placeholder\:text-ink-muted::placeholder{color:var(--a-ink-muted)}
+html[data-theme] .divide-ink-muted>:not(:last-child){border-color:var(--a-ink-muted)}
+html[data-theme] .bg-ink-faint{background-color:var(--a-ink-faint)}
+html[data-theme] .text-ink-faint{color:var(--a-ink-faint)}
+html[data-theme] .border-ink-faint{border-color:var(--a-ink-faint)}
+html[data-theme] .fill-ink-faint{fill:var(--a-ink-faint)}
+html[data-theme] .stroke-ink-faint{stroke:var(--a-ink-faint)}
+html[data-theme] .border-t-ink-faint{border-top-color:var(--a-ink-faint)}
+html[data-theme] .border-b-ink-faint{border-bottom-color:var(--a-ink-faint)}
+html[data-theme] .border-l-ink-faint{border-left-color:var(--a-ink-faint)}
+html[data-theme] .border-r-ink-faint{border-right-color:var(--a-ink-faint)}
+html[data-theme] .ring-ink-faint{--tw-ring-color:var(--a-ink-faint)}
+html[data-theme] .hover\:bg-ink-faint:hover{background-color:var(--a-ink-faint)}
+html[data-theme] .hover\:text-ink-faint:hover{color:var(--a-ink-faint)}
+html[data-theme] .hover\:border-ink-faint:hover{border-color:var(--a-ink-faint)}
+html[data-theme] .hover\:fill-ink-faint:hover{fill:var(--a-ink-faint)}
+html[data-theme] .hover\:stroke-ink-faint:hover{stroke:var(--a-ink-faint)}
+html[data-theme] .hover\:border-t-ink-faint:hover{border-top-color:var(--a-ink-faint)}
+html[data-theme] .hover\:border-b-ink-faint:hover{border-bottom-color:var(--a-ink-faint)}
+html[data-theme] .hover\:border-l-ink-faint:hover{border-left-color:var(--a-ink-faint)}
+html[data-theme] .hover\:border-r-ink-faint:hover{border-right-color:var(--a-ink-faint)}
+html[data-theme] .hover\:ring-ink-faint:hover{--tw-ring-color:var(--a-ink-faint)}
+html[data-theme] .focus\:bg-ink-faint:focus{background-color:var(--a-ink-faint)}
+html[data-theme] .focus\:text-ink-faint:focus{color:var(--a-ink-faint)}
+html[data-theme] .focus\:border-ink-faint:focus{border-color:var(--a-ink-faint)}
+html[data-theme] .focus\:fill-ink-faint:focus{fill:var(--a-ink-faint)}
+html[data-theme] .focus\:stroke-ink-faint:focus{stroke:var(--a-ink-faint)}
+html[data-theme] .focus\:border-t-ink-faint:focus{border-top-color:var(--a-ink-faint)}
+html[data-theme] .focus\:border-b-ink-faint:focus{border-bottom-color:var(--a-ink-faint)}
+html[data-theme] .focus\:border-l-ink-faint:focus{border-left-color:var(--a-ink-faint)}
+html[data-theme] .focus\:border-r-ink-faint:focus{border-right-color:var(--a-ink-faint)}
+html[data-theme] .focus\:ring-ink-faint:focus{--tw-ring-color:var(--a-ink-faint)}
+html[data-theme] .focus-visible\:bg-ink-faint:focus-visible{background-color:var(--a-ink-faint)}
+html[data-theme] .focus-visible\:text-ink-faint:focus-visible{color:var(--a-ink-faint)}
+html[data-theme] .focus-visible\:border-ink-faint:focus-visible{border-color:var(--a-ink-faint)}
+html[data-theme] .focus-visible\:fill-ink-faint:focus-visible{fill:var(--a-ink-faint)}
+html[data-theme] .focus-visible\:stroke-ink-faint:focus-visible{stroke:var(--a-ink-faint)}
+html[data-theme] .focus-visible\:border-t-ink-faint:focus-visible{border-top-color:var(--a-ink-faint)}
+html[data-theme] .focus-visible\:border-b-ink-faint:focus-visible{border-bottom-color:var(--a-ink-faint)}
+html[data-theme] .focus-visible\:border-l-ink-faint:focus-visible{border-left-color:var(--a-ink-faint)}
+html[data-theme] .focus-visible\:border-r-ink-faint:focus-visible{border-right-color:var(--a-ink-faint)}
+html[data-theme] .focus-visible\:ring-ink-faint:focus-visible{--tw-ring-color:var(--a-ink-faint)}
+html[data-theme] .active\:bg-ink-faint:active{background-color:var(--a-ink-faint)}
+html[data-theme] .active\:text-ink-faint:active{color:var(--a-ink-faint)}
+html[data-theme] .active\:border-ink-faint:active{border-color:var(--a-ink-faint)}
+html[data-theme] .active\:fill-ink-faint:active{fill:var(--a-ink-faint)}
+html[data-theme] .active\:stroke-ink-faint:active{stroke:var(--a-ink-faint)}
+html[data-theme] .active\:border-t-ink-faint:active{border-top-color:var(--a-ink-faint)}
+html[data-theme] .active\:border-b-ink-faint:active{border-bottom-color:var(--a-ink-faint)}
+html[data-theme] .active\:border-l-ink-faint:active{border-left-color:var(--a-ink-faint)}
+html[data-theme] .active\:border-r-ink-faint:active{border-right-color:var(--a-ink-faint)}
+html[data-theme] .active\:ring-ink-faint:active{--tw-ring-color:var(--a-ink-faint)}
+html[data-theme] .placeholder\:text-ink-faint::placeholder{color:var(--a-ink-faint)}
+html[data-theme] .divide-ink-faint>:not(:last-child){border-color:var(--a-ink-faint)}
+html[data-theme] .bg-accent{background-color:var(--a-accent)}
+html[data-theme] .text-accent{color:var(--a-accent)}
+html[data-theme] .border-accent{border-color:var(--a-accent)}
+html[data-theme] .fill-accent{fill:var(--a-accent)}
+html[data-theme] .stroke-accent{stroke:var(--a-accent)}
+html[data-theme] .border-t-accent{border-top-color:var(--a-accent)}
+html[data-theme] .border-b-accent{border-bottom-color:var(--a-accent)}
+html[data-theme] .border-l-accent{border-left-color:var(--a-accent)}
+html[data-theme] .border-r-accent{border-right-color:var(--a-accent)}
+html[data-theme] .ring-accent{--tw-ring-color:var(--a-accent)}
+html[data-theme] .hover\:bg-accent:hover{background-color:var(--a-accent)}
+html[data-theme] .hover\:text-accent:hover{color:var(--a-accent)}
+html[data-theme] .hover\:border-accent:hover{border-color:var(--a-accent)}
+html[data-theme] .hover\:fill-accent:hover{fill:var(--a-accent)}
+html[data-theme] .hover\:stroke-accent:hover{stroke:var(--a-accent)}
+html[data-theme] .hover\:border-t-accent:hover{border-top-color:var(--a-accent)}
+html[data-theme] .hover\:border-b-accent:hover{border-bottom-color:var(--a-accent)}
+html[data-theme] .hover\:border-l-accent:hover{border-left-color:var(--a-accent)}
+html[data-theme] .hover\:border-r-accent:hover{border-right-color:var(--a-accent)}
+html[data-theme] .hover\:ring-accent:hover{--tw-ring-color:var(--a-accent)}
+html[data-theme] .focus\:bg-accent:focus{background-color:var(--a-accent)}
+html[data-theme] .focus\:text-accent:focus{color:var(--a-accent)}
+html[data-theme] .focus\:border-accent:focus{border-color:var(--a-accent)}
+html[data-theme] .focus\:fill-accent:focus{fill:var(--a-accent)}
+html[data-theme] .focus\:stroke-accent:focus{stroke:var(--a-accent)}
+html[data-theme] .focus\:border-t-accent:focus{border-top-color:var(--a-accent)}
+html[data-theme] .focus\:border-b-accent:focus{border-bottom-color:var(--a-accent)}
+html[data-theme] .focus\:border-l-accent:focus{border-left-color:var(--a-accent)}
+html[data-theme] .focus\:border-r-accent:focus{border-right-color:var(--a-accent)}
+html[data-theme] .focus\:ring-accent:focus{--tw-ring-color:var(--a-accent)}
+html[data-theme] .focus-visible\:bg-accent:focus-visible{background-color:var(--a-accent)}
+html[data-theme] .focus-visible\:text-accent:focus-visible{color:var(--a-accent)}
+html[data-theme] .focus-visible\:border-accent:focus-visible{border-color:var(--a-accent)}
+html[data-theme] .focus-visible\:fill-accent:focus-visible{fill:var(--a-accent)}
+html[data-theme] .focus-visible\:stroke-accent:focus-visible{stroke:var(--a-accent)}
+html[data-theme] .focus-visible\:border-t-accent:focus-visible{border-top-color:var(--a-accent)}
+html[data-theme] .focus-visible\:border-b-accent:focus-visible{border-bottom-color:var(--a-accent)}
+html[data-theme] .focus-visible\:border-l-accent:focus-visible{border-left-color:var(--a-accent)}
+html[data-theme] .focus-visible\:border-r-accent:focus-visible{border-right-color:var(--a-accent)}
+html[data-theme] .focus-visible\:ring-accent:focus-visible{--tw-ring-color:var(--a-accent)}
+html[data-theme] .active\:bg-accent:active{background-color:var(--a-accent)}
+html[data-theme] .active\:text-accent:active{color:var(--a-accent)}
+html[data-theme] .active\:border-accent:active{border-color:var(--a-accent)}
+html[data-theme] .active\:fill-accent:active{fill:var(--a-accent)}
+html[data-theme] .active\:stroke-accent:active{stroke:var(--a-accent)}
+html[data-theme] .active\:border-t-accent:active{border-top-color:var(--a-accent)}
+html[data-theme] .active\:border-b-accent:active{border-bottom-color:var(--a-accent)}
+html[data-theme] .active\:border-l-accent:active{border-left-color:var(--a-accent)}
+html[data-theme] .active\:border-r-accent:active{border-right-color:var(--a-accent)}
+html[data-theme] .active\:ring-accent:active{--tw-ring-color:var(--a-accent)}
+html[data-theme] .placeholder\:text-accent::placeholder{color:var(--a-accent)}
+html[data-theme] .divide-accent>:not(:last-child){border-color:var(--a-accent)}
+html[data-theme] .bg-accent-hover{background-color:var(--a-accent-hover)}
+html[data-theme] .text-accent-hover{color:var(--a-accent-hover)}
+html[data-theme] .border-accent-hover{border-color:var(--a-accent-hover)}
+html[data-theme] .fill-accent-hover{fill:var(--a-accent-hover)}
+html[data-theme] .stroke-accent-hover{stroke:var(--a-accent-hover)}
+html[data-theme] .border-t-accent-hover{border-top-color:var(--a-accent-hover)}
+html[data-theme] .border-b-accent-hover{border-bottom-color:var(--a-accent-hover)}
+html[data-theme] .border-l-accent-hover{border-left-color:var(--a-accent-hover)}
+html[data-theme] .border-r-accent-hover{border-right-color:var(--a-accent-hover)}
+html[data-theme] .ring-accent-hover{--tw-ring-color:var(--a-accent-hover)}
+html[data-theme] .hover\:bg-accent-hover:hover{background-color:var(--a-accent-hover)}
+html[data-theme] .hover\:text-accent-hover:hover{color:var(--a-accent-hover)}
+html[data-theme] .hover\:border-accent-hover:hover{border-color:var(--a-accent-hover)}
+html[data-theme] .hover\:fill-accent-hover:hover{fill:var(--a-accent-hover)}
+html[data-theme] .hover\:stroke-accent-hover:hover{stroke:var(--a-accent-hover)}
+html[data-theme] .hover\:border-t-accent-hover:hover{border-top-color:var(--a-accent-hover)}
+html[data-theme] .hover\:border-b-accent-hover:hover{border-bottom-color:var(--a-accent-hover)}
+html[data-theme] .hover\:border-l-accent-hover:hover{border-left-color:var(--a-accent-hover)}
+html[data-theme] .hover\:border-r-accent-hover:hover{border-right-color:var(--a-accent-hover)}
+html[data-theme] .hover\:ring-accent-hover:hover{--tw-ring-color:var(--a-accent-hover)}
+html[data-theme] .focus\:bg-accent-hover:focus{background-color:var(--a-accent-hover)}
+html[data-theme] .focus\:text-accent-hover:focus{color:var(--a-accent-hover)}
+html[data-theme] .focus\:border-accent-hover:focus{border-color:var(--a-accent-hover)}
+html[data-theme] .focus\:fill-accent-hover:focus{fill:var(--a-accent-hover)}
+html[data-theme] .focus\:stroke-accent-hover:focus{stroke:var(--a-accent-hover)}
+html[data-theme] .focus\:border-t-accent-hover:focus{border-top-color:var(--a-accent-hover)}
+html[data-theme] .focus\:border-b-accent-hover:focus{border-bottom-color:var(--a-accent-hover)}
+html[data-theme] .focus\:border-l-accent-hover:focus{border-left-color:var(--a-accent-hover)}
+html[data-theme] .focus\:border-r-accent-hover:focus{border-right-color:var(--a-accent-hover)}
+html[data-theme] .focus\:ring-accent-hover:focus{--tw-ring-color:var(--a-accent-hover)}
+html[data-theme] .focus-visible\:bg-accent-hover:focus-visible{background-color:var(--a-accent-hover)}
+html[data-theme] .focus-visible\:text-accent-hover:focus-visible{color:var(--a-accent-hover)}
+html[data-theme] .focus-visible\:border-accent-hover:focus-visible{border-color:var(--a-accent-hover)}
+html[data-theme] .focus-visible\:fill-accent-hover:focus-visible{fill:var(--a-accent-hover)}
+html[data-theme] .focus-visible\:stroke-accent-hover:focus-visible{stroke:var(--a-accent-hover)}
+html[data-theme] .focus-visible\:border-t-accent-hover:focus-visible{border-top-color:var(--a-accent-hover)}
+html[data-theme] .focus-visible\:border-b-accent-hover:focus-visible{border-bottom-color:var(--a-accent-hover)}
+html[data-theme] .focus-visible\:border-l-accent-hover:focus-visible{border-left-color:var(--a-accent-hover)}
+html[data-theme] .focus-visible\:border-r-accent-hover:focus-visible{border-right-color:var(--a-accent-hover)}
+html[data-theme] .focus-visible\:ring-accent-hover:focus-visible{--tw-ring-color:var(--a-accent-hover)}
+html[data-theme] .active\:bg-accent-hover:active{background-color:var(--a-accent-hover)}
+html[data-theme] .active\:text-accent-hover:active{color:var(--a-accent-hover)}
+html[data-theme] .active\:border-accent-hover:active{border-color:var(--a-accent-hover)}
+html[data-theme] .active\:fill-accent-hover:active{fill:var(--a-accent-hover)}
+html[data-theme] .active\:stroke-accent-hover:active{stroke:var(--a-accent-hover)}
+html[data-theme] .active\:border-t-accent-hover:active{border-top-color:var(--a-accent-hover)}
+html[data-theme] .active\:border-b-accent-hover:active{border-bottom-color:var(--a-accent-hover)}
+html[data-theme] .active\:border-l-accent-hover:active{border-left-color:var(--a-accent-hover)}
+html[data-theme] .active\:border-r-accent-hover:active{border-right-color:var(--a-accent-hover)}
+html[data-theme] .active\:ring-accent-hover:active{--tw-ring-color:var(--a-accent-hover)}
+html[data-theme] .placeholder\:text-accent-hover::placeholder{color:var(--a-accent-hover)}
+html[data-theme] .divide-accent-hover>:not(:last-child){border-color:var(--a-accent-hover)}
+html[data-theme] .bg-accent-muted{background-color:var(--a-accent-muted)}
+html[data-theme] .text-accent-muted{color:var(--a-accent-muted)}
+html[data-theme] .border-accent-muted{border-color:var(--a-accent-muted)}
+html[data-theme] .fill-accent-muted{fill:var(--a-accent-muted)}
+html[data-theme] .stroke-accent-muted{stroke:var(--a-accent-muted)}
+html[data-theme] .border-t-accent-muted{border-top-color:var(--a-accent-muted)}
+html[data-theme] .border-b-accent-muted{border-bottom-color:var(--a-accent-muted)}
+html[data-theme] .border-l-accent-muted{border-left-color:var(--a-accent-muted)}
+html[data-theme] .border-r-accent-muted{border-right-color:var(--a-accent-muted)}
+html[data-theme] .ring-accent-muted{--tw-ring-color:var(--a-accent-muted)}
+html[data-theme] .hover\:bg-accent-muted:hover{background-color:var(--a-accent-muted)}
+html[data-theme] .hover\:text-accent-muted:hover{color:var(--a-accent-muted)}
+html[data-theme] .hover\:border-accent-muted:hover{border-color:var(--a-accent-muted)}
+html[data-theme] .hover\:fill-accent-muted:hover{fill:var(--a-accent-muted)}
+html[data-theme] .hover\:stroke-accent-muted:hover{stroke:var(--a-accent-muted)}
+html[data-theme] .hover\:border-t-accent-muted:hover{border-top-color:var(--a-accent-muted)}
+html[data-theme] .hover\:border-b-accent-muted:hover{border-bottom-color:var(--a-accent-muted)}
+html[data-theme] .hover\:border-l-accent-muted:hover{border-left-color:var(--a-accent-muted)}
+html[data-theme] .hover\:border-r-accent-muted:hover{border-right-color:var(--a-accent-muted)}
+html[data-theme] .hover\:ring-accent-muted:hover{--tw-ring-color:var(--a-accent-muted)}
+html[data-theme] .focus\:bg-accent-muted:focus{background-color:var(--a-accent-muted)}
+html[data-theme] .focus\:text-accent-muted:focus{color:var(--a-accent-muted)}
+html[data-theme] .focus\:border-accent-muted:focus{border-color:var(--a-accent-muted)}
+html[data-theme] .focus\:fill-accent-muted:focus{fill:var(--a-accent-muted)}
+html[data-theme] .focus\:stroke-accent-muted:focus{stroke:var(--a-accent-muted)}
+html[data-theme] .focus\:border-t-accent-muted:focus{border-top-color:var(--a-accent-muted)}
+html[data-theme] .focus\:border-b-accent-muted:focus{border-bottom-color:var(--a-accent-muted)}
+html[data-theme] .focus\:border-l-accent-muted:focus{border-left-color:var(--a-accent-muted)}
+html[data-theme] .focus\:border-r-accent-muted:focus{border-right-color:var(--a-accent-muted)}
+html[data-theme] .focus\:ring-accent-muted:focus{--tw-ring-color:var(--a-accent-muted)}
+html[data-theme] .focus-visible\:bg-accent-muted:focus-visible{background-color:var(--a-accent-muted)}
+html[data-theme] .focus-visible\:text-accent-muted:focus-visible{color:var(--a-accent-muted)}
+html[data-theme] .focus-visible\:border-accent-muted:focus-visible{border-color:var(--a-accent-muted)}
+html[data-theme] .focus-visible\:fill-accent-muted:focus-visible{fill:var(--a-accent-muted)}
+html[data-theme] .focus-visible\:stroke-accent-muted:focus-visible{stroke:var(--a-accent-muted)}
+html[data-theme] .focus-visible\:border-t-accent-muted:focus-visible{border-top-color:var(--a-accent-muted)}
+html[data-theme] .focus-visible\:border-b-accent-muted:focus-visible{border-bottom-color:var(--a-accent-muted)}
+html[data-theme] .focus-visible\:border-l-accent-muted:focus-visible{border-left-color:var(--a-accent-muted)}
+html[data-theme] .focus-visible\:border-r-accent-muted:focus-visible{border-right-color:var(--a-accent-muted)}
+html[data-theme] .focus-visible\:ring-accent-muted:focus-visible{--tw-ring-color:var(--a-accent-muted)}
+html[data-theme] .active\:bg-accent-muted:active{background-color:var(--a-accent-muted)}
+html[data-theme] .active\:text-accent-muted:active{color:var(--a-accent-muted)}
+html[data-theme] .active\:border-accent-muted:active{border-color:var(--a-accent-muted)}
+html[data-theme] .active\:fill-accent-muted:active{fill:var(--a-accent-muted)}
+html[data-theme] .active\:stroke-accent-muted:active{stroke:var(--a-accent-muted)}
+html[data-theme] .active\:border-t-accent-muted:active{border-top-color:var(--a-accent-muted)}
+html[data-theme] .active\:border-b-accent-muted:active{border-bottom-color:var(--a-accent-muted)}
+html[data-theme] .active\:border-l-accent-muted:active{border-left-color:var(--a-accent-muted)}
+html[data-theme] .active\:border-r-accent-muted:active{border-right-color:var(--a-accent-muted)}
+html[data-theme] .active\:ring-accent-muted:active{--tw-ring-color:var(--a-accent-muted)}
+html[data-theme] .placeholder\:text-accent-muted::placeholder{color:var(--a-accent-muted)}
+html[data-theme] .divide-accent-muted>:not(:last-child){border-color:var(--a-accent-muted)}
+html[data-theme] .bg-easy{background-color:var(--a-easy)}
+html[data-theme] .text-easy{color:var(--a-easy)}
+html[data-theme] .border-easy{border-color:var(--a-easy)}
+html[data-theme] .fill-easy{fill:var(--a-easy)}
+html[data-theme] .stroke-easy{stroke:var(--a-easy)}
+html[data-theme] .border-t-easy{border-top-color:var(--a-easy)}
+html[data-theme] .border-b-easy{border-bottom-color:var(--a-easy)}
+html[data-theme] .border-l-easy{border-left-color:var(--a-easy)}
+html[data-theme] .border-r-easy{border-right-color:var(--a-easy)}
+html[data-theme] .ring-easy{--tw-ring-color:var(--a-easy)}
+html[data-theme] .hover\:bg-easy:hover{background-color:var(--a-easy)}
+html[data-theme] .hover\:text-easy:hover{color:var(--a-easy)}
+html[data-theme] .hover\:border-easy:hover{border-color:var(--a-easy)}
+html[data-theme] .hover\:fill-easy:hover{fill:var(--a-easy)}
+html[data-theme] .hover\:stroke-easy:hover{stroke:var(--a-easy)}
+html[data-theme] .hover\:border-t-easy:hover{border-top-color:var(--a-easy)}
+html[data-theme] .hover\:border-b-easy:hover{border-bottom-color:var(--a-easy)}
+html[data-theme] .hover\:border-l-easy:hover{border-left-color:var(--a-easy)}
+html[data-theme] .hover\:border-r-easy:hover{border-right-color:var(--a-easy)}
+html[data-theme] .hover\:ring-easy:hover{--tw-ring-color:var(--a-easy)}
+html[data-theme] .focus\:bg-easy:focus{background-color:var(--a-easy)}
+html[data-theme] .focus\:text-easy:focus{color:var(--a-easy)}
+html[data-theme] .focus\:border-easy:focus{border-color:var(--a-easy)}
+html[data-theme] .focus\:fill-easy:focus{fill:var(--a-easy)}
+html[data-theme] .focus\:stroke-easy:focus{stroke:var(--a-easy)}
+html[data-theme] .focus\:border-t-easy:focus{border-top-color:var(--a-easy)}
+html[data-theme] .focus\:border-b-easy:focus{border-bottom-color:var(--a-easy)}
+html[data-theme] .focus\:border-l-easy:focus{border-left-color:var(--a-easy)}
+html[data-theme] .focus\:border-r-easy:focus{border-right-color:var(--a-easy)}
+html[data-theme] .focus\:ring-easy:focus{--tw-ring-color:var(--a-easy)}
+html[data-theme] .focus-visible\:bg-easy:focus-visible{background-color:var(--a-easy)}
+html[data-theme] .focus-visible\:text-easy:focus-visible{color:var(--a-easy)}
+html[data-theme] .focus-visible\:border-easy:focus-visible{border-color:var(--a-easy)}
+html[data-theme] .focus-visible\:fill-easy:focus-visible{fill:var(--a-easy)}
+html[data-theme] .focus-visible\:stroke-easy:focus-visible{stroke:var(--a-easy)}
+html[data-theme] .focus-visible\:border-t-easy:focus-visible{border-top-color:var(--a-easy)}
+html[data-theme] .focus-visible\:border-b-easy:focus-visible{border-bottom-color:var(--a-easy)}
+html[data-theme] .focus-visible\:border-l-easy:focus-visible{border-left-color:var(--a-easy)}
+html[data-theme] .focus-visible\:border-r-easy:focus-visible{border-right-color:var(--a-easy)}
+html[data-theme] .focus-visible\:ring-easy:focus-visible{--tw-ring-color:var(--a-easy)}
+html[data-theme] .active\:bg-easy:active{background-color:var(--a-easy)}
+html[data-theme] .active\:text-easy:active{color:var(--a-easy)}
+html[data-theme] .active\:border-easy:active{border-color:var(--a-easy)}
+html[data-theme] .active\:fill-easy:active{fill:var(--a-easy)}
+html[data-theme] .active\:stroke-easy:active{stroke:var(--a-easy)}
+html[data-theme] .active\:border-t-easy:active{border-top-color:var(--a-easy)}
+html[data-theme] .active\:border-b-easy:active{border-bottom-color:var(--a-easy)}
+html[data-theme] .active\:border-l-easy:active{border-left-color:var(--a-easy)}
+html[data-theme] .active\:border-r-easy:active{border-right-color:var(--a-easy)}
+html[data-theme] .active\:ring-easy:active{--tw-ring-color:var(--a-easy)}
+html[data-theme] .placeholder\:text-easy::placeholder{color:var(--a-easy)}
+html[data-theme] .divide-easy>:not(:last-child){border-color:var(--a-easy)}
+html[data-theme] .bg-medium{background-color:var(--a-medium)}
+html[data-theme] .text-medium{color:var(--a-medium)}
+html[data-theme] .border-medium{border-color:var(--a-medium)}
+html[data-theme] .fill-medium{fill:var(--a-medium)}
+html[data-theme] .stroke-medium{stroke:var(--a-medium)}
+html[data-theme] .border-t-medium{border-top-color:var(--a-medium)}
+html[data-theme] .border-b-medium{border-bottom-color:var(--a-medium)}
+html[data-theme] .border-l-medium{border-left-color:var(--a-medium)}
+html[data-theme] .border-r-medium{border-right-color:var(--a-medium)}
+html[data-theme] .ring-medium{--tw-ring-color:var(--a-medium)}
+html[data-theme] .hover\:bg-medium:hover{background-color:var(--a-medium)}
+html[data-theme] .hover\:text-medium:hover{color:var(--a-medium)}
+html[data-theme] .hover\:border-medium:hover{border-color:var(--a-medium)}
+html[data-theme] .hover\:fill-medium:hover{fill:var(--a-medium)}
+html[data-theme] .hover\:stroke-medium:hover{stroke:var(--a-medium)}
+html[data-theme] .hover\:border-t-medium:hover{border-top-color:var(--a-medium)}
+html[data-theme] .hover\:border-b-medium:hover{border-bottom-color:var(--a-medium)}
+html[data-theme] .hover\:border-l-medium:hover{border-left-color:var(--a-medium)}
+html[data-theme] .hover\:border-r-medium:hover{border-right-color:var(--a-medium)}
+html[data-theme] .hover\:ring-medium:hover{--tw-ring-color:var(--a-medium)}
+html[data-theme] .focus\:bg-medium:focus{background-color:var(--a-medium)}
+html[data-theme] .focus\:text-medium:focus{color:var(--a-medium)}
+html[data-theme] .focus\:border-medium:focus{border-color:var(--a-medium)}
+html[data-theme] .focus\:fill-medium:focus{fill:var(--a-medium)}
+html[data-theme] .focus\:stroke-medium:focus{stroke:var(--a-medium)}
+html[data-theme] .focus\:border-t-medium:focus{border-top-color:var(--a-medium)}
+html[data-theme] .focus\:border-b-medium:focus{border-bottom-color:var(--a-medium)}
+html[data-theme] .focus\:border-l-medium:focus{border-left-color:var(--a-medium)}
+html[data-theme] .focus\:border-r-medium:focus{border-right-color:var(--a-medium)}
+html[data-theme] .focus\:ring-medium:focus{--tw-ring-color:var(--a-medium)}
+html[data-theme] .focus-visible\:bg-medium:focus-visible{background-color:var(--a-medium)}
+html[data-theme] .focus-visible\:text-medium:focus-visible{color:var(--a-medium)}
+html[data-theme] .focus-visible\:border-medium:focus-visible{border-color:var(--a-medium)}
+html[data-theme] .focus-visible\:fill-medium:focus-visible{fill:var(--a-medium)}
+html[data-theme] .focus-visible\:stroke-medium:focus-visible{stroke:var(--a-medium)}
+html[data-theme] .focus-visible\:border-t-medium:focus-visible{border-top-color:var(--a-medium)}
+html[data-theme] .focus-visible\:border-b-medium:focus-visible{border-bottom-color:var(--a-medium)}
+html[data-theme] .focus-visible\:border-l-medium:focus-visible{border-left-color:var(--a-medium)}
+html[data-theme] .focus-visible\:border-r-medium:focus-visible{border-right-color:var(--a-medium)}
+html[data-theme] .focus-visible\:ring-medium:focus-visible{--tw-ring-color:var(--a-medium)}
+html[data-theme] .active\:bg-medium:active{background-color:var(--a-medium)}
+html[data-theme] .active\:text-medium:active{color:var(--a-medium)}
+html[data-theme] .active\:border-medium:active{border-color:var(--a-medium)}
+html[data-theme] .active\:fill-medium:active{fill:var(--a-medium)}
+html[data-theme] .active\:stroke-medium:active{stroke:var(--a-medium)}
+html[data-theme] .active\:border-t-medium:active{border-top-color:var(--a-medium)}
+html[data-theme] .active\:border-b-medium:active{border-bottom-color:var(--a-medium)}
+html[data-theme] .active\:border-l-medium:active{border-left-color:var(--a-medium)}
+html[data-theme] .active\:border-r-medium:active{border-right-color:var(--a-medium)}
+html[data-theme] .active\:ring-medium:active{--tw-ring-color:var(--a-medium)}
+html[data-theme] .placeholder\:text-medium::placeholder{color:var(--a-medium)}
+html[data-theme] .divide-medium>:not(:last-child){border-color:var(--a-medium)}
+html[data-theme] .bg-hard{background-color:var(--a-hard)}
+html[data-theme] .text-hard{color:var(--a-hard)}
+html[data-theme] .border-hard{border-color:var(--a-hard)}
+html[data-theme] .fill-hard{fill:var(--a-hard)}
+html[data-theme] .stroke-hard{stroke:var(--a-hard)}
+html[data-theme] .border-t-hard{border-top-color:var(--a-hard)}
+html[data-theme] .border-b-hard{border-bottom-color:var(--a-hard)}
+html[data-theme] .border-l-hard{border-left-color:var(--a-hard)}
+html[data-theme] .border-r-hard{border-right-color:var(--a-hard)}
+html[data-theme] .ring-hard{--tw-ring-color:var(--a-hard)}
+html[data-theme] .hover\:bg-hard:hover{background-color:var(--a-hard)}
+html[data-theme] .hover\:text-hard:hover{color:var(--a-hard)}
+html[data-theme] .hover\:border-hard:hover{border-color:var(--a-hard)}
+html[data-theme] .hover\:fill-hard:hover{fill:var(--a-hard)}
+html[data-theme] .hover\:stroke-hard:hover{stroke:var(--a-hard)}
+html[data-theme] .hover\:border-t-hard:hover{border-top-color:var(--a-hard)}
+html[data-theme] .hover\:border-b-hard:hover{border-bottom-color:var(--a-hard)}
+html[data-theme] .hover\:border-l-hard:hover{border-left-color:var(--a-hard)}
+html[data-theme] .hover\:border-r-hard:hover{border-right-color:var(--a-hard)}
+html[data-theme] .hover\:ring-hard:hover{--tw-ring-color:var(--a-hard)}
+html[data-theme] .focus\:bg-hard:focus{background-color:var(--a-hard)}
+html[data-theme] .focus\:text-hard:focus{color:var(--a-hard)}
+html[data-theme] .focus\:border-hard:focus{border-color:var(--a-hard)}
+html[data-theme] .focus\:fill-hard:focus{fill:var(--a-hard)}
+html[data-theme] .focus\:stroke-hard:focus{stroke:var(--a-hard)}
+html[data-theme] .focus\:border-t-hard:focus{border-top-color:var(--a-hard)}
+html[data-theme] .focus\:border-b-hard:focus{border-bottom-color:var(--a-hard)}
+html[data-theme] .focus\:border-l-hard:focus{border-left-color:var(--a-hard)}
+html[data-theme] .focus\:border-r-hard:focus{border-right-color:var(--a-hard)}
+html[data-theme] .focus\:ring-hard:focus{--tw-ring-color:var(--a-hard)}
+html[data-theme] .focus-visible\:bg-hard:focus-visible{background-color:var(--a-hard)}
+html[data-theme] .focus-visible\:text-hard:focus-visible{color:var(--a-hard)}
+html[data-theme] .focus-visible\:border-hard:focus-visible{border-color:var(--a-hard)}
+html[data-theme] .focus-visible\:fill-hard:focus-visible{fill:var(--a-hard)}
+html[data-theme] .focus-visible\:stroke-hard:focus-visible{stroke:var(--a-hard)}
+html[data-theme] .focus-visible\:border-t-hard:focus-visible{border-top-color:var(--a-hard)}
+html[data-theme] .focus-visible\:border-b-hard:focus-visible{border-bottom-color:var(--a-hard)}
+html[data-theme] .focus-visible\:border-l-hard:focus-visible{border-left-color:var(--a-hard)}
+html[data-theme] .focus-visible\:border-r-hard:focus-visible{border-right-color:var(--a-hard)}
+html[data-theme] .focus-visible\:ring-hard:focus-visible{--tw-ring-color:var(--a-hard)}
+html[data-theme] .active\:bg-hard:active{background-color:var(--a-hard)}
+html[data-theme] .active\:text-hard:active{color:var(--a-hard)}
+html[data-theme] .active\:border-hard:active{border-color:var(--a-hard)}
+html[data-theme] .active\:fill-hard:active{fill:var(--a-hard)}
+html[data-theme] .active\:stroke-hard:active{stroke:var(--a-hard)}
+html[data-theme] .active\:border-t-hard:active{border-top-color:var(--a-hard)}
+html[data-theme] .active\:border-b-hard:active{border-bottom-color:var(--a-hard)}
+html[data-theme] .active\:border-l-hard:active{border-left-color:var(--a-hard)}
+html[data-theme] .active\:border-r-hard:active{border-right-color:var(--a-hard)}
+html[data-theme] .active\:ring-hard:active{--tw-ring-color:var(--a-hard)}
+html[data-theme] .placeholder\:text-hard::placeholder{color:var(--a-hard)}
+html[data-theme] .divide-hard>:not(:last-child){border-color:var(--a-hard)}
+html[data-theme] .bg-hard-bg{background-color:var(--a-hard-bg)}
+html[data-theme] .text-hard-bg{color:var(--a-hard-bg)}
+html[data-theme] .border-hard-bg{border-color:var(--a-hard-bg)}
+html[data-theme] .fill-hard-bg{fill:var(--a-hard-bg)}
+html[data-theme] .stroke-hard-bg{stroke:var(--a-hard-bg)}
+html[data-theme] .border-t-hard-bg{border-top-color:var(--a-hard-bg)}
+html[data-theme] .border-b-hard-bg{border-bottom-color:var(--a-hard-bg)}
+html[data-theme] .border-l-hard-bg{border-left-color:var(--a-hard-bg)}
+html[data-theme] .border-r-hard-bg{border-right-color:var(--a-hard-bg)}
+html[data-theme] .ring-hard-bg{--tw-ring-color:var(--a-hard-bg)}
+html[data-theme] .hover\:bg-hard-bg:hover{background-color:var(--a-hard-bg)}
+html[data-theme] .hover\:text-hard-bg:hover{color:var(--a-hard-bg)}
+html[data-theme] .hover\:border-hard-bg:hover{border-color:var(--a-hard-bg)}
+html[data-theme] .hover\:fill-hard-bg:hover{fill:var(--a-hard-bg)}
+html[data-theme] .hover\:stroke-hard-bg:hover{stroke:var(--a-hard-bg)}
+html[data-theme] .hover\:border-t-hard-bg:hover{border-top-color:var(--a-hard-bg)}
+html[data-theme] .hover\:border-b-hard-bg:hover{border-bottom-color:var(--a-hard-bg)}
+html[data-theme] .hover\:border-l-hard-bg:hover{border-left-color:var(--a-hard-bg)}
+html[data-theme] .hover\:border-r-hard-bg:hover{border-right-color:var(--a-hard-bg)}
+html[data-theme] .hover\:ring-hard-bg:hover{--tw-ring-color:var(--a-hard-bg)}
+html[data-theme] .focus\:bg-hard-bg:focus{background-color:var(--a-hard-bg)}
+html[data-theme] .focus\:text-hard-bg:focus{color:var(--a-hard-bg)}
+html[data-theme] .focus\:border-hard-bg:focus{border-color:var(--a-hard-bg)}
+html[data-theme] .focus\:fill-hard-bg:focus{fill:var(--a-hard-bg)}
+html[data-theme] .focus\:stroke-hard-bg:focus{stroke:var(--a-hard-bg)}
+html[data-theme] .focus\:border-t-hard-bg:focus{border-top-color:var(--a-hard-bg)}
+html[data-theme] .focus\:border-b-hard-bg:focus{border-bottom-color:var(--a-hard-bg)}
+html[data-theme] .focus\:border-l-hard-bg:focus{border-left-color:var(--a-hard-bg)}
+html[data-theme] .focus\:border-r-hard-bg:focus{border-right-color:var(--a-hard-bg)}
+html[data-theme] .focus\:ring-hard-bg:focus{--tw-ring-color:var(--a-hard-bg)}
+html[data-theme] .focus-visible\:bg-hard-bg:focus-visible{background-color:var(--a-hard-bg)}
+html[data-theme] .focus-visible\:text-hard-bg:focus-visible{color:var(--a-hard-bg)}
+html[data-theme] .focus-visible\:border-hard-bg:focus-visible{border-color:var(--a-hard-bg)}
+html[data-theme] .focus-visible\:fill-hard-bg:focus-visible{fill:var(--a-hard-bg)}
+html[data-theme] .focus-visible\:stroke-hard-bg:focus-visible{stroke:var(--a-hard-bg)}
+html[data-theme] .focus-visible\:border-t-hard-bg:focus-visible{border-top-color:var(--a-hard-bg)}
+html[data-theme] .focus-visible\:border-b-hard-bg:focus-visible{border-bottom-color:var(--a-hard-bg)}
+html[data-theme] .focus-visible\:border-l-hard-bg:focus-visible{border-left-color:var(--a-hard-bg)}
+html[data-theme] .focus-visible\:border-r-hard-bg:focus-visible{border-right-color:var(--a-hard-bg)}
+html[data-theme] .focus-visible\:ring-hard-bg:focus-visible{--tw-ring-color:var(--a-hard-bg)}
+html[data-theme] .active\:bg-hard-bg:active{background-color:var(--a-hard-bg)}
+html[data-theme] .active\:text-hard-bg:active{color:var(--a-hard-bg)}
+html[data-theme] .active\:border-hard-bg:active{border-color:var(--a-hard-bg)}
+html[data-theme] .active\:fill-hard-bg:active{fill:var(--a-hard-bg)}
+html[data-theme] .active\:stroke-hard-bg:active{stroke:var(--a-hard-bg)}
+html[data-theme] .active\:border-t-hard-bg:active{border-top-color:var(--a-hard-bg)}
+html[data-theme] .active\:border-b-hard-bg:active{border-bottom-color:var(--a-hard-bg)}
+html[data-theme] .active\:border-l-hard-bg:active{border-left-color:var(--a-hard-bg)}
+html[data-theme] .active\:border-r-hard-bg:active{border-right-color:var(--a-hard-bg)}
+html[data-theme] .active\:ring-hard-bg:active{--tw-ring-color:var(--a-hard-bg)}
+html[data-theme] .placeholder\:text-hard-bg::placeholder{color:var(--a-hard-bg)}
+html[data-theme] .divide-hard-bg>:not(:last-child){border-color:var(--a-hard-bg)}
+html[data-theme] .bg-accent\/10{background-color:color-mix(in srgb, var(--a-accent) 10%, transparent)}
+html[data-theme] .text-accent\/10{color:color-mix(in srgb, var(--a-accent) 10%, transparent)}
+html[data-theme] .border-accent\/10{border-color:color-mix(in srgb, var(--a-accent) 10%, transparent)}
+html[data-theme] .ring-accent\/10{--tw-ring-color:color-mix(in srgb, var(--a-accent) 10%, transparent)}
+html[data-theme] .hover\:bg-accent\/10:hover{background-color:color-mix(in srgb, var(--a-accent) 10%, transparent)}
+html[data-theme] .hover\:text-accent\/10:hover{color:color-mix(in srgb, var(--a-accent) 10%, transparent)}
+html[data-theme] .hover\:border-accent\/10:hover{border-color:color-mix(in srgb, var(--a-accent) 10%, transparent)}
+html[data-theme] .hover\:ring-accent\/10:hover{--tw-ring-color:color-mix(in srgb, var(--a-accent) 10%, transparent)}
+html[data-theme] .bg-accent\/20{background-color:color-mix(in srgb, var(--a-accent) 20%, transparent)}
+html[data-theme] .text-accent\/20{color:color-mix(in srgb, var(--a-accent) 20%, transparent)}
+html[data-theme] .border-accent\/20{border-color:color-mix(in srgb, var(--a-accent) 20%, transparent)}
+html[data-theme] .ring-accent\/20{--tw-ring-color:color-mix(in srgb, var(--a-accent) 20%, transparent)}
+html[data-theme] .hover\:bg-accent\/20:hover{background-color:color-mix(in srgb, var(--a-accent) 20%, transparent)}
+html[data-theme] .hover\:text-accent\/20:hover{color:color-mix(in srgb, var(--a-accent) 20%, transparent)}
+html[data-theme] .hover\:border-accent\/20:hover{border-color:color-mix(in srgb, var(--a-accent) 20%, transparent)}
+html[data-theme] .hover\:ring-accent\/20:hover{--tw-ring-color:color-mix(in srgb, var(--a-accent) 20%, transparent)}
+html[data-theme] .bg-accent\/30{background-color:color-mix(in srgb, var(--a-accent) 30%, transparent)}
+html[data-theme] .text-accent\/30{color:color-mix(in srgb, var(--a-accent) 30%, transparent)}
+html[data-theme] .border-accent\/30{border-color:color-mix(in srgb, var(--a-accent) 30%, transparent)}
+html[data-theme] .ring-accent\/30{--tw-ring-color:color-mix(in srgb, var(--a-accent) 30%, transparent)}
+html[data-theme] .hover\:bg-accent\/30:hover{background-color:color-mix(in srgb, var(--a-accent) 30%, transparent)}
+html[data-theme] .hover\:text-accent\/30:hover{color:color-mix(in srgb, var(--a-accent) 30%, transparent)}
+html[data-theme] .hover\:border-accent\/30:hover{border-color:color-mix(in srgb, var(--a-accent) 30%, transparent)}
+html[data-theme] .hover\:ring-accent\/30:hover{--tw-ring-color:color-mix(in srgb, var(--a-accent) 30%, transparent)}
+html[data-theme] .bg-accent\/40{background-color:color-mix(in srgb, var(--a-accent) 40%, transparent)}
+html[data-theme] .text-accent\/40{color:color-mix(in srgb, var(--a-accent) 40%, transparent)}
+html[data-theme] .border-accent\/40{border-color:color-mix(in srgb, var(--a-accent) 40%, transparent)}
+html[data-theme] .ring-accent\/40{--tw-ring-color:color-mix(in srgb, var(--a-accent) 40%, transparent)}
+html[data-theme] .hover\:bg-accent\/40:hover{background-color:color-mix(in srgb, var(--a-accent) 40%, transparent)}
+html[data-theme] .hover\:text-accent\/40:hover{color:color-mix(in srgb, var(--a-accent) 40%, transparent)}
+html[data-theme] .hover\:border-accent\/40:hover{border-color:color-mix(in srgb, var(--a-accent) 40%, transparent)}
+html[data-theme] .hover\:ring-accent\/40:hover{--tw-ring-color:color-mix(in srgb, var(--a-accent) 40%, transparent)}
+html[data-theme] .bg-accent\/50{background-color:color-mix(in srgb, var(--a-accent) 50%, transparent)}
+html[data-theme] .text-accent\/50{color:color-mix(in srgb, var(--a-accent) 50%, transparent)}
+html[data-theme] .border-accent\/50{border-color:color-mix(in srgb, var(--a-accent) 50%, transparent)}
+html[data-theme] .ring-accent\/50{--tw-ring-color:color-mix(in srgb, var(--a-accent) 50%, transparent)}
+html[data-theme] .hover\:bg-accent\/50:hover{background-color:color-mix(in srgb, var(--a-accent) 50%, transparent)}
+html[data-theme] .hover\:text-accent\/50:hover{color:color-mix(in srgb, var(--a-accent) 50%, transparent)}
+html[data-theme] .hover\:border-accent\/50:hover{border-color:color-mix(in srgb, var(--a-accent) 50%, transparent)}
+html[data-theme] .hover\:ring-accent\/50:hover{--tw-ring-color:color-mix(in srgb, var(--a-accent) 50%, transparent)}
+html[data-theme] .bg-accent\/60{background-color:color-mix(in srgb, var(--a-accent) 60%, transparent)}
+html[data-theme] .text-accent\/60{color:color-mix(in srgb, var(--a-accent) 60%, transparent)}
+html[data-theme] .border-accent\/60{border-color:color-mix(in srgb, var(--a-accent) 60%, transparent)}
+html[data-theme] .ring-accent\/60{--tw-ring-color:color-mix(in srgb, var(--a-accent) 60%, transparent)}
+html[data-theme] .hover\:bg-accent\/60:hover{background-color:color-mix(in srgb, var(--a-accent) 60%, transparent)}
+html[data-theme] .hover\:text-accent\/60:hover{color:color-mix(in srgb, var(--a-accent) 60%, transparent)}
+html[data-theme] .hover\:border-accent\/60:hover{border-color:color-mix(in srgb, var(--a-accent) 60%, transparent)}
+html[data-theme] .hover\:ring-accent\/60:hover{--tw-ring-color:color-mix(in srgb, var(--a-accent) 60%, transparent)}
+html[data-theme] .bg-accent\/70{background-color:color-mix(in srgb, var(--a-accent) 70%, transparent)}
+html[data-theme] .text-accent\/70{color:color-mix(in srgb, var(--a-accent) 70%, transparent)}
+html[data-theme] .border-accent\/70{border-color:color-mix(in srgb, var(--a-accent) 70%, transparent)}
+html[data-theme] .ring-accent\/70{--tw-ring-color:color-mix(in srgb, var(--a-accent) 70%, transparent)}
+html[data-theme] .hover\:bg-accent\/70:hover{background-color:color-mix(in srgb, var(--a-accent) 70%, transparent)}
+html[data-theme] .hover\:text-accent\/70:hover{color:color-mix(in srgb, var(--a-accent) 70%, transparent)}
+html[data-theme] .hover\:border-accent\/70:hover{border-color:color-mix(in srgb, var(--a-accent) 70%, transparent)}
+html[data-theme] .hover\:ring-accent\/70:hover{--tw-ring-color:color-mix(in srgb, var(--a-accent) 70%, transparent)}
+html[data-theme] .bg-accent-muted\/10{background-color:color-mix(in srgb, var(--a-accent-muted) 10%, transparent)}
+html[data-theme] .text-accent-muted\/10{color:color-mix(in srgb, var(--a-accent-muted) 10%, transparent)}
+html[data-theme] .border-accent-muted\/10{border-color:color-mix(in srgb, var(--a-accent-muted) 10%, transparent)}
+html[data-theme] .ring-accent-muted\/10{--tw-ring-color:color-mix(in srgb, var(--a-accent-muted) 10%, transparent)}
+html[data-theme] .hover\:bg-accent-muted\/10:hover{background-color:color-mix(in srgb, var(--a-accent-muted) 10%, transparent)}
+html[data-theme] .hover\:text-accent-muted\/10:hover{color:color-mix(in srgb, var(--a-accent-muted) 10%, transparent)}
+html[data-theme] .hover\:border-accent-muted\/10:hover{border-color:color-mix(in srgb, var(--a-accent-muted) 10%, transparent)}
+html[data-theme] .hover\:ring-accent-muted\/10:hover{--tw-ring-color:color-mix(in srgb, var(--a-accent-muted) 10%, transparent)}
+html[data-theme] .bg-accent-muted\/20{background-color:color-mix(in srgb, var(--a-accent-muted) 20%, transparent)}
+html[data-theme] .text-accent-muted\/20{color:color-mix(in srgb, var(--a-accent-muted) 20%, transparent)}
+html[data-theme] .border-accent-muted\/20{border-color:color-mix(in srgb, var(--a-accent-muted) 20%, transparent)}
+html[data-theme] .ring-accent-muted\/20{--tw-ring-color:color-mix(in srgb, var(--a-accent-muted) 20%, transparent)}
+html[data-theme] .hover\:bg-accent-muted\/20:hover{background-color:color-mix(in srgb, var(--a-accent-muted) 20%, transparent)}
+html[data-theme] .hover\:text-accent-muted\/20:hover{color:color-mix(in srgb, var(--a-accent-muted) 20%, transparent)}
+html[data-theme] .hover\:border-accent-muted\/20:hover{border-color:color-mix(in srgb, var(--a-accent-muted) 20%, transparent)}
+html[data-theme] .hover\:ring-accent-muted\/20:hover{--tw-ring-color:color-mix(in srgb, var(--a-accent-muted) 20%, transparent)}
+html[data-theme] .bg-accent-muted\/30{background-color:color-mix(in srgb, var(--a-accent-muted) 30%, transparent)}
+html[data-theme] .text-accent-muted\/30{color:color-mix(in srgb, var(--a-accent-muted) 30%, transparent)}
+html[data-theme] .border-accent-muted\/30{border-color:color-mix(in srgb, var(--a-accent-muted) 30%, transparent)}
+html[data-theme] .ring-accent-muted\/30{--tw-ring-color:color-mix(in srgb, var(--a-accent-muted) 30%, transparent)}
+html[data-theme] .hover\:bg-accent-muted\/30:hover{background-color:color-mix(in srgb, var(--a-accent-muted) 30%, transparent)}
+html[data-theme] .hover\:text-accent-muted\/30:hover{color:color-mix(in srgb, var(--a-accent-muted) 30%, transparent)}
+html[data-theme] .hover\:border-accent-muted\/30:hover{border-color:color-mix(in srgb, var(--a-accent-muted) 30%, transparent)}
+html[data-theme] .hover\:ring-accent-muted\/30:hover{--tw-ring-color:color-mix(in srgb, var(--a-accent-muted) 30%, transparent)}
+html[data-theme] .bg-accent-muted\/40{background-color:color-mix(in srgb, var(--a-accent-muted) 40%, transparent)}
+html[data-theme] .text-accent-muted\/40{color:color-mix(in srgb, var(--a-accent-muted) 40%, transparent)}
+html[data-theme] .border-accent-muted\/40{border-color:color-mix(in srgb, var(--a-accent-muted) 40%, transparent)}
+html[data-theme] .ring-accent-muted\/40{--tw-ring-color:color-mix(in srgb, var(--a-accent-muted) 40%, transparent)}
+html[data-theme] .hover\:bg-accent-muted\/40:hover{background-color:color-mix(in srgb, var(--a-accent-muted) 40%, transparent)}
+html[data-theme] .hover\:text-accent-muted\/40:hover{color:color-mix(in srgb, var(--a-accent-muted) 40%, transparent)}
+html[data-theme] .hover\:border-accent-muted\/40:hover{border-color:color-mix(in srgb, var(--a-accent-muted) 40%, transparent)}
+html[data-theme] .hover\:ring-accent-muted\/40:hover{--tw-ring-color:color-mix(in srgb, var(--a-accent-muted) 40%, transparent)}
+html[data-theme] .bg-accent-muted\/50{background-color:color-mix(in srgb, var(--a-accent-muted) 50%, transparent)}
+html[data-theme] .text-accent-muted\/50{color:color-mix(in srgb, var(--a-accent-muted) 50%, transparent)}
+html[data-theme] .border-accent-muted\/50{border-color:color-mix(in srgb, var(--a-accent-muted) 50%, transparent)}
+html[data-theme] .ring-accent-muted\/50{--tw-ring-color:color-mix(in srgb, var(--a-accent-muted) 50%, transparent)}
+html[data-theme] .hover\:bg-accent-muted\/50:hover{background-color:color-mix(in srgb, var(--a-accent-muted) 50%, transparent)}
+html[data-theme] .hover\:text-accent-muted\/50:hover{color:color-mix(in srgb, var(--a-accent-muted) 50%, transparent)}
+html[data-theme] .hover\:border-accent-muted\/50:hover{border-color:color-mix(in srgb, var(--a-accent-muted) 50%, transparent)}
+html[data-theme] .hover\:ring-accent-muted\/50:hover{--tw-ring-color:color-mix(in srgb, var(--a-accent-muted) 50%, transparent)}
+html[data-theme] .bg-accent-muted\/60{background-color:color-mix(in srgb, var(--a-accent-muted) 60%, transparent)}
+html[data-theme] .text-accent-muted\/60{color:color-mix(in srgb, var(--a-accent-muted) 60%, transparent)}
+html[data-theme] .border-accent-muted\/60{border-color:color-mix(in srgb, var(--a-accent-muted) 60%, transparent)}
+html[data-theme] .ring-accent-muted\/60{--tw-ring-color:color-mix(in srgb, var(--a-accent-muted) 60%, transparent)}
+html[data-theme] .hover\:bg-accent-muted\/60:hover{background-color:color-mix(in srgb, var(--a-accent-muted) 60%, transparent)}
+html[data-theme] .hover\:text-accent-muted\/60:hover{color:color-mix(in srgb, var(--a-accent-muted) 60%, transparent)}
+html[data-theme] .hover\:border-accent-muted\/60:hover{border-color:color-mix(in srgb, var(--a-accent-muted) 60%, transparent)}
+html[data-theme] .hover\:ring-accent-muted\/60:hover{--tw-ring-color:color-mix(in srgb, var(--a-accent-muted) 60%, transparent)}
+html[data-theme] .bg-accent-muted\/70{background-color:color-mix(in srgb, var(--a-accent-muted) 70%, transparent)}
+html[data-theme] .text-accent-muted\/70{color:color-mix(in srgb, var(--a-accent-muted) 70%, transparent)}
+html[data-theme] .border-accent-muted\/70{border-color:color-mix(in srgb, var(--a-accent-muted) 70%, transparent)}
+html[data-theme] .ring-accent-muted\/70{--tw-ring-color:color-mix(in srgb, var(--a-accent-muted) 70%, transparent)}
+html[data-theme] .hover\:bg-accent-muted\/70:hover{background-color:color-mix(in srgb, var(--a-accent-muted) 70%, transparent)}
+html[data-theme] .hover\:text-accent-muted\/70:hover{color:color-mix(in srgb, var(--a-accent-muted) 70%, transparent)}
+html[data-theme] .hover\:border-accent-muted\/70:hover{border-color:color-mix(in srgb, var(--a-accent-muted) 70%, transparent)}
+html[data-theme] .hover\:ring-accent-muted\/70:hover{--tw-ring-color:color-mix(in srgb, var(--a-accent-muted) 70%, transparent)}
+html[data-theme] .bg-base-border\/10{background-color:color-mix(in srgb, var(--a-base-border) 10%, transparent)}
+html[data-theme] .text-base-border\/10{color:color-mix(in srgb, var(--a-base-border) 10%, transparent)}
+html[data-theme] .border-base-border\/10{border-color:color-mix(in srgb, var(--a-base-border) 10%, transparent)}
+html[data-theme] .ring-base-border\/10{--tw-ring-color:color-mix(in srgb, var(--a-base-border) 10%, transparent)}
+html[data-theme] .hover\:bg-base-border\/10:hover{background-color:color-mix(in srgb, var(--a-base-border) 10%, transparent)}
+html[data-theme] .hover\:text-base-border\/10:hover{color:color-mix(in srgb, var(--a-base-border) 10%, transparent)}
+html[data-theme] .hover\:border-base-border\/10:hover{border-color:color-mix(in srgb, var(--a-base-border) 10%, transparent)}
+html[data-theme] .hover\:ring-base-border\/10:hover{--tw-ring-color:color-mix(in srgb, var(--a-base-border) 10%, transparent)}
+html[data-theme] .bg-base-border\/20{background-color:color-mix(in srgb, var(--a-base-border) 20%, transparent)}
+html[data-theme] .text-base-border\/20{color:color-mix(in srgb, var(--a-base-border) 20%, transparent)}
+html[data-theme] .border-base-border\/20{border-color:color-mix(in srgb, var(--a-base-border) 20%, transparent)}
+html[data-theme] .ring-base-border\/20{--tw-ring-color:color-mix(in srgb, var(--a-base-border) 20%, transparent)}
+html[data-theme] .hover\:bg-base-border\/20:hover{background-color:color-mix(in srgb, var(--a-base-border) 20%, transparent)}
+html[data-theme] .hover\:text-base-border\/20:hover{color:color-mix(in srgb, var(--a-base-border) 20%, transparent)}
+html[data-theme] .hover\:border-base-border\/20:hover{border-color:color-mix(in srgb, var(--a-base-border) 20%, transparent)}
+html[data-theme] .hover\:ring-base-border\/20:hover{--tw-ring-color:color-mix(in srgb, var(--a-base-border) 20%, transparent)}
+html[data-theme] .bg-base-border\/30{background-color:color-mix(in srgb, var(--a-base-border) 30%, transparent)}
+html[data-theme] .text-base-border\/30{color:color-mix(in srgb, var(--a-base-border) 30%, transparent)}
+html[data-theme] .border-base-border\/30{border-color:color-mix(in srgb, var(--a-base-border) 30%, transparent)}
+html[data-theme] .ring-base-border\/30{--tw-ring-color:color-mix(in srgb, var(--a-base-border) 30%, transparent)}
+html[data-theme] .hover\:bg-base-border\/30:hover{background-color:color-mix(in srgb, var(--a-base-border) 30%, transparent)}
+html[data-theme] .hover\:text-base-border\/30:hover{color:color-mix(in srgb, var(--a-base-border) 30%, transparent)}
+html[data-theme] .hover\:border-base-border\/30:hover{border-color:color-mix(in srgb, var(--a-base-border) 30%, transparent)}
+html[data-theme] .hover\:ring-base-border\/30:hover{--tw-ring-color:color-mix(in srgb, var(--a-base-border) 30%, transparent)}
+html[data-theme] .bg-base-border\/40{background-color:color-mix(in srgb, var(--a-base-border) 40%, transparent)}
+html[data-theme] .text-base-border\/40{color:color-mix(in srgb, var(--a-base-border) 40%, transparent)}
+html[data-theme] .border-base-border\/40{border-color:color-mix(in srgb, var(--a-base-border) 40%, transparent)}
+html[data-theme] .ring-base-border\/40{--tw-ring-color:color-mix(in srgb, var(--a-base-border) 40%, transparent)}
+html[data-theme] .hover\:bg-base-border\/40:hover{background-color:color-mix(in srgb, var(--a-base-border) 40%, transparent)}
+html[data-theme] .hover\:text-base-border\/40:hover{color:color-mix(in srgb, var(--a-base-border) 40%, transparent)}
+html[data-theme] .hover\:border-base-border\/40:hover{border-color:color-mix(in srgb, var(--a-base-border) 40%, transparent)}
+html[data-theme] .hover\:ring-base-border\/40:hover{--tw-ring-color:color-mix(in srgb, var(--a-base-border) 40%, transparent)}
+html[data-theme] .bg-base-border\/50{background-color:color-mix(in srgb, var(--a-base-border) 50%, transparent)}
+html[data-theme] .text-base-border\/50{color:color-mix(in srgb, var(--a-base-border) 50%, transparent)}
+html[data-theme] .border-base-border\/50{border-color:color-mix(in srgb, var(--a-base-border) 50%, transparent)}
+html[data-theme] .ring-base-border\/50{--tw-ring-color:color-mix(in srgb, var(--a-base-border) 50%, transparent)}
+html[data-theme] .hover\:bg-base-border\/50:hover{background-color:color-mix(in srgb, var(--a-base-border) 50%, transparent)}
+html[data-theme] .hover\:text-base-border\/50:hover{color:color-mix(in srgb, var(--a-base-border) 50%, transparent)}
+html[data-theme] .hover\:border-base-border\/50:hover{border-color:color-mix(in srgb, var(--a-base-border) 50%, transparent)}
+html[data-theme] .hover\:ring-base-border\/50:hover{--tw-ring-color:color-mix(in srgb, var(--a-base-border) 50%, transparent)}
+html[data-theme] .bg-base-border\/60{background-color:color-mix(in srgb, var(--a-base-border) 60%, transparent)}
+html[data-theme] .text-base-border\/60{color:color-mix(in srgb, var(--a-base-border) 60%, transparent)}
+html[data-theme] .border-base-border\/60{border-color:color-mix(in srgb, var(--a-base-border) 60%, transparent)}
+html[data-theme] .ring-base-border\/60{--tw-ring-color:color-mix(in srgb, var(--a-base-border) 60%, transparent)}
+html[data-theme] .hover\:bg-base-border\/60:hover{background-color:color-mix(in srgb, var(--a-base-border) 60%, transparent)}
+html[data-theme] .hover\:text-base-border\/60:hover{color:color-mix(in srgb, var(--a-base-border) 60%, transparent)}
+html[data-theme] .hover\:border-base-border\/60:hover{border-color:color-mix(in srgb, var(--a-base-border) 60%, transparent)}
+html[data-theme] .hover\:ring-base-border\/60:hover{--tw-ring-color:color-mix(in srgb, var(--a-base-border) 60%, transparent)}
+html[data-theme] .bg-base-border\/70{background-color:color-mix(in srgb, var(--a-base-border) 70%, transparent)}
+html[data-theme] .text-base-border\/70{color:color-mix(in srgb, var(--a-base-border) 70%, transparent)}
+html[data-theme] .border-base-border\/70{border-color:color-mix(in srgb, var(--a-base-border) 70%, transparent)}
+html[data-theme] .ring-base-border\/70{--tw-ring-color:color-mix(in srgb, var(--a-base-border) 70%, transparent)}
+html[data-theme] .hover\:bg-base-border\/70:hover{background-color:color-mix(in srgb, var(--a-base-border) 70%, transparent)}
+html[data-theme] .hover\:text-base-border\/70:hover{color:color-mix(in srgb, var(--a-base-border) 70%, transparent)}
+html[data-theme] .hover\:border-base-border\/70:hover{border-color:color-mix(in srgb, var(--a-base-border) 70%, transparent)}
+html[data-theme] .hover\:ring-base-border\/70:hover{--tw-ring-color:color-mix(in srgb, var(--a-base-border) 70%, transparent)}
+html[data-theme] .bg-base-card\/10{background-color:color-mix(in srgb, var(--a-base-card) 10%, transparent)}
+html[data-theme] .text-base-card\/10{color:color-mix(in srgb, var(--a-base-card) 10%, transparent)}
+html[data-theme] .border-base-card\/10{border-color:color-mix(in srgb, var(--a-base-card) 10%, transparent)}
+html[data-theme] .ring-base-card\/10{--tw-ring-color:color-mix(in srgb, var(--a-base-card) 10%, transparent)}
+html[data-theme] .hover\:bg-base-card\/10:hover{background-color:color-mix(in srgb, var(--a-base-card) 10%, transparent)}
+html[data-theme] .hover\:text-base-card\/10:hover{color:color-mix(in srgb, var(--a-base-card) 10%, transparent)}
+html[data-theme] .hover\:border-base-card\/10:hover{border-color:color-mix(in srgb, var(--a-base-card) 10%, transparent)}
+html[data-theme] .hover\:ring-base-card\/10:hover{--tw-ring-color:color-mix(in srgb, var(--a-base-card) 10%, transparent)}
+html[data-theme] .bg-base-card\/20{background-color:color-mix(in srgb, var(--a-base-card) 20%, transparent)}
+html[data-theme] .text-base-card\/20{color:color-mix(in srgb, var(--a-base-card) 20%, transparent)}
+html[data-theme] .border-base-card\/20{border-color:color-mix(in srgb, var(--a-base-card) 20%, transparent)}
+html[data-theme] .ring-base-card\/20{--tw-ring-color:color-mix(in srgb, var(--a-base-card) 20%, transparent)}
+html[data-theme] .hover\:bg-base-card\/20:hover{background-color:color-mix(in srgb, var(--a-base-card) 20%, transparent)}
+html[data-theme] .hover\:text-base-card\/20:hover{color:color-mix(in srgb, var(--a-base-card) 20%, transparent)}
+html[data-theme] .hover\:border-base-card\/20:hover{border-color:color-mix(in srgb, var(--a-base-card) 20%, transparent)}
+html[data-theme] .hover\:ring-base-card\/20:hover{--tw-ring-color:color-mix(in srgb, var(--a-base-card) 20%, transparent)}
+html[data-theme] .bg-base-card\/30{background-color:color-mix(in srgb, var(--a-base-card) 30%, transparent)}
+html[data-theme] .text-base-card\/30{color:color-mix(in srgb, var(--a-base-card) 30%, transparent)}
+html[data-theme] .border-base-card\/30{border-color:color-mix(in srgb, var(--a-base-card) 30%, transparent)}
+html[data-theme] .ring-base-card\/30{--tw-ring-color:color-mix(in srgb, var(--a-base-card) 30%, transparent)}
+html[data-theme] .hover\:bg-base-card\/30:hover{background-color:color-mix(in srgb, var(--a-base-card) 30%, transparent)}
+html[data-theme] .hover\:text-base-card\/30:hover{color:color-mix(in srgb, var(--a-base-card) 30%, transparent)}
+html[data-theme] .hover\:border-base-card\/30:hover{border-color:color-mix(in srgb, var(--a-base-card) 30%, transparent)}
+html[data-theme] .hover\:ring-base-card\/30:hover{--tw-ring-color:color-mix(in srgb, var(--a-base-card) 30%, transparent)}
+html[data-theme] .bg-base-card\/40{background-color:color-mix(in srgb, var(--a-base-card) 40%, transparent)}
+html[data-theme] .text-base-card\/40{color:color-mix(in srgb, var(--a-base-card) 40%, transparent)}
+html[data-theme] .border-base-card\/40{border-color:color-mix(in srgb, var(--a-base-card) 40%, transparent)}
+html[data-theme] .ring-base-card\/40{--tw-ring-color:color-mix(in srgb, var(--a-base-card) 40%, transparent)}
+html[data-theme] .hover\:bg-base-card\/40:hover{background-color:color-mix(in srgb, var(--a-base-card) 40%, transparent)}
+html[data-theme] .hover\:text-base-card\/40:hover{color:color-mix(in srgb, var(--a-base-card) 40%, transparent)}
+html[data-theme] .hover\:border-base-card\/40:hover{border-color:color-mix(in srgb, var(--a-base-card) 40%, transparent)}
+html[data-theme] .hover\:ring-base-card\/40:hover{--tw-ring-color:color-mix(in srgb, var(--a-base-card) 40%, transparent)}
+html[data-theme] .bg-base-card\/50{background-color:color-mix(in srgb, var(--a-base-card) 50%, transparent)}
+html[data-theme] .text-base-card\/50{color:color-mix(in srgb, var(--a-base-card) 50%, transparent)}
+html[data-theme] .border-base-card\/50{border-color:color-mix(in srgb, var(--a-base-card) 50%, transparent)}
+html[data-theme] .ring-base-card\/50{--tw-ring-color:color-mix(in srgb, var(--a-base-card) 50%, transparent)}
+html[data-theme] .hover\:bg-base-card\/50:hover{background-color:color-mix(in srgb, var(--a-base-card) 50%, transparent)}
+html[data-theme] .hover\:text-base-card\/50:hover{color:color-mix(in srgb, var(--a-base-card) 50%, transparent)}
+html[data-theme] .hover\:border-base-card\/50:hover{border-color:color-mix(in srgb, var(--a-base-card) 50%, transparent)}
+html[data-theme] .hover\:ring-base-card\/50:hover{--tw-ring-color:color-mix(in srgb, var(--a-base-card) 50%, transparent)}
+html[data-theme] .bg-base-card\/60{background-color:color-mix(in srgb, var(--a-base-card) 60%, transparent)}
+html[data-theme] .text-base-card\/60{color:color-mix(in srgb, var(--a-base-card) 60%, transparent)}
+html[data-theme] .border-base-card\/60{border-color:color-mix(in srgb, var(--a-base-card) 60%, transparent)}
+html[data-theme] .ring-base-card\/60{--tw-ring-color:color-mix(in srgb, var(--a-base-card) 60%, transparent)}
+html[data-theme] .hover\:bg-base-card\/60:hover{background-color:color-mix(in srgb, var(--a-base-card) 60%, transparent)}
+html[data-theme] .hover\:text-base-card\/60:hover{color:color-mix(in srgb, var(--a-base-card) 60%, transparent)}
+html[data-theme] .hover\:border-base-card\/60:hover{border-color:color-mix(in srgb, var(--a-base-card) 60%, transparent)}
+html[data-theme] .hover\:ring-base-card\/60:hover{--tw-ring-color:color-mix(in srgb, var(--a-base-card) 60%, transparent)}
+html[data-theme] .bg-base-card\/70{background-color:color-mix(in srgb, var(--a-base-card) 70%, transparent)}
+html[data-theme] .text-base-card\/70{color:color-mix(in srgb, var(--a-base-card) 70%, transparent)}
+html[data-theme] .border-base-card\/70{border-color:color-mix(in srgb, var(--a-base-card) 70%, transparent)}
+html[data-theme] .ring-base-card\/70{--tw-ring-color:color-mix(in srgb, var(--a-base-card) 70%, transparent)}
+html[data-theme] .hover\:bg-base-card\/70:hover{background-color:color-mix(in srgb, var(--a-base-card) 70%, transparent)}
+html[data-theme] .hover\:text-base-card\/70:hover{color:color-mix(in srgb, var(--a-base-card) 70%, transparent)}
+html[data-theme] .hover\:border-base-card\/70:hover{border-color:color-mix(in srgb, var(--a-base-card) 70%, transparent)}
+html[data-theme] .hover\:ring-base-card\/70:hover{--tw-ring-color:color-mix(in srgb, var(--a-base-card) 70%, transparent)}
+html[data-theme] .bg-base\/10{background-color:color-mix(in srgb, var(--a-base) 10%, transparent)}
+html[data-theme] .text-base\/10{color:color-mix(in srgb, var(--a-base) 10%, transparent)}
+html[data-theme] .border-base\/10{border-color:color-mix(in srgb, var(--a-base) 10%, transparent)}
+html[data-theme] .ring-base\/10{--tw-ring-color:color-mix(in srgb, var(--a-base) 10%, transparent)}
+html[data-theme] .hover\:bg-base\/10:hover{background-color:color-mix(in srgb, var(--a-base) 10%, transparent)}
+html[data-theme] .hover\:text-base\/10:hover{color:color-mix(in srgb, var(--a-base) 10%, transparent)}
+html[data-theme] .hover\:border-base\/10:hover{border-color:color-mix(in srgb, var(--a-base) 10%, transparent)}
+html[data-theme] .hover\:ring-base\/10:hover{--tw-ring-color:color-mix(in srgb, var(--a-base) 10%, transparent)}
+html[data-theme] .bg-base\/20{background-color:color-mix(in srgb, var(--a-base) 20%, transparent)}
+html[data-theme] .text-base\/20{color:color-mix(in srgb, var(--a-base) 20%, transparent)}
+html[data-theme] .border-base\/20{border-color:color-mix(in srgb, var(--a-base) 20%, transparent)}
+html[data-theme] .ring-base\/20{--tw-ring-color:color-mix(in srgb, var(--a-base) 20%, transparent)}
+html[data-theme] .hover\:bg-base\/20:hover{background-color:color-mix(in srgb, var(--a-base) 20%, transparent)}
+html[data-theme] .hover\:text-base\/20:hover{color:color-mix(in srgb, var(--a-base) 20%, transparent)}
+html[data-theme] .hover\:border-base\/20:hover{border-color:color-mix(in srgb, var(--a-base) 20%, transparent)}
+html[data-theme] .hover\:ring-base\/20:hover{--tw-ring-color:color-mix(in srgb, var(--a-base) 20%, transparent)}
+html[data-theme] .bg-base\/30{background-color:color-mix(in srgb, var(--a-base) 30%, transparent)}
+html[data-theme] .text-base\/30{color:color-mix(in srgb, var(--a-base) 30%, transparent)}
+html[data-theme] .border-base\/30{border-color:color-mix(in srgb, var(--a-base) 30%, transparent)}
+html[data-theme] .ring-base\/30{--tw-ring-color:color-mix(in srgb, var(--a-base) 30%, transparent)}
+html[data-theme] .hover\:bg-base\/30:hover{background-color:color-mix(in srgb, var(--a-base) 30%, transparent)}
+html[data-theme] .hover\:text-base\/30:hover{color:color-mix(in srgb, var(--a-base) 30%, transparent)}
+html[data-theme] .hover\:border-base\/30:hover{border-color:color-mix(in srgb, var(--a-base) 30%, transparent)}
+html[data-theme] .hover\:ring-base\/30:hover{--tw-ring-color:color-mix(in srgb, var(--a-base) 30%, transparent)}
+html[data-theme] .bg-base\/40{background-color:color-mix(in srgb, var(--a-base) 40%, transparent)}
+html[data-theme] .text-base\/40{color:color-mix(in srgb, var(--a-base) 40%, transparent)}
+html[data-theme] .border-base\/40{border-color:color-mix(in srgb, var(--a-base) 40%, transparent)}
+html[data-theme] .ring-base\/40{--tw-ring-color:color-mix(in srgb, var(--a-base) 40%, transparent)}
+html[data-theme] .hover\:bg-base\/40:hover{background-color:color-mix(in srgb, var(--a-base) 40%, transparent)}
+html[data-theme] .hover\:text-base\/40:hover{color:color-mix(in srgb, var(--a-base) 40%, transparent)}
+html[data-theme] .hover\:border-base\/40:hover{border-color:color-mix(in srgb, var(--a-base) 40%, transparent)}
+html[data-theme] .hover\:ring-base\/40:hover{--tw-ring-color:color-mix(in srgb, var(--a-base) 40%, transparent)}
+html[data-theme] .bg-base\/50{background-color:color-mix(in srgb, var(--a-base) 50%, transparent)}
+html[data-theme] .text-base\/50{color:color-mix(in srgb, var(--a-base) 50%, transparent)}
+html[data-theme] .border-base\/50{border-color:color-mix(in srgb, var(--a-base) 50%, transparent)}
+html[data-theme] .ring-base\/50{--tw-ring-color:color-mix(in srgb, var(--a-base) 50%, transparent)}
+html[data-theme] .hover\:bg-base\/50:hover{background-color:color-mix(in srgb, var(--a-base) 50%, transparent)}
+html[data-theme] .hover\:text-base\/50:hover{color:color-mix(in srgb, var(--a-base) 50%, transparent)}
+html[data-theme] .hover\:border-base\/50:hover{border-color:color-mix(in srgb, var(--a-base) 50%, transparent)}
+html[data-theme] .hover\:ring-base\/50:hover{--tw-ring-color:color-mix(in srgb, var(--a-base) 50%, transparent)}
+html[data-theme] .bg-base\/60{background-color:color-mix(in srgb, var(--a-base) 60%, transparent)}
+html[data-theme] .text-base\/60{color:color-mix(in srgb, var(--a-base) 60%, transparent)}
+html[data-theme] .border-base\/60{border-color:color-mix(in srgb, var(--a-base) 60%, transparent)}
+html[data-theme] .ring-base\/60{--tw-ring-color:color-mix(in srgb, var(--a-base) 60%, transparent)}
+html[data-theme] .hover\:bg-base\/60:hover{background-color:color-mix(in srgb, var(--a-base) 60%, transparent)}
+html[data-theme] .hover\:text-base\/60:hover{color:color-mix(in srgb, var(--a-base) 60%, transparent)}
+html[data-theme] .hover\:border-base\/60:hover{border-color:color-mix(in srgb, var(--a-base) 60%, transparent)}
+html[data-theme] .hover\:ring-base\/60:hover{--tw-ring-color:color-mix(in srgb, var(--a-base) 60%, transparent)}
+html[data-theme] .bg-base\/70{background-color:color-mix(in srgb, var(--a-base) 70%, transparent)}
+html[data-theme] .text-base\/70{color:color-mix(in srgb, var(--a-base) 70%, transparent)}
+html[data-theme] .border-base\/70{border-color:color-mix(in srgb, var(--a-base) 70%, transparent)}
+html[data-theme] .ring-base\/70{--tw-ring-color:color-mix(in srgb, var(--a-base) 70%, transparent)}
+html[data-theme] .hover\:bg-base\/70:hover{background-color:color-mix(in srgb, var(--a-base) 70%, transparent)}
+html[data-theme] .hover\:text-base\/70:hover{color:color-mix(in srgb, var(--a-base) 70%, transparent)}
+html[data-theme] .hover\:border-base\/70:hover{border-color:color-mix(in srgb, var(--a-base) 70%, transparent)}
+html[data-theme] .hover\:ring-base\/70:hover{--tw-ring-color:color-mix(in srgb, var(--a-base) 70%, transparent)}
+html[data-theme] .bg-hard\/10{background-color:color-mix(in srgb, var(--a-hard) 10%, transparent)}
+html[data-theme] .text-hard\/10{color:color-mix(in srgb, var(--a-hard) 10%, transparent)}
+html[data-theme] .border-hard\/10{border-color:color-mix(in srgb, var(--a-hard) 10%, transparent)}
+html[data-theme] .ring-hard\/10{--tw-ring-color:color-mix(in srgb, var(--a-hard) 10%, transparent)}
+html[data-theme] .hover\:bg-hard\/10:hover{background-color:color-mix(in srgb, var(--a-hard) 10%, transparent)}
+html[data-theme] .hover\:text-hard\/10:hover{color:color-mix(in srgb, var(--a-hard) 10%, transparent)}
+html[data-theme] .hover\:border-hard\/10:hover{border-color:color-mix(in srgb, var(--a-hard) 10%, transparent)}
+html[data-theme] .hover\:ring-hard\/10:hover{--tw-ring-color:color-mix(in srgb, var(--a-hard) 10%, transparent)}
+html[data-theme] .bg-hard\/20{background-color:color-mix(in srgb, var(--a-hard) 20%, transparent)}
+html[data-theme] .text-hard\/20{color:color-mix(in srgb, var(--a-hard) 20%, transparent)}
+html[data-theme] .border-hard\/20{border-color:color-mix(in srgb, var(--a-hard) 20%, transparent)}
+html[data-theme] .ring-hard\/20{--tw-ring-color:color-mix(in srgb, var(--a-hard) 20%, transparent)}
+html[data-theme] .hover\:bg-hard\/20:hover{background-color:color-mix(in srgb, var(--a-hard) 20%, transparent)}
+html[data-theme] .hover\:text-hard\/20:hover{color:color-mix(in srgb, var(--a-hard) 20%, transparent)}
+html[data-theme] .hover\:border-hard\/20:hover{border-color:color-mix(in srgb, var(--a-hard) 20%, transparent)}
+html[data-theme] .hover\:ring-hard\/20:hover{--tw-ring-color:color-mix(in srgb, var(--a-hard) 20%, transparent)}
+html[data-theme] .bg-hard\/30{background-color:color-mix(in srgb, var(--a-hard) 30%, transparent)}
+html[data-theme] .text-hard\/30{color:color-mix(in srgb, var(--a-hard) 30%, transparent)}
+html[data-theme] .border-hard\/30{border-color:color-mix(in srgb, var(--a-hard) 30%, transparent)}
+html[data-theme] .ring-hard\/30{--tw-ring-color:color-mix(in srgb, var(--a-hard) 30%, transparent)}
+html[data-theme] .hover\:bg-hard\/30:hover{background-color:color-mix(in srgb, var(--a-hard) 30%, transparent)}
+html[data-theme] .hover\:text-hard\/30:hover{color:color-mix(in srgb, var(--a-hard) 30%, transparent)}
+html[data-theme] .hover\:border-hard\/30:hover{border-color:color-mix(in srgb, var(--a-hard) 30%, transparent)}
+html[data-theme] .hover\:ring-hard\/30:hover{--tw-ring-color:color-mix(in srgb, var(--a-hard) 30%, transparent)}
+html[data-theme] .bg-hard\/40{background-color:color-mix(in srgb, var(--a-hard) 40%, transparent)}
+html[data-theme] .text-hard\/40{color:color-mix(in srgb, var(--a-hard) 40%, transparent)}
+html[data-theme] .border-hard\/40{border-color:color-mix(in srgb, var(--a-hard) 40%, transparent)}
+html[data-theme] .ring-hard\/40{--tw-ring-color:color-mix(in srgb, var(--a-hard) 40%, transparent)}
+html[data-theme] .hover\:bg-hard\/40:hover{background-color:color-mix(in srgb, var(--a-hard) 40%, transparent)}
+html[data-theme] .hover\:text-hard\/40:hover{color:color-mix(in srgb, var(--a-hard) 40%, transparent)}
+html[data-theme] .hover\:border-hard\/40:hover{border-color:color-mix(in srgb, var(--a-hard) 40%, transparent)}
+html[data-theme] .hover\:ring-hard\/40:hover{--tw-ring-color:color-mix(in srgb, var(--a-hard) 40%, transparent)}
+html[data-theme] .bg-hard\/50{background-color:color-mix(in srgb, var(--a-hard) 50%, transparent)}
+html[data-theme] .text-hard\/50{color:color-mix(in srgb, var(--a-hard) 50%, transparent)}
+html[data-theme] .border-hard\/50{border-color:color-mix(in srgb, var(--a-hard) 50%, transparent)}
+html[data-theme] .ring-hard\/50{--tw-ring-color:color-mix(in srgb, var(--a-hard) 50%, transparent)}
+html[data-theme] .hover\:bg-hard\/50:hover{background-color:color-mix(in srgb, var(--a-hard) 50%, transparent)}
+html[data-theme] .hover\:text-hard\/50:hover{color:color-mix(in srgb, var(--a-hard) 50%, transparent)}
+html[data-theme] .hover\:border-hard\/50:hover{border-color:color-mix(in srgb, var(--a-hard) 50%, transparent)}
+html[data-theme] .hover\:ring-hard\/50:hover{--tw-ring-color:color-mix(in srgb, var(--a-hard) 50%, transparent)}
+html[data-theme] .bg-hard\/60{background-color:color-mix(in srgb, var(--a-hard) 60%, transparent)}
+html[data-theme] .text-hard\/60{color:color-mix(in srgb, var(--a-hard) 60%, transparent)}
+html[data-theme] .border-hard\/60{border-color:color-mix(in srgb, var(--a-hard) 60%, transparent)}
+html[data-theme] .ring-hard\/60{--tw-ring-color:color-mix(in srgb, var(--a-hard) 60%, transparent)}
+html[data-theme] .hover\:bg-hard\/60:hover{background-color:color-mix(in srgb, var(--a-hard) 60%, transparent)}
+html[data-theme] .hover\:text-hard\/60:hover{color:color-mix(in srgb, var(--a-hard) 60%, transparent)}
+html[data-theme] .hover\:border-hard\/60:hover{border-color:color-mix(in srgb, var(--a-hard) 60%, transparent)}
+html[data-theme] .hover\:ring-hard\/60:hover{--tw-ring-color:color-mix(in srgb, var(--a-hard) 60%, transparent)}
+html[data-theme] .bg-hard\/70{background-color:color-mix(in srgb, var(--a-hard) 70%, transparent)}
+html[data-theme] .text-hard\/70{color:color-mix(in srgb, var(--a-hard) 70%, transparent)}
+html[data-theme] .border-hard\/70{border-color:color-mix(in srgb, var(--a-hard) 70%, transparent)}
+html[data-theme] .ring-hard\/70{--tw-ring-color:color-mix(in srgb, var(--a-hard) 70%, transparent)}
+html[data-theme] .hover\:bg-hard\/70:hover{background-color:color-mix(in srgb, var(--a-hard) 70%, transparent)}
+html[data-theme] .hover\:text-hard\/70:hover{color:color-mix(in srgb, var(--a-hard) 70%, transparent)}
+html[data-theme] .hover\:border-hard\/70:hover{border-color:color-mix(in srgb, var(--a-hard) 70%, transparent)}
+html[data-theme] .hover\:ring-hard\/70:hover{--tw-ring-color:color-mix(in srgb, var(--a-hard) 70%, transparent)}
+html[data-theme] .bg-easy\/10{background-color:color-mix(in srgb, var(--a-easy) 10%, transparent)}
+html[data-theme] .text-easy\/10{color:color-mix(in srgb, var(--a-easy) 10%, transparent)}
+html[data-theme] .border-easy\/10{border-color:color-mix(in srgb, var(--a-easy) 10%, transparent)}
+html[data-theme] .ring-easy\/10{--tw-ring-color:color-mix(in srgb, var(--a-easy) 10%, transparent)}
+html[data-theme] .hover\:bg-easy\/10:hover{background-color:color-mix(in srgb, var(--a-easy) 10%, transparent)}
+html[data-theme] .hover\:text-easy\/10:hover{color:color-mix(in srgb, var(--a-easy) 10%, transparent)}
+html[data-theme] .hover\:border-easy\/10:hover{border-color:color-mix(in srgb, var(--a-easy) 10%, transparent)}
+html[data-theme] .hover\:ring-easy\/10:hover{--tw-ring-color:color-mix(in srgb, var(--a-easy) 10%, transparent)}
+html[data-theme] .bg-easy\/20{background-color:color-mix(in srgb, var(--a-easy) 20%, transparent)}
+html[data-theme] .text-easy\/20{color:color-mix(in srgb, var(--a-easy) 20%, transparent)}
+html[data-theme] .border-easy\/20{border-color:color-mix(in srgb, var(--a-easy) 20%, transparent)}
+html[data-theme] .ring-easy\/20{--tw-ring-color:color-mix(in srgb, var(--a-easy) 20%, transparent)}
+html[data-theme] .hover\:bg-easy\/20:hover{background-color:color-mix(in srgb, var(--a-easy) 20%, transparent)}
+html[data-theme] .hover\:text-easy\/20:hover{color:color-mix(in srgb, var(--a-easy) 20%, transparent)}
+html[data-theme] .hover\:border-easy\/20:hover{border-color:color-mix(in srgb, var(--a-easy) 20%, transparent)}
+html[data-theme] .hover\:ring-easy\/20:hover{--tw-ring-color:color-mix(in srgb, var(--a-easy) 20%, transparent)}
+html[data-theme] .bg-easy\/30{background-color:color-mix(in srgb, var(--a-easy) 30%, transparent)}
+html[data-theme] .text-easy\/30{color:color-mix(in srgb, var(--a-easy) 30%, transparent)}
+html[data-theme] .border-easy\/30{border-color:color-mix(in srgb, var(--a-easy) 30%, transparent)}
+html[data-theme] .ring-easy\/30{--tw-ring-color:color-mix(in srgb, var(--a-easy) 30%, transparent)}
+html[data-theme] .hover\:bg-easy\/30:hover{background-color:color-mix(in srgb, var(--a-easy) 30%, transparent)}
+html[data-theme] .hover\:text-easy\/30:hover{color:color-mix(in srgb, var(--a-easy) 30%, transparent)}
+html[data-theme] .hover\:border-easy\/30:hover{border-color:color-mix(in srgb, var(--a-easy) 30%, transparent)}
+html[data-theme] .hover\:ring-easy\/30:hover{--tw-ring-color:color-mix(in srgb, var(--a-easy) 30%, transparent)}
+html[data-theme] .bg-easy\/40{background-color:color-mix(in srgb, var(--a-easy) 40%, transparent)}
+html[data-theme] .text-easy\/40{color:color-mix(in srgb, var(--a-easy) 40%, transparent)}
+html[data-theme] .border-easy\/40{border-color:color-mix(in srgb, var(--a-easy) 40%, transparent)}
+html[data-theme] .ring-easy\/40{--tw-ring-color:color-mix(in srgb, var(--a-easy) 40%, transparent)}
+html[data-theme] .hover\:bg-easy\/40:hover{background-color:color-mix(in srgb, var(--a-easy) 40%, transparent)}
+html[data-theme] .hover\:text-easy\/40:hover{color:color-mix(in srgb, var(--a-easy) 40%, transparent)}
+html[data-theme] .hover\:border-easy\/40:hover{border-color:color-mix(in srgb, var(--a-easy) 40%, transparent)}
+html[data-theme] .hover\:ring-easy\/40:hover{--tw-ring-color:color-mix(in srgb, var(--a-easy) 40%, transparent)}
+html[data-theme] .bg-easy\/50{background-color:color-mix(in srgb, var(--a-easy) 50%, transparent)}
+html[data-theme] .text-easy\/50{color:color-mix(in srgb, var(--a-easy) 50%, transparent)}
+html[data-theme] .border-easy\/50{border-color:color-mix(in srgb, var(--a-easy) 50%, transparent)}
+html[data-theme] .ring-easy\/50{--tw-ring-color:color-mix(in srgb, var(--a-easy) 50%, transparent)}
+html[data-theme] .hover\:bg-easy\/50:hover{background-color:color-mix(in srgb, var(--a-easy) 50%, transparent)}
+html[data-theme] .hover\:text-easy\/50:hover{color:color-mix(in srgb, var(--a-easy) 50%, transparent)}
+html[data-theme] .hover\:border-easy\/50:hover{border-color:color-mix(in srgb, var(--a-easy) 50%, transparent)}
+html[data-theme] .hover\:ring-easy\/50:hover{--tw-ring-color:color-mix(in srgb, var(--a-easy) 50%, transparent)}
+html[data-theme] .bg-easy\/60{background-color:color-mix(in srgb, var(--a-easy) 60%, transparent)}
+html[data-theme] .text-easy\/60{color:color-mix(in srgb, var(--a-easy) 60%, transparent)}
+html[data-theme] .border-easy\/60{border-color:color-mix(in srgb, var(--a-easy) 60%, transparent)}
+html[data-theme] .ring-easy\/60{--tw-ring-color:color-mix(in srgb, var(--a-easy) 60%, transparent)}
+html[data-theme] .hover\:bg-easy\/60:hover{background-color:color-mix(in srgb, var(--a-easy) 60%, transparent)}
+html[data-theme] .hover\:text-easy\/60:hover{color:color-mix(in srgb, var(--a-easy) 60%, transparent)}
+html[data-theme] .hover\:border-easy\/60:hover{border-color:color-mix(in srgb, var(--a-easy) 60%, transparent)}
+html[data-theme] .hover\:ring-easy\/60:hover{--tw-ring-color:color-mix(in srgb, var(--a-easy) 60%, transparent)}
+html[data-theme] .bg-easy\/70{background-color:color-mix(in srgb, var(--a-easy) 70%, transparent)}
+html[data-theme] .text-easy\/70{color:color-mix(in srgb, var(--a-easy) 70%, transparent)}
+html[data-theme] .border-easy\/70{border-color:color-mix(in srgb, var(--a-easy) 70%, transparent)}
+html[data-theme] .ring-easy\/70{--tw-ring-color:color-mix(in srgb, var(--a-easy) 70%, transparent)}
+html[data-theme] .hover\:bg-easy\/70:hover{background-color:color-mix(in srgb, var(--a-easy) 70%, transparent)}
+html[data-theme] .hover\:text-easy\/70:hover{color:color-mix(in srgb, var(--a-easy) 70%, transparent)}
+html[data-theme] .hover\:border-easy\/70:hover{border-color:color-mix(in srgb, var(--a-easy) 70%, transparent)}
+html[data-theme] .hover\:ring-easy\/70:hover{--tw-ring-color:color-mix(in srgb, var(--a-easy) 70%, transparent)}
+html[data-theme] .bg-medium\/10{background-color:color-mix(in srgb, var(--a-medium) 10%, transparent)}
+html[data-theme] .text-medium\/10{color:color-mix(in srgb, var(--a-medium) 10%, transparent)}
+html[data-theme] .border-medium\/10{border-color:color-mix(in srgb, var(--a-medium) 10%, transparent)}
+html[data-theme] .ring-medium\/10{--tw-ring-color:color-mix(in srgb, var(--a-medium) 10%, transparent)}
+html[data-theme] .hover\:bg-medium\/10:hover{background-color:color-mix(in srgb, var(--a-medium) 10%, transparent)}
+html[data-theme] .hover\:text-medium\/10:hover{color:color-mix(in srgb, var(--a-medium) 10%, transparent)}
+html[data-theme] .hover\:border-medium\/10:hover{border-color:color-mix(in srgb, var(--a-medium) 10%, transparent)}
+html[data-theme] .hover\:ring-medium\/10:hover{--tw-ring-color:color-mix(in srgb, var(--a-medium) 10%, transparent)}
+html[data-theme] .bg-medium\/20{background-color:color-mix(in srgb, var(--a-medium) 20%, transparent)}
+html[data-theme] .text-medium\/20{color:color-mix(in srgb, var(--a-medium) 20%, transparent)}
+html[data-theme] .border-medium\/20{border-color:color-mix(in srgb, var(--a-medium) 20%, transparent)}
+html[data-theme] .ring-medium\/20{--tw-ring-color:color-mix(in srgb, var(--a-medium) 20%, transparent)}
+html[data-theme] .hover\:bg-medium\/20:hover{background-color:color-mix(in srgb, var(--a-medium) 20%, transparent)}
+html[data-theme] .hover\:text-medium\/20:hover{color:color-mix(in srgb, var(--a-medium) 20%, transparent)}
+html[data-theme] .hover\:border-medium\/20:hover{border-color:color-mix(in srgb, var(--a-medium) 20%, transparent)}
+html[data-theme] .hover\:ring-medium\/20:hover{--tw-ring-color:color-mix(in srgb, var(--a-medium) 20%, transparent)}
+html[data-theme] .bg-medium\/30{background-color:color-mix(in srgb, var(--a-medium) 30%, transparent)}
+html[data-theme] .text-medium\/30{color:color-mix(in srgb, var(--a-medium) 30%, transparent)}
+html[data-theme] .border-medium\/30{border-color:color-mix(in srgb, var(--a-medium) 30%, transparent)}
+html[data-theme] .ring-medium\/30{--tw-ring-color:color-mix(in srgb, var(--a-medium) 30%, transparent)}
+html[data-theme] .hover\:bg-medium\/30:hover{background-color:color-mix(in srgb, var(--a-medium) 30%, transparent)}
+html[data-theme] .hover\:text-medium\/30:hover{color:color-mix(in srgb, var(--a-medium) 30%, transparent)}
+html[data-theme] .hover\:border-medium\/30:hover{border-color:color-mix(in srgb, var(--a-medium) 30%, transparent)}
+html[data-theme] .hover\:ring-medium\/30:hover{--tw-ring-color:color-mix(in srgb, var(--a-medium) 30%, transparent)}
+html[data-theme] .bg-medium\/40{background-color:color-mix(in srgb, var(--a-medium) 40%, transparent)}
+html[data-theme] .text-medium\/40{color:color-mix(in srgb, var(--a-medium) 40%, transparent)}
+html[data-theme] .border-medium\/40{border-color:color-mix(in srgb, var(--a-medium) 40%, transparent)}
+html[data-theme] .ring-medium\/40{--tw-ring-color:color-mix(in srgb, var(--a-medium) 40%, transparent)}
+html[data-theme] .hover\:bg-medium\/40:hover{background-color:color-mix(in srgb, var(--a-medium) 40%, transparent)}
+html[data-theme] .hover\:text-medium\/40:hover{color:color-mix(in srgb, var(--a-medium) 40%, transparent)}
+html[data-theme] .hover\:border-medium\/40:hover{border-color:color-mix(in srgb, var(--a-medium) 40%, transparent)}
+html[data-theme] .hover\:ring-medium\/40:hover{--tw-ring-color:color-mix(in srgb, var(--a-medium) 40%, transparent)}
+html[data-theme] .bg-medium\/50{background-color:color-mix(in srgb, var(--a-medium) 50%, transparent)}
+html[data-theme] .text-medium\/50{color:color-mix(in srgb, var(--a-medium) 50%, transparent)}
+html[data-theme] .border-medium\/50{border-color:color-mix(in srgb, var(--a-medium) 50%, transparent)}
+html[data-theme] .ring-medium\/50{--tw-ring-color:color-mix(in srgb, var(--a-medium) 50%, transparent)}
+html[data-theme] .hover\:bg-medium\/50:hover{background-color:color-mix(in srgb, var(--a-medium) 50%, transparent)}
+html[data-theme] .hover\:text-medium\/50:hover{color:color-mix(in srgb, var(--a-medium) 50%, transparent)}
+html[data-theme] .hover\:border-medium\/50:hover{border-color:color-mix(in srgb, var(--a-medium) 50%, transparent)}
+html[data-theme] .hover\:ring-medium\/50:hover{--tw-ring-color:color-mix(in srgb, var(--a-medium) 50%, transparent)}
+html[data-theme] .bg-medium\/60{background-color:color-mix(in srgb, var(--a-medium) 60%, transparent)}
+html[data-theme] .text-medium\/60{color:color-mix(in srgb, var(--a-medium) 60%, transparent)}
+html[data-theme] .border-medium\/60{border-color:color-mix(in srgb, var(--a-medium) 60%, transparent)}
+html[data-theme] .ring-medium\/60{--tw-ring-color:color-mix(in srgb, var(--a-medium) 60%, transparent)}
+html[data-theme] .hover\:bg-medium\/60:hover{background-color:color-mix(in srgb, var(--a-medium) 60%, transparent)}
+html[data-theme] .hover\:text-medium\/60:hover{color:color-mix(in srgb, var(--a-medium) 60%, transparent)}
+html[data-theme] .hover\:border-medium\/60:hover{border-color:color-mix(in srgb, var(--a-medium) 60%, transparent)}
+html[data-theme] .hover\:ring-medium\/60:hover{--tw-ring-color:color-mix(in srgb, var(--a-medium) 60%, transparent)}
+html[data-theme] .bg-medium\/70{background-color:color-mix(in srgb, var(--a-medium) 70%, transparent)}
+html[data-theme] .text-medium\/70{color:color-mix(in srgb, var(--a-medium) 70%, transparent)}
+html[data-theme] .border-medium\/70{border-color:color-mix(in srgb, var(--a-medium) 70%, transparent)}
+html[data-theme] .ring-medium\/70{--tw-ring-color:color-mix(in srgb, var(--a-medium) 70%, transparent)}
+html[data-theme] .hover\:bg-medium\/70:hover{background-color:color-mix(in srgb, var(--a-medium) 70%, transparent)}
+html[data-theme] .hover\:text-medium\/70:hover{color:color-mix(in srgb, var(--a-medium) 70%, transparent)}
+html[data-theme] .hover\:border-medium\/70:hover{border-color:color-mix(in srgb, var(--a-medium) 70%, transparent)}
+html[data-theme] .hover\:ring-medium\/70:hover{--tw-ring-color:color-mix(in srgb, var(--a-medium) 70%, transparent)}
+html[data-theme] .bg-ink\/10{background-color:color-mix(in srgb, var(--a-ink) 10%, transparent)}
+html[data-theme] .text-ink\/10{color:color-mix(in srgb, var(--a-ink) 10%, transparent)}
+html[data-theme] .border-ink\/10{border-color:color-mix(in srgb, var(--a-ink) 10%, transparent)}
+html[data-theme] .ring-ink\/10{--tw-ring-color:color-mix(in srgb, var(--a-ink) 10%, transparent)}
+html[data-theme] .hover\:bg-ink\/10:hover{background-color:color-mix(in srgb, var(--a-ink) 10%, transparent)}
+html[data-theme] .hover\:text-ink\/10:hover{color:color-mix(in srgb, var(--a-ink) 10%, transparent)}
+html[data-theme] .hover\:border-ink\/10:hover{border-color:color-mix(in srgb, var(--a-ink) 10%, transparent)}
+html[data-theme] .hover\:ring-ink\/10:hover{--tw-ring-color:color-mix(in srgb, var(--a-ink) 10%, transparent)}
+html[data-theme] .bg-ink\/20{background-color:color-mix(in srgb, var(--a-ink) 20%, transparent)}
+html[data-theme] .text-ink\/20{color:color-mix(in srgb, var(--a-ink) 20%, transparent)}
+html[data-theme] .border-ink\/20{border-color:color-mix(in srgb, var(--a-ink) 20%, transparent)}
+html[data-theme] .ring-ink\/20{--tw-ring-color:color-mix(in srgb, var(--a-ink) 20%, transparent)}
+html[data-theme] .hover\:bg-ink\/20:hover{background-color:color-mix(in srgb, var(--a-ink) 20%, transparent)}
+html[data-theme] .hover\:text-ink\/20:hover{color:color-mix(in srgb, var(--a-ink) 20%, transparent)}
+html[data-theme] .hover\:border-ink\/20:hover{border-color:color-mix(in srgb, var(--a-ink) 20%, transparent)}
+html[data-theme] .hover\:ring-ink\/20:hover{--tw-ring-color:color-mix(in srgb, var(--a-ink) 20%, transparent)}
+html[data-theme] .bg-ink\/30{background-color:color-mix(in srgb, var(--a-ink) 30%, transparent)}
+html[data-theme] .text-ink\/30{color:color-mix(in srgb, var(--a-ink) 30%, transparent)}
+html[data-theme] .border-ink\/30{border-color:color-mix(in srgb, var(--a-ink) 30%, transparent)}
+html[data-theme] .ring-ink\/30{--tw-ring-color:color-mix(in srgb, var(--a-ink) 30%, transparent)}
+html[data-theme] .hover\:bg-ink\/30:hover{background-color:color-mix(in srgb, var(--a-ink) 30%, transparent)}
+html[data-theme] .hover\:text-ink\/30:hover{color:color-mix(in srgb, var(--a-ink) 30%, transparent)}
+html[data-theme] .hover\:border-ink\/30:hover{border-color:color-mix(in srgb, var(--a-ink) 30%, transparent)}
+html[data-theme] .hover\:ring-ink\/30:hover{--tw-ring-color:color-mix(in srgb, var(--a-ink) 30%, transparent)}
+html[data-theme] .bg-ink\/40{background-color:color-mix(in srgb, var(--a-ink) 40%, transparent)}
+html[data-theme] .text-ink\/40{color:color-mix(in srgb, var(--a-ink) 40%, transparent)}
+html[data-theme] .border-ink\/40{border-color:color-mix(in srgb, var(--a-ink) 40%, transparent)}
+html[data-theme] .ring-ink\/40{--tw-ring-color:color-mix(in srgb, var(--a-ink) 40%, transparent)}
+html[data-theme] .hover\:bg-ink\/40:hover{background-color:color-mix(in srgb, var(--a-ink) 40%, transparent)}
+html[data-theme] .hover\:text-ink\/40:hover{color:color-mix(in srgb, var(--a-ink) 40%, transparent)}
+html[data-theme] .hover\:border-ink\/40:hover{border-color:color-mix(in srgb, var(--a-ink) 40%, transparent)}
+html[data-theme] .hover\:ring-ink\/40:hover{--tw-ring-color:color-mix(in srgb, var(--a-ink) 40%, transparent)}
+html[data-theme] .bg-ink\/50{background-color:color-mix(in srgb, var(--a-ink) 50%, transparent)}
+html[data-theme] .text-ink\/50{color:color-mix(in srgb, var(--a-ink) 50%, transparent)}
+html[data-theme] .border-ink\/50{border-color:color-mix(in srgb, var(--a-ink) 50%, transparent)}
+html[data-theme] .ring-ink\/50{--tw-ring-color:color-mix(in srgb, var(--a-ink) 50%, transparent)}
+html[data-theme] .hover\:bg-ink\/50:hover{background-color:color-mix(in srgb, var(--a-ink) 50%, transparent)}
+html[data-theme] .hover\:text-ink\/50:hover{color:color-mix(in srgb, var(--a-ink) 50%, transparent)}
+html[data-theme] .hover\:border-ink\/50:hover{border-color:color-mix(in srgb, var(--a-ink) 50%, transparent)}
+html[data-theme] .hover\:ring-ink\/50:hover{--tw-ring-color:color-mix(in srgb, var(--a-ink) 50%, transparent)}
+html[data-theme] .bg-ink\/60{background-color:color-mix(in srgb, var(--a-ink) 60%, transparent)}
+html[data-theme] .text-ink\/60{color:color-mix(in srgb, var(--a-ink) 60%, transparent)}
+html[data-theme] .border-ink\/60{border-color:color-mix(in srgb, var(--a-ink) 60%, transparent)}
+html[data-theme] .ring-ink\/60{--tw-ring-color:color-mix(in srgb, var(--a-ink) 60%, transparent)}
+html[data-theme] .hover\:bg-ink\/60:hover{background-color:color-mix(in srgb, var(--a-ink) 60%, transparent)}
+html[data-theme] .hover\:text-ink\/60:hover{color:color-mix(in srgb, var(--a-ink) 60%, transparent)}
+html[data-theme] .hover\:border-ink\/60:hover{border-color:color-mix(in srgb, var(--a-ink) 60%, transparent)}
+html[data-theme] .hover\:ring-ink\/60:hover{--tw-ring-color:color-mix(in srgb, var(--a-ink) 60%, transparent)}
+html[data-theme] .bg-ink\/70{background-color:color-mix(in srgb, var(--a-ink) 70%, transparent)}
+html[data-theme] .text-ink\/70{color:color-mix(in srgb, var(--a-ink) 70%, transparent)}
+html[data-theme] .border-ink\/70{border-color:color-mix(in srgb, var(--a-ink) 70%, transparent)}
+html[data-theme] .ring-ink\/70{--tw-ring-color:color-mix(in srgb, var(--a-ink) 70%, transparent)}
+html[data-theme] .hover\:bg-ink\/70:hover{background-color:color-mix(in srgb, var(--a-ink) 70%, transparent)}
+html[data-theme] .hover\:text-ink\/70:hover{color:color-mix(in srgb, var(--a-ink) 70%, transparent)}
+html[data-theme] .hover\:border-ink\/70:hover{border-color:color-mix(in srgb, var(--a-ink) 70%, transparent)}
+html[data-theme] .hover\:ring-ink\/70:hover{--tw-ring-color:color-mix(in srgb, var(--a-ink) 70%, transparent)}
+html[data-theme] .bg-ink-muted\/10{background-color:color-mix(in srgb, var(--a-ink-muted) 10%, transparent)}
+html[data-theme] .text-ink-muted\/10{color:color-mix(in srgb, var(--a-ink-muted) 10%, transparent)}
+html[data-theme] .border-ink-muted\/10{border-color:color-mix(in srgb, var(--a-ink-muted) 10%, transparent)}
+html[data-theme] .ring-ink-muted\/10{--tw-ring-color:color-mix(in srgb, var(--a-ink-muted) 10%, transparent)}
+html[data-theme] .hover\:bg-ink-muted\/10:hover{background-color:color-mix(in srgb, var(--a-ink-muted) 10%, transparent)}
+html[data-theme] .hover\:text-ink-muted\/10:hover{color:color-mix(in srgb, var(--a-ink-muted) 10%, transparent)}
+html[data-theme] .hover\:border-ink-muted\/10:hover{border-color:color-mix(in srgb, var(--a-ink-muted) 10%, transparent)}
+html[data-theme] .hover\:ring-ink-muted\/10:hover{--tw-ring-color:color-mix(in srgb, var(--a-ink-muted) 10%, transparent)}
+html[data-theme] .bg-ink-muted\/20{background-color:color-mix(in srgb, var(--a-ink-muted) 20%, transparent)}
+html[data-theme] .text-ink-muted\/20{color:color-mix(in srgb, var(--a-ink-muted) 20%, transparent)}
+html[data-theme] .border-ink-muted\/20{border-color:color-mix(in srgb, var(--a-ink-muted) 20%, transparent)}
+html[data-theme] .ring-ink-muted\/20{--tw-ring-color:color-mix(in srgb, var(--a-ink-muted) 20%, transparent)}
+html[data-theme] .hover\:bg-ink-muted\/20:hover{background-color:color-mix(in srgb, var(--a-ink-muted) 20%, transparent)}
+html[data-theme] .hover\:text-ink-muted\/20:hover{color:color-mix(in srgb, var(--a-ink-muted) 20%, transparent)}
+html[data-theme] .hover\:border-ink-muted\/20:hover{border-color:color-mix(in srgb, var(--a-ink-muted) 20%, transparent)}
+html[data-theme] .hover\:ring-ink-muted\/20:hover{--tw-ring-color:color-mix(in srgb, var(--a-ink-muted) 20%, transparent)}
+html[data-theme] .bg-ink-muted\/30{background-color:color-mix(in srgb, var(--a-ink-muted) 30%, transparent)}
+html[data-theme] .text-ink-muted\/30{color:color-mix(in srgb, var(--a-ink-muted) 30%, transparent)}
+html[data-theme] .border-ink-muted\/30{border-color:color-mix(in srgb, var(--a-ink-muted) 30%, transparent)}
+html[data-theme] .ring-ink-muted\/30{--tw-ring-color:color-mix(in srgb, var(--a-ink-muted) 30%, transparent)}
+html[data-theme] .hover\:bg-ink-muted\/30:hover{background-color:color-mix(in srgb, var(--a-ink-muted) 30%, transparent)}
+html[data-theme] .hover\:text-ink-muted\/30:hover{color:color-mix(in srgb, var(--a-ink-muted) 30%, transparent)}
+html[data-theme] .hover\:border-ink-muted\/30:hover{border-color:color-mix(in srgb, var(--a-ink-muted) 30%, transparent)}
+html[data-theme] .hover\:ring-ink-muted\/30:hover{--tw-ring-color:color-mix(in srgb, var(--a-ink-muted) 30%, transparent)}
+html[data-theme] .bg-ink-muted\/40{background-color:color-mix(in srgb, var(--a-ink-muted) 40%, transparent)}
+html[data-theme] .text-ink-muted\/40{color:color-mix(in srgb, var(--a-ink-muted) 40%, transparent)}
+html[data-theme] .border-ink-muted\/40{border-color:color-mix(in srgb, var(--a-ink-muted) 40%, transparent)}
+html[data-theme] .ring-ink-muted\/40{--tw-ring-color:color-mix(in srgb, var(--a-ink-muted) 40%, transparent)}
+html[data-theme] .hover\:bg-ink-muted\/40:hover{background-color:color-mix(in srgb, var(--a-ink-muted) 40%, transparent)}
+html[data-theme] .hover\:text-ink-muted\/40:hover{color:color-mix(in srgb, var(--a-ink-muted) 40%, transparent)}
+html[data-theme] .hover\:border-ink-muted\/40:hover{border-color:color-mix(in srgb, var(--a-ink-muted) 40%, transparent)}
+html[data-theme] .hover\:ring-ink-muted\/40:hover{--tw-ring-color:color-mix(in srgb, var(--a-ink-muted) 40%, transparent)}
+html[data-theme] .bg-ink-muted\/50{background-color:color-mix(in srgb, var(--a-ink-muted) 50%, transparent)}
+html[data-theme] .text-ink-muted\/50{color:color-mix(in srgb, var(--a-ink-muted) 50%, transparent)}
+html[data-theme] .border-ink-muted\/50{border-color:color-mix(in srgb, var(--a-ink-muted) 50%, transparent)}
+html[data-theme] .ring-ink-muted\/50{--tw-ring-color:color-mix(in srgb, var(--a-ink-muted) 50%, transparent)}
+html[data-theme] .hover\:bg-ink-muted\/50:hover{background-color:color-mix(in srgb, var(--a-ink-muted) 50%, transparent)}
+html[data-theme] .hover\:text-ink-muted\/50:hover{color:color-mix(in srgb, var(--a-ink-muted) 50%, transparent)}
+html[data-theme] .hover\:border-ink-muted\/50:hover{border-color:color-mix(in srgb, var(--a-ink-muted) 50%, transparent)}
+html[data-theme] .hover\:ring-ink-muted\/50:hover{--tw-ring-color:color-mix(in srgb, var(--a-ink-muted) 50%, transparent)}
+html[data-theme] .bg-ink-muted\/60{background-color:color-mix(in srgb, var(--a-ink-muted) 60%, transparent)}
+html[data-theme] .text-ink-muted\/60{color:color-mix(in srgb, var(--a-ink-muted) 60%, transparent)}
+html[data-theme] .border-ink-muted\/60{border-color:color-mix(in srgb, var(--a-ink-muted) 60%, transparent)}
+html[data-theme] .ring-ink-muted\/60{--tw-ring-color:color-mix(in srgb, var(--a-ink-muted) 60%, transparent)}
+html[data-theme] .hover\:bg-ink-muted\/60:hover{background-color:color-mix(in srgb, var(--a-ink-muted) 60%, transparent)}
+html[data-theme] .hover\:text-ink-muted\/60:hover{color:color-mix(in srgb, var(--a-ink-muted) 60%, transparent)}
+html[data-theme] .hover\:border-ink-muted\/60:hover{border-color:color-mix(in srgb, var(--a-ink-muted) 60%, transparent)}
+html[data-theme] .hover\:ring-ink-muted\/60:hover{--tw-ring-color:color-mix(in srgb, var(--a-ink-muted) 60%, transparent)}
+html[data-theme] .bg-ink-muted\/70{background-color:color-mix(in srgb, var(--a-ink-muted) 70%, transparent)}
+html[data-theme] .text-ink-muted\/70{color:color-mix(in srgb, var(--a-ink-muted) 70%, transparent)}
+html[data-theme] .border-ink-muted\/70{border-color:color-mix(in srgb, var(--a-ink-muted) 70%, transparent)}
+html[data-theme] .ring-ink-muted\/70{--tw-ring-color:color-mix(in srgb, var(--a-ink-muted) 70%, transparent)}
+html[data-theme] .hover\:bg-ink-muted\/70:hover{background-color:color-mix(in srgb, var(--a-ink-muted) 70%, transparent)}
+html[data-theme] .hover\:text-ink-muted\/70:hover{color:color-mix(in srgb, var(--a-ink-muted) 70%, transparent)}
+html[data-theme] .hover\:border-ink-muted\/70:hover{border-color:color-mix(in srgb, var(--a-ink-muted) 70%, transparent)}
+html[data-theme] .hover\:ring-ink-muted\/70:hover{--tw-ring-color:color-mix(in srgb, var(--a-ink-muted) 70%, transparent)}
+html[data-theme] .shadow-card{box-shadow:var(--a-shadow)}
