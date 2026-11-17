@@ -63,6 +63,13 @@ repeatedly, so deploying means pushing to GitHub.
 Activity counts the day a question was solved plus the most recent revision day of each question.
 The streak keeps going if you have not done anything yet today but did yesterday.
 
+## Theme (light / dark)
+- `<html data-theme="light|dark">` is set by `src/theme/theme.js` before the app draws.
+- The choice is stored in `localStorage` key `leettrack-theme`; with no choice it follows `prefers-color-scheme`.
+- `src/styles/theme.css` holds the palette as CSS variables (`--t-*` for login/landing, `--a-*` for in-app pages) and overrides for the Tailwind colour classes.
+- `ThemeToggle` is the round button; `useTheme()` is the hook used by Profile > Appearance.
+- To change a colour, edit the variables at the top of `theme.css` only.
+
 ## Run the tests
 ```
 cd backend
